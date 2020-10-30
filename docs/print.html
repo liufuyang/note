@@ -47,6 +47,9 @@
         
 
         
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
     </head>
     <body>
         <!-- Provide site root to javascript -->
@@ -168,10 +171,14 @@
                         <h1><a class="header" href="#notebook" id="notebook">Notebook</a></h1>
 <p>This is a personal notebook. 
 Let's see how often I can keep this updated...</p>
-<h1><a class="header" href="#note-1" id="note-1">Note 1</a></h1>
-<h2><a class="header" href="#some-random-notes-that-could-be-useful" id="some-random-notes-that-could-be-useful">Some random notes that could be useful:</a></h2>
-<p>How to make http slides:</p>
-<p><a href="https://liufuyang.github.io/http-kv/demo.html">https://liufuyang.github.io/http-kv/demo.html</a></p>
+<h2><a class="header" href="#how-to-update-my-note" id="how-to-update-my-note">How to update my note:</a></h2>
+<p><a href="https://rust-lang.github.io/mdBook">https://rust-lang.github.io/mdBook</a></p>
+<ul>
+<li><code>mdbook serve --dest-dir docs --open</code></li>
+<li>Edit content</li>
+<li>Then perhaps build again <code>mdbook build --dest-dir docs</code></li>
+<li>Then push </li>
+</ul>
 <details>
 <summary>Some hidden code here</summary>
 <pre><pre class="playground"><code class="language-rust">use warp::Filter;
@@ -183,10 +190,17 @@ async fn main() {
 }
 </code></pre></pre>
 </details>
+<h1><a class="header" href="#note-1" id="note-1">Note 1</a></h1>
+<h2><a class="header" href="#some-random-notes-that-could-be-useful" id="some-random-notes-that-could-be-useful">Some random notes that could be useful:</a></h2>
+<p>How to make http slides:</p>
+<p><a href="https://liufuyang.github.io/http-kv/demo.html">https://liufuyang.github.io/http-kv/demo.html</a></p>
 <h1><a class="header" href="#chapter-2" id="chapter-2">Chapter 2</a></h1>
 <h1><a class="header" href="#things-to-update-later-here-" id="things-to-update-later-here-">Things to update later here ...</a></h1>
 <h1><a class="header" href="#sub-topic-1" id="sub-topic-1">Sub topic 1</a></h1>
 <p>Simply write sub topics here</p>
+<p>Did you know that you can write math equations here like this?</p>
+<p>\[ \mu = \frac{1}{N} \sum_{i=0} x_i \]</p>
+<p>Looks pretty awesome. More info see <a href="https://rust-lang.github.io/mdBook/format/mathjax.html">here</a></p>
 
                     </main>
 
@@ -255,7 +269,9 @@ async fn main() {
         
         <script type="text/javascript">
         window.addEventListener('load', function() {
-            window.setTimeout(window.print, 100);
+            MathJax.Hub.Register.StartupHook('End', function() {
+                window.setTimeout(window.print, 100);
+            });
         });
         </script>
         

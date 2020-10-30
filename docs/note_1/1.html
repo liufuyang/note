@@ -45,6 +45,9 @@
         
 
         
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
     </head>
     <body>
         <!-- Provide site root to javascript -->
@@ -167,17 +170,6 @@
 <h2><a class="header" href="#some-random-notes-that-could-be-useful" id="some-random-notes-that-could-be-useful">Some random notes that could be useful:</a></h2>
 <p>How to make http slides:</p>
 <p><a href="https://liufuyang.github.io/http-kv/demo.html">https://liufuyang.github.io/http-kv/demo.html</a></p>
-<details>
-<summary>Some hidden code here</summary>
-<pre><pre class="playground"><code class="language-rust">use warp::Filter;
-
-#[tokio::main]
-async fn main() {
-    let routes = warp::any().map(|| &quot;Hello, World!&quot;);
-    warp::serve(routes).run(([127, 0, 0, 1], 3030)).await;
-}
-</code></pre></pre>
-</details>
 
                     </main>
 

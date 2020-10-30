@@ -1,1 +1,1 @@
-mdbook serve --dest-dir docs
+mdbook serve --dest-dir docs --open
