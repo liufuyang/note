@@ -1,6 +1,6 @@
 # Notebook
 
-This is a personal notebook. 
+This is a personal notebook. [See repo here][repo].
 Let's see how often I can keep this updated...
 
 ## How to update my note:
@@ -28,5 +28,6 @@ async fn main() {
 </details>
 
 
+[repo]: https://github.com/liufuyang/note
 [mdBook]: https://rust-lang.github.io/mdBook
 [mdHelp]: https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet

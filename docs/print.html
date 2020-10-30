@@ -169,7 +169,7 @@
                 <div id="content" class="content">
                     <main>
                         <h1><a class="header" href="#notebook" id="notebook">Notebook</a></h1>
-<p>This is a personal notebook. 
+<p>This is a personal notebook. <a href="https://github.com/liufuyang/note">See repo here</a>.
 Let's see how often I can keep this updated...</p>
 <h2><a class="header" href="#how-to-update-my-note" id="how-to-update-my-note">How to update my note:</a></h2>
 <p><a href="https://rust-lang.github.io/mdBook">https://rust-lang.github.io/mdBook</a></p>
@@ -224,21 +224,6 @@ async fn main() {
 
         </div>
 
-        
-        <!-- Livereload script (if served using the cli tool) -->
-        <script type="text/javascript">
-            var socket = new WebSocket("ws://localhost:3000/__livereload");
-            socket.onmessage = function (event) {
-                if (event.data === "reload") {
-                    socket.close();
-                    location.reload();
-                }
-            };
-
-            window.onbeforeunload = function() {
-                socket.close();
-            }
-        </script>
         
 
         
