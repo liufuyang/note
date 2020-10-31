@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Chapter 2 - Personal notebook</title>
+        <title>Pattern matching - Personal notebook</title>
         
         
 
@@ -18,28 +18,28 @@
         <meta name="theme-color" content="#ffffff" />
 
         
-        <link rel="icon" href="favicon.svg">
+        <link rel="icon" href="../../favicon.svg">
         
         
-        <link rel="shortcut icon" href="favicon.png">
+        <link rel="shortcut icon" href="../../favicon.png">
         
-        <link rel="stylesheet" href="css/variables.css">
-        <link rel="stylesheet" href="css/general.css">
-        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
         
-        <link rel="stylesheet" href="css/print.css" media="print">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
         
 
         <!-- Fonts -->
-        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
         
-        <link rel="stylesheet" href="fonts/fonts.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
         
 
         <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" href="highlight.css">
-        <link rel="stylesheet" href="tomorrow-night.css">
-        <link rel="stylesheet" href="ayu-highlight.css">
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
         
@@ -52,7 +52,7 @@
     <body>
         <!-- Provide site root to javascript -->
         <script type="text/javascript">
-            var path_to_root = "";
+            var path_to_root = "../../";
             var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
 
@@ -98,7 +98,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="note.html"><strong aria-hidden="true">1.</strong> Note</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="note_1/1.html"><strong aria-hidden="true">1.1.</strong> Note 1</a></li></ol></li><li class="chapter-item expanded "><a href="chapter_2.html" class="active"><strong aria-hidden="true">2.</strong> Chapter 2</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="chap2/1.html"><strong aria-hidden="true">2.1.</strong> Things to update later</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> Rust note</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">3.1.</strong> Note from courses</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="rust_note/courses/pattern_matching.html"><strong aria-hidden="true">3.1.1.</strong> Pattern matching</a></li><li class="chapter-item expanded "><a href="rust_note/courses/smart_pointers.html"><strong aria-hidden="true">3.1.2.</strong> Smart pointers</a></li><li class="chapter-item expanded "><a href="rust_note/courses/string.html"><strong aria-hidden="true">3.1.3.</strong> String</a></li></ol></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> Sub topics</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="sub/topic_1.html"><strong aria-hidden="true">4.1.</strong> Sub topic 1</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../../note.html"><strong aria-hidden="true">1.</strong> Note</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../note_1/1.html"><strong aria-hidden="true">1.1.</strong> Note 1</a></li></ol></li><li class="chapter-item expanded "><a href="../../chapter_2.html"><strong aria-hidden="true">2.</strong> Chapter 2</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../chap2/1.html"><strong aria-hidden="true">2.1.</strong> Things to update later</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> Rust note</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">3.1.</strong> Note from courses</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../rust_note/courses/pattern_matching.html" class="active"><strong aria-hidden="true">3.1.1.</strong> Pattern matching</a></li><li class="chapter-item expanded "><a href="../../rust_note/courses/smart_pointers.html"><strong aria-hidden="true">3.1.2.</strong> Smart pointers</a></li><li class="chapter-item expanded "><a href="../../rust_note/courses/string.html"><strong aria-hidden="true">3.1.3.</strong> String</a></li></ol></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> Sub topics</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../sub/topic_1.html"><strong aria-hidden="true">4.1.</strong> Sub topic 1</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -134,7 +134,7 @@
 
                     <div class="right-buttons">
                         
-                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
                         
@@ -166,20 +166,59 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#chapter-2" id="chapter-2">Chapter 2</a></h1>
+                        <h1><a class="header" href="#pattern-matching" id="pattern-matching">Pattern matching</a></h1>
+<p>Patterns come in two forms: refutable and irrefutable. 
+Patterns that will match for any possible value passed are <em>irrefutable</em>. An example would be x in the statement <code>let x = 5;</code> because <code>x</code> matches anything and therefore cannot fail to match. 
+(Meaning it always will have a match.)</p>
+<p>Patterns that can fail to match for some possible value are <em>refutable</em>. An example would be <code>Some(x)</code> in the expression <code>if let Some(x) = a_value</code> because if the value in the <code>a_value</code> variable is <code>None</code> rather than <code>Some</code>, the <code>Some(x)</code> pattern will not match.</p>
+<h2><a class="header" href="#pattern-matching-type" id="pattern-matching-type">Pattern matching type</a></h2>
+<ul>
+<li><code>let</code> - only irrefutable</li>
+<li>fn param, closure - only irrefutable</li>
+<li><code>match</code> exp - accept refutable and irrefutable</li>
+<li><code>if let</code> exp - accept refutable and irrefutable</li>
+<li><code>while let</code> exp - accept refutable and irrefutable</li>
+<li><code>for</code> exp - only irrefutable</li>
+</ul>
+<h2><a class="header" href="#let" id="let">let</a></h2>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>struct Point {x: isize, y: isize};
+let (a, b) = (1, 2);
+let Point {x, y} = Point {x:3, y:4};
+assert_eq!(3, x);
+assert_eq!(4, y);
+<span class="boring">}
+</span></code></pre></pre>
+<h2><a class="header" href="#no-need-to-write-ref" id="no-need-to-write-ref">No need to write <code>ref</code>?</a></h2>
+<p>Compiler helps you adding <code>ref</code> when matching references with
+non-references like expressions.</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let x: Option&lt;String&gt; = Some(&quot;hello&quot;.into());
+match &amp;x {
+    Some(s) =&gt; println!(&quot;{}&quot;, s), // nothing moves here, `s` is a &amp;String,
+                                  // the same as `Some(ref s) =&gt; ...`, with `ref` added by compiler behind the scene
+    None =&gt; println!(&quot;nothing&quot;)
+}
+println!(&quot;{}&quot;, x.unwrap());       // x still owns the String 
+<span class="boring">}
+</span></code></pre></pre>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
-                            <a rel="prev" href="note_1/1.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../../chap2/1.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         
 
                         
-                            <a rel="next" href="chap2/1.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="../../rust_note/courses/smart_pointers.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         
@@ -191,13 +230,13 @@
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-                    <a rel="prev" href="note_1/1.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="../../chap2/1.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
 
                 
-                    <a rel="next" href="chap2/1.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next" href="../../rust_note/courses/smart_pointers.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                 
@@ -220,14 +259,14 @@
         
 
         
-        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../searcher.js" type="text/javascript" charset="utf-8"></script>
         
 
-        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
-        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../book.js" type="text/javascript" charset="utf-8"></script>
 
         <!-- Custom JS scripts -->
         
