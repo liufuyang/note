@@ -11,4 +11,3 @@
     - [String](./rust_note/courses/string.md)
 - [Sub topics]()
   - [Sub topic 1](./sub/topic_1.md)
-  - [Python snipit](./sub/topic_2.md)
