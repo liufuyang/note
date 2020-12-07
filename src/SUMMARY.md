@@ -9,6 +9,7 @@
     - [Pattern matching](./rust_note/courses/pattern_matching.md)
     - [Smart pointers](./rust_note/courses/smart_pointers.md)
     - [String](./rust_note/courses/string.md)
+  - [Note for tokio dev](./rust_note/tokio.md)
 - [Tech notes]()
   - [Network Programming](./tech/network_programming.md)
 - [Sub topics]()
