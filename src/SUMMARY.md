@@ -5,6 +5,8 @@
 - [Chapter 2](./chapter_2.md)
   - [Things to update later](./chap2/1.md)
 - [Rust note]()
+  - [General]()
+    - [C++ memory mode](./rust_note/general/cpp_memory_model.md)  
   - [Note from courses]()
     - [Pattern matching](./rust_note/courses/pattern_matching.md)
     - [Smart pointers](./rust_note/courses/smart_pointers.md)

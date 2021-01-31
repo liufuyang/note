@@ -100,7 +100,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="note.html"><strong aria-hidden="true">1.</strong> Note</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="note_1/1.html"><strong aria-hidden="true">1.1.</strong> Note 1</a></li></ol></li><li class="chapter-item expanded "><a href="chapter_2.html"><strong aria-hidden="true">2.</strong> Chapter 2</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="chap2/1.html"><strong aria-hidden="true">2.1.</strong> Things to update later</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> Rust note</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">3.1.</strong> Note from courses</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="rust_note/courses/pattern_matching.html"><strong aria-hidden="true">3.1.1.</strong> Pattern matching</a></li><li class="chapter-item expanded "><a href="rust_note/courses/smart_pointers.html"><strong aria-hidden="true">3.1.2.</strong> Smart pointers</a></li><li class="chapter-item expanded "><a href="rust_note/courses/string.html"><strong aria-hidden="true">3.1.3.</strong> String</a></li></ol></li><li class="chapter-item expanded "><a href="rust_note/tokio.html"><strong aria-hidden="true">3.2.</strong> Note for tokio dev</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> Tech notes</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="tech/network_programming.html"><strong aria-hidden="true">4.1.</strong> Network Programming</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.</strong> Sub topics</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="sub/topic_1.html"><strong aria-hidden="true">5.1.</strong> Sub topic 1</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="note.html"><strong aria-hidden="true">1.</strong> Note</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="note_1/1.html"><strong aria-hidden="true">1.1.</strong> Note 1</a></li></ol></li><li class="chapter-item expanded "><a href="chapter_2.html"><strong aria-hidden="true">2.</strong> Chapter 2</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="chap2/1.html"><strong aria-hidden="true">2.1.</strong> Things to update later</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> Rust note</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">3.1.</strong> General</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="rust_note/general/cpp_memory_model.html"><strong aria-hidden="true">3.1.1.</strong> C++ memory mode</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.2.</strong> Note from courses</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="rust_note/courses/pattern_matching.html"><strong aria-hidden="true">3.2.1.</strong> Pattern matching</a></li><li class="chapter-item expanded "><a href="rust_note/courses/smart_pointers.html"><strong aria-hidden="true">3.2.2.</strong> Smart pointers</a></li><li class="chapter-item expanded "><a href="rust_note/courses/string.html"><strong aria-hidden="true">3.2.3.</strong> String</a></li></ol></li><li class="chapter-item expanded "><a href="rust_note/tokio.html"><strong aria-hidden="true">3.3.</strong> Note for tokio dev</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> Tech notes</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="tech/network_programming.html"><strong aria-hidden="true">4.1.</strong> Network Programming</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.</strong> Sub topics</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="sub/topic_1.html"><strong aria-hidden="true">5.1.</strong> Sub topic 1</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -197,6 +197,80 @@ async fn main() {
 <p><a href="https://liufuyang.github.io/http-kv/demo.html">https://liufuyang.github.io/http-kv/demo.html</a></p>
 <h1><a class="header" href="#chapter-2" id="chapter-2">Chapter 2</a></h1>
 <h1><a class="header" href="#things-to-update-later-here-" id="things-to-update-later-here-">Things to update later here ...</a></h1>
+<h1><a class="header" href="#c-memory-mode" id="c-memory-mode">C++ memory mode</a></h1>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=OyNG4qiWnmU">[Video Link]</a></li>
+<li><a href="https://doc.rust-lang.org/nomicon/atomics.html">[Some docs about it]</a></li>
+</ul>
+<h1><a class="header" href="#memory-order" id="memory-order">Memory order</a></h1>
+<ul>
+<li>Acquire / Release</li>
+<li>Sequentially Consistent (SeqCst)</li>
+<li>Relaxed</li>
+</ul>
+<h2><a class="header" href="#acquire-release" id="acquire-release">Acquire-Release</a></h2>
+<p>Sort of like mutex primitives, aquire=lock, release=unlock. Acquire and Release are largely intended to be paired.</p>
+<ul>
+<li>
+<p><code>release</code> update the memory, &quot;publish&quot; to other threads, used only with <code>store</code> type operation(save/publish data out, cannot use with load)</p>
+</li>
+<li>
+<p><code>acquire</code> memory &quot;published&quot; by other threads, making it available to us, used only with <code>load</code> type of operation (cannot use with store)</p>
+</li>
+<li>
+<p>For &quot;load and store&quot; type of operation:</p>
+<ul>
+<li><code>release</code> will make load <code>relaxed</code> and store <code>release</code></li>
+<li><code>acquire</code> will make load <code>acquire</code> and store <code>relaxed</code></li>
+</ul>
+</li>
+<li>
+<p><code>AcqRel</code> or acquire and release also exist, so can be used for &quot;load and store&quot; type of operation, 
+making load <code>acquire</code> and store <code>release</code> (no relaxed). 
+This operation order could be handy for situation such as for an Arc type of thing in the end to drop
+the internal object, it may use some operation like <code>load_and_minors_1_then_store</code> so you would 
+use this <code>AcqRel</code> to make sure the thread got the updated value and all other threads has updated value when they read.
+This is illustrated in the video.</p>
+</li>
+</ul>
+<p>Intuitively, an acquire access ensures that every access after it stays after it. However operations that occur before an acquire are free to be reordered to occur after it. Similarly, a release access ensures that every access before it stays before it. However operations that occur after a release are free to be reordered to occur before it.</p>
+<p>When thread A releases a location in memory and then thread B subsequently acquires the same location in memory, causality is established. <strong>Every write (including non-atomic and relaxed atomic writes) that happened before A's release will be observed by B after its acquisition.</strong> However no causality is established with any other threads. Similarly, no causality is established if A and B access different locations in memory.</p>
+<p>Or using the words from the video:</p>
+<ul>
+<li>acquire/release: no total order of events</li>
+<li>each thread has it view of consistent ordering</li>
+</ul>
+<p>Basic use of release-acquire is therefore simple: you acquire a location of memory to begin the critical section, and then release that location to end it. For instance, a simple spinlock might look like:</p>
+<pre><pre class="playground"><code class="language-rust">use std::sync::Arc;
+use std::sync::atomic::{AtomicBool, Ordering};
+use std::thread;
+
+fn main() {
+    let lock = Arc::new(AtomicBool::new(false)); // value answers &quot;am I locked?&quot;
+
+    // ... distribute lock to threads somehow ...
+
+    // Try to acquire the lock by setting it to true
+    while lock.compare_and_swap(false, true, Ordering::Acquire) {
+        // c++ code here could be: std::this_threadd::yield() to let other thread run
+     }
+    // broke out of the loop, so we successfully acquired the lock!
+
+    // ... scary data accesses, but safe to do stuff here ...
+
+    // ok we're done, release the lock
+    lock.store(false, Ordering::Release);
+}
+</code></pre></pre>
+<h2><a class="header" href="#sequentially-consistent" id="sequentially-consistent">Sequentially Consistent</a></h2>
+<p>Be cause there is no total order of events for acquire/release, Sequentially Consistent is 
+introduced.</p>
+<p>Sequentially Consistent is the most powerful of all, implying the restrictions of all other orderings. Intuitively, a sequentially consistent operation cannot be reordered: all accesses on one thread that happen before and after a SeqCst access stay before and after it. A data-race-free program that uses only sequentially consistent atomics and data accesses has the very nice property that there is a single global execution of the program's instructions that all threads agree on. This execution is also particularly nice to reason about: it's just an interleaving of each thread's individual executions. This does not hold if you start using the weaker atomic orderings.</p>
+<p>The relative developer-friendliness of sequential consistency doesn't come for free. Even on strongly-ordered platforms sequential consistency involves emitting memory fences.</p>
+<p>In practice, sequential consistency is rarely necessary for program correctness. However sequential consistency is definitely the right choice if you're not confident about the other memory orders. Having your program run a bit slower than it needs to is certainly better than it running incorrectly! It's also mechanically trivial to downgrade atomic operations to have a weaker consistency later on. Just change <code>SeqCst</code> to <code>Relaxed</code> and you're done! Of course, proving that this transformation is correct is a whole other matter.</p>
+<h2><a class="header" href="#relaxed" id="relaxed">Relaxed</a></h2>
+<p>Relaxed accesses are the absolute weakest. They can be freely re-ordered and provide no happens-before relationship. Still, relaxed operations are still atomic. That is, they don't count as data accesses and any read-modify-write operations done to them occur atomically. Relaxed operations are appropriate for things that you definitely want to happen, but don't particularly otherwise care about. For instance, incrementing a counter can be safely done by multiple threads using a relaxed <code>fetch_add</code> if you're not using the counter to synchronize any other accesses.</p>
+<p>There's rarely a benefit in making an operation relaxed on strongly-ordered platforms, since they usually provide release-acquire semantics anyway. However relaxed operations can be cheaper on weakly-ordered platforms.</p>
 <h1><a class="header" href="#pattern-matching" id="pattern-matching">Pattern matching</a></h1>
 <p>Patterns come in two forms: refutable and irrefutable. 
 Patterns that will match for any possible value passed are <em>irrefutable</em>. An example would be x in the statement <code>let x = 5;</code> because <code>x</code> matches anything and therefore cannot fail to match. 
