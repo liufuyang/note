@@ -1,4 +1,4 @@
-# Stack and queue
+# Stack and Queue
 
 ## Two major implementations
 * Linked list impl
