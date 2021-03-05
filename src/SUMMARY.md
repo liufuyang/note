@@ -4,6 +4,7 @@
   - [Note 1](./note_1/1.md) 
 - [Algorithms](./algorithms.md)
   - [Big O notations](./algorithms/1.md)
+  - [Stack and queue](./algorithms/stack_queue.md)
 - [Rust note]()
   - [General]()
     - [C++ memory mode](./rust_note/general/cpp_memory_model.md)  
