@@ -316,6 +316,151 @@ with the claim of adding an element has constant amortized time cost.</p>
 </ul>
 <iframe width="640" height="360" src="https://www.youtube.com/embed/WbzNRTTrX0g?t=1557" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <p>Quite interesting.</p>
+<p>It seems that a general &quot;Graph Search&quot; type of problem 
+can be solved by this abstract framework:</p>
+<blockquote>
+<ul>
+<li><code>agent</code> - entity that perceives its environment and acts upon that environment</li>
+<li><code>state</code> - a configuration of the agent and
+its environment;
+<code>initial state</code> - the state in which the agent begins </li>
+<li><code>actions</code> - choices that can be made in a state, like edges in graphs; <code>ACTIONS(s)</code> returns the set of actions that
+can be executed in state s</li>
+<li><code>transition model</code> or <code>RESULT(s, a)</code>
+returns the state resulting from performing action a in state s</li>
+<li><code>goal test</code> - way to determine whether a given state
+is a goal state</li>
+<li><code>path cost</code> - numerical cost associated with a given path</li>
+<li><code>frontier</code> - a stack or queue to keep track of the nodes to be explored</li>
+</ul>
+</blockquote>
+<p>Then with a <code>node</code> defined as 
+<strong>a data structure that keeps track of</strong></p>
+<ul>
+<li>a <code>state</code></li>
+<li>a <code>parent</code> (node that generated this node)</li>
+<li>an <code>action</code> (action applied to parent to get node)</li>
+<li>a <code>path cost</code> (from initial state to node)</li>
+</ul>
+<p>Then a search algorithm can be defined as:</p>
+<h3><a class="header" href="#search-algorithm" id="search-algorithm"><strong>Search algorithm</strong></a></h3>
+<ul>
+<li>Start with a <code>frontier</code> that contains the initial state.</li>
+<li>Start with an empty explored set.</li>
+<li>Repeat:
+<ul>
+<li>If the <code>frontier</code> is empty, then no solution.</li>
+<li>Remove a <code>node</code> from the <code>frontier</code>. (Also using a set to keep track of visited <code>nodes</code>)</li>
+<li>If <code>node</code> contains goal state (<code>goal test</code>), return the solution.</li>
+<li>Add the <code>node</code> to the explored set.</li>
+<li>Expand <code>node</code> (<code>ACTIONS + RESULTS</code>), add resulting <code>nodes</code> to the <code>frontier</code> if they
+aren't already in the <code>frontier</code> or the explored set.</li>
+</ul>
+</li>
+</ul>
+<p>For example, in a simple maze search problem, the <code>state</code> of 
+the node is just the current position, the <code>actions</code> of the 
+node is just the next possible directions that the agent can go to, leading to the following states.</p>
+<p>In a social network problem, for example in the homework's
+movie actors <code>degree</code> problem, the <code>state</code> of 
+the node is just the actor id, the <code>actions</code> of the 
+node is just the movies this actor performed, which can lead to other <code>state</code> (or actors).</p>
+<p>Some example code on the <code>degree</code> problem might look like this.</p>
+<pre><code class="language-python">def shortest_path(source, target):
+    &quot;&quot;&quot;
+    Returns the shortest list of (movie_id, person_id) pairs that connect the source to the target.
+    
+    If no possible path, returns None.
+
+    Action: movie id
+    State: person id
+    &quot;&quot;&quot;
+
+    start = Node(state=source, parent=None, action=None)
+    frontier = QueueFrontier()
+    frontier.add(start)
+    explored = set()
+
+    while True:
+        if frontier.empty():
+            return None
+        
+        node = frontier.remove()
+        explored.add(node.state)
+
+        for action in people[node.state][&quot;movies&quot;]:
+            for state in movies[action][&quot;stars&quot;]: 
+                if not frontier.contains_state(state) and state not in explored:
+                    child = Node(state=state, parent=node, action=action)
+                    frontier.add(child)
+
+                    checkNode = child
+                    if checkNode.state == target:
+                        actions_and_states = []
+                        while checkNode.parent is not None:
+                            actions_and_states.append((checkNode.action, checkNode.state))
+                            checkNode = checkNode.parent
+                        actions_and_states.reverse()
+                        return actions_and_states
+</code></pre>
+<p>And normally a <code>queue</code> is used as the <code>frontier</code> in order 
+to perform <code>Breadth-First Search</code> - which seem to be the 
+best option for general problems as you want to find the shortest path to the goal.</p>
+<p>One variant of the algorithms is a <strong>greedy best-first search</strong></p>
+<ul>
+<li><code>A* search</code>: search algorithm that expands node with
+lowest value of <code>g(n) + h(n)</code>
+<ul>
+<li><code>g(n)</code> = cost to reach node</li>
+<li><code>h(n)</code> = estimated cost to goal</li>
+<li>optimal if
+<ul>
+<li><code>h(n)</code> is admissible (never overestimates the
+true cost), and</li>
+<li><code>h(n)</code> is consistent (for every node n and
+successor n' with step cost c, <code>h(n) ≤ h(n') + c)</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Another variant of this type of algorithm is <code>Adversarial Search</code> - which is used for problems like Tic-Tac-Toe games</p>
+<p>So for games:</p>
+<ul>
+<li>S0 : initial state</li>
+<li>PLAYER(s) : returns which player to move in state s</li>
+<li>ACTIONS(s) : returns legal moves in state s</li>
+<li>RESULT(s, a) : returns state after action a taken in state s</li>
+<li>TERMINAL(s) : checks if state s is a terminal state</li>
+<li>UTILITY(s) : final numerical value for terminal state s</li>
+</ul>
+<p>One method is called <strong><code>MinMax</code></strong></p>
+<ul>
+<li>Given a state s:</li>
+<li>MAX picks action a in ACTIONS(s) that produces
+highest value of MIN-VALUE(RESULT(s, a))</li>
+<li>MIN picks action a in ACTIONS(s) that produces
+smallest value of MAX-VALUE(RESULT(s, a))</li>
+</ul>
+<p>Or in code as:</p>
+<pre><code>function MAX-VALUE(state):
+ if TERMINAL(state):
+ return UTILITY(state)
+ v = -∞
+ for action in ACTIONS(state):
+ v = MAX(v, MIN-VALUE(RESULT(state, action)))
+ return v
+
+function MIN-VALUE(state):
+ if TERMINAL(state):
+ return UTILITY(state)
+ v = ∞
+ for action in ACTIONS(state):
+ v = MIN(v, MAX-VALUE(RESULT(state, action)))
+ return v
+</code></pre>
+<p>And some special pruning method such as Alpha-Beta Pruning is
+needed for game problems with very large search space.</p>
 <h1><a class="header" href="#divide-and-conquer" id="divide-and-conquer">Divide and Conquer</a></h1>
 <ol>
 <li>Divide into smaller problems</li>
