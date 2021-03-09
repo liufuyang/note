@@ -50,7 +50,7 @@ Or in short `adding from tail only, removing from both ends`.
   
 Other trivial details:
 * When reaching the end while adding, increase capacity by factor of 2;
-* When `tail` less than 1/2 of capacity, can reduce capacity by 1/4 of current capacity, to save space;
+* When `tail` less than 1/4 of capacity, can reduce capacity by 1/2 of current capacity, to save space;
 * In Java, when removing element from the list, besides change
   head and tail values, also set `null` to the array so to let
   those removed nodes can be garbage collected later. 
@@ -100,14 +100,52 @@ So the `deque` can probably be implemented as something like:
 
 Haven't tried to do my homework with the Princeton course,
 but hopefully this works. Otherwise the code might later 
-be at [here][java-homework]
+be at [here][java-homework].
+Update: As the homework requires `constant worst time` so 
+I used a double linked list to implement it. So I can
+just guess now the above idea will work :)
+
+## RandomizedQueue
+A `RandomizedQueue` can be implemented with a normal
+array implementation queue, plus using **`Knuth Shuffle`**
+during `enqueue` operation:
+
+```java
+public void enqueue(Item item) {
+    if (item == null) {
+      throw new IllegalArgumentException();
+    }
+    if (items.length == tail) {
+      resize(Math.max(items.length, size() * 2));
+    }
+    items[tail] = item;
+    tail++;
+
+    swap(tail - 1, StdRandom.uniform(head, tail));
+  }
+```
+Key is on that `swap` call. Basically the shuffle
+idea is very simple, when adding a new item into
+the array, then randomly select an item from the 
+array (including the newly added one) then swap
+the newly added one with the selected item.
+
+See [code here][java-homework].
+
+By the way, this **`Knuth Shuffle`** idea seems
+pretty powerful as it uses linear time for shuffling
+a N-th array. Better than make N random floats and 
+sort them to have a new index list.
 
 ## Linked list impl vs Array impl
 
-I guess simply put, linked list is good for constant time
-operations, though slower each time; while array impl is 
+I guess simply put, 
+* `linked list` is good for constant time
+operations **in the worst case**, though slower each time, 
+an uses more space;
+* `resizing array` is 
 in most cases very fast, occasionally slow when resizing,
-with the claim of adding an element has constant amortized time cost.
+with the claim of adding an element has constant **amortized time** cost. And less wasted space
 
 ---
 
@@ -262,4 +300,4 @@ And some special pruning method such as Alpha-Beta Pruning is
 needed for game problems with very large search space.
 
 [rust stack impl]: https://github.com/liufuyang/algs4/tree/main/algs_stanford/src
-[java-homework]: https://github.com/liufuyang/algs4
+[java-homework]: https://github.com/liufuyang/algs4/tree/main/algs_princeton/2_queues

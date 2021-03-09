@@ -100,7 +100,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="note.html"><strong aria-hidden="true">1.</strong> Note</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="note_1/1.html"><strong aria-hidden="true">1.1.</strong> Note 1</a></li></ol></li><li class="chapter-item expanded "><a href="algorithms.html"><strong aria-hidden="true">2.</strong> Algorithms</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="algorithms/1.html"><strong aria-hidden="true">2.1.</strong> Big O notations</a></li><li class="chapter-item expanded "><a href="algorithms/stack_queue.html"><strong aria-hidden="true">2.2.</strong> Stack and Queue</a></li><li class="chapter-item expanded "><a href="algorithms/devide_conquer.html"><strong aria-hidden="true">2.3.</strong> Divide and Conquer</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> Rust note</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">3.1.</strong> General</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="rust_note/general/cpp_memory_model.html"><strong aria-hidden="true">3.1.1.</strong> C++ memory mode</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.2.</strong> Note from courses</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="rust_note/courses/pattern_matching.html"><strong aria-hidden="true">3.2.1.</strong> Pattern matching</a></li><li class="chapter-item expanded "><a href="rust_note/courses/smart_pointers.html"><strong aria-hidden="true">3.2.2.</strong> Smart pointers</a></li><li class="chapter-item expanded "><a href="rust_note/courses/string.html"><strong aria-hidden="true">3.2.3.</strong> String</a></li></ol></li><li class="chapter-item expanded "><a href="rust_note/tokio.html"><strong aria-hidden="true">3.3.</strong> Note for tokio dev</a></li><li class="chapter-item expanded "><a href="rust_note/resources.html"><strong aria-hidden="true">3.4.</strong> Resources</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> Tech notes</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="tech/network_programming.html"><strong aria-hidden="true">4.1.</strong> Network Programming</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.</strong> Sub topics</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="sub/topic_1.html"><strong aria-hidden="true">5.1.</strong> Sub topic 1</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="note.html"><strong aria-hidden="true">1.</strong> Note</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="note_1/1.html"><strong aria-hidden="true">1.1.</strong> Note 1</a></li></ol></li><li class="chapter-item expanded "><a href="algorithms.html"><strong aria-hidden="true">2.</strong> Algorithms</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="algorithms/1.html"><strong aria-hidden="true">2.1.</strong> Big O notations</a></li><li class="chapter-item expanded "><a href="algorithms/stack_queue.html"><strong aria-hidden="true">2.2.</strong> Stack and Queue</a></li><li class="chapter-item expanded "><a href="algorithms/devide_conquer.html"><strong aria-hidden="true">2.3.</strong> Divide and Conquer</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> Rust note</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">3.1.</strong> General</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="rust_note/general/cpp_memory_model.html"><strong aria-hidden="true">3.1.1.</strong> C++ memory mode</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.2.</strong> Note from courses</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="rust_note/courses/pattern_matching.html"><strong aria-hidden="true">3.2.1.</strong> Pattern matching</a></li><li class="chapter-item expanded "><a href="rust_note/courses/smart_pointers.html"><strong aria-hidden="true">3.2.2.</strong> Smart pointers</a></li><li class="chapter-item expanded "><a href="rust_note/courses/string.html"><strong aria-hidden="true">3.2.3.</strong> String</a></li></ol></li><li class="chapter-item expanded "><a href="rust_note/tokio.html"><strong aria-hidden="true">3.3.</strong> Note for tokio dev</a></li><li class="chapter-item expanded "><a href="rust_note/resources.html"><strong aria-hidden="true">3.4.</strong> Resources</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> Tech notes</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="tech/network_programming.html"><strong aria-hidden="true">4.1.</strong> Network Programming</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.</strong> Sub topics</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="sub/topic_1.html"><strong aria-hidden="true">5.1.</strong> Sub topic 1</a></li><li class="chapter-item expanded "><a href="sub/life_tips.html"><strong aria-hidden="true">5.2.</strong> Life tips</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -258,7 +258,7 @@ pub struct LinkedList&lt;T&gt; {
 <p>Other trivial details:</p>
 <ul>
 <li>When reaching the end while adding, increase capacity by factor of 2;</li>
-<li>When <code>tail</code> less than 1/2 of capacity, can reduce capacity by 1/4 of current capacity, to save space;</li>
+<li>When <code>tail</code> less than 1/4 of capacity, can reduce capacity by 1/2 of current capacity, to save space;</li>
 <li>In Java, when removing element from the list, besides change
 head and tail values, also set <code>null</code> to the array so to let
 those removed nodes can be garbage collected later. </li>
@@ -301,12 +301,47 @@ Then one stack is kept as <code>positive</code> while another kept as
 </code></pre>
 <p>Haven't tried to do my homework with the Princeton course,
 but hopefully this works. Otherwise the code might later 
-be at <a href="https://github.com/liufuyang/algs4">here</a></p>
+be at <a href="https://github.com/liufuyang/algs4/tree/main/algs_princeton/2_queues">here</a>.
+Update: As the homework requires <code>constant worst time</code> so 
+I used a double linked list to implement it. So I can
+just guess now the above idea will work :)</p>
+<h2><a class="header" href="#randomizedqueue" id="randomizedqueue">RandomizedQueue</a></h2>
+<p>A <code>RandomizedQueue</code> can be implemented with a normal
+array implementation queue, plus using <strong><code>Knuth Shuffle</code></strong>
+during <code>enqueue</code> operation:</p>
+<pre><code class="language-java">public void enqueue(Item item) {
+    if (item == null) {
+      throw new IllegalArgumentException();
+    }
+    if (items.length == tail) {
+      resize(Math.max(items.length, size() * 2));
+    }
+    items[tail] = item;
+    tail++;
+
+    swap(tail - 1, StdRandom.uniform(head, tail));
+  }
+</code></pre>
+<p>Key is on that <code>swap</code> call. Basically the shuffle
+idea is very simple, when adding a new item into
+the array, then randomly select an item from the 
+array (including the newly added one) then swap
+the newly added one with the selected item.</p>
+<p>See <a href="https://github.com/liufuyang/algs4/tree/main/algs_princeton/2_queues">code here</a>.</p>
+<p>By the way, this <strong><code>Knuth Shuffle</code></strong> idea seems
+pretty powerful as it uses linear time for shuffling
+a N-th array. Better than make N random floats and 
+sort them to have a new index list.</p>
 <h2><a class="header" href="#linked-list-impl-vs-array-impl" id="linked-list-impl-vs-array-impl">Linked list impl vs Array impl</a></h2>
-<p>I guess simply put, linked list is good for constant time
-operations, though slower each time; while array impl is 
+<p>I guess simply put, </p>
+<ul>
+<li><code>linked list</code> is good for constant time
+operations <strong>in the worst case</strong>, though slower each time, 
+an uses more space;</li>
+<li><code>resizing array</code> is 
 in most cases very fast, occasionally slow when resizing,
-with the claim of adding an element has constant amortized time cost.</p>
+with the claim of adding an element has constant <strong>amortized time</strong> cost. And less wasted space</li>
+</ul>
 <hr />
 <h2><a class="header" href="#use-stackqueue-for-search-algorithm" id="use-stackqueue-for-search-algorithm">Use stack/queue for Search Algorithm</a></h2>
 <p>One quite useful thing about <code>stack</code> and <code>queue</code> is that</p>
@@ -1566,6 +1601,33 @@ fn main() {
 <p>Did you know that you can write math equations here like this?</p>
 <p>\[ \mu = \frac{1}{N} \sum_{i=0} x_i \]</p>
 <p>Looks pretty awesome. More info see <a href="https://rust-lang.github.io/mdBook/format/mathjax.html">here</a></p>
+<h1><a class="header" href="#life-tips" id="life-tips">Life tips</a></h1>
+<h2><a class="header" href="#morning-tips" id="morning-tips">Morning tips</a></h2>
+<ul>
+<li>Most important time is the 1 hour in the morning</li>
+<li>Make bed</li>
+<li>Meditation 10-20m, draw attention back to breath, 7 days will have effect?</li>
+<li>Tune into the peak state -&gt; &quot;I can do it mode&quot;
+<ul>
+<li>code shower?</li>
+<li>4:16:8 breath exercise</li>
+<li>short exercise, or a walk outside</li>
+<li>5 - 10 daily journal</li>
+</ul>
+</li>
+</ul>
+<h2><a class="header" href="#evening-tips" id="evening-tips">Evening tips</a></h2>
+<ul>
+<li>Summary daily journal
+<ul>
+<li>old/new relationships that helped you</li>
+<li>an opportunity recently, (call parents, or work)</li>
+<li>something great happened or learned today/yesterday</li>
+<li>something simple</li>
+</ul>
+</li>
+</ul>
+<p>Ref <a href="https://www.youtube.com/watch?v=XXGINjJzwZs">here</a>, <a href="sub/youtube.com/watch?v=evXi0G3dVEQ">here</a>.</p>
 
                     </main>
 

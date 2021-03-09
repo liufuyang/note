@@ -19,3 +19,4 @@
   - [Network Programming](./tech/network_programming.md)
 - [Sub topics]()
   - [Sub topic 1](./sub/topic_1.md)
+  - [Life tips](./sub/life_tips.md)
