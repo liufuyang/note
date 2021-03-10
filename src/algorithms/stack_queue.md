@@ -205,6 +205,7 @@ the node is just the actor id, the `actions` of the
 node is just the movies this actor performed, which can lead to other `state` (or actors).
 
 Some example code on the `degree` problem might look like this.
+
 ```python
 def shortest_path(source, target):
     """
