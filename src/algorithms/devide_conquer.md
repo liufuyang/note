@@ -6,7 +6,7 @@
    original problem.
 
 ## Typical problems:
-* Merge sort
+* Merge sort (recursive or bottom up)
 * Karatsuba Multiplication
 * Counting Inversions
   
@@ -75,3 +75,21 @@ So basically we ended with a very similar thing to Merge Sort,
 only one more operation on the merge operations. So we
 achieved \\( O(n \log n) \\). Pretty impressive.
 
+## The Master Method
+
+\\[ 
+  \begin{align}
+  \text{If }  \quad  T(n) & <= a T (\frac{n}{b}) + O(n^d) \\\\ 
+  \text{Then } \quad  T(n) & =
+    \begin{cases}
+      O(n^d \log n)       & \quad \text{if } a = b^d \text{ (Case 1)} \\\\
+      O(n^d)              & \quad \text{if } a < b^d \text{ (Case 2)} \\\\
+      O(n^{\log_{b}{a} }) & \quad \text{if } a > b^d \text{ (Case 3)}
+    \end{cases}
+  \end{align}
+\\]
+
+For example
+* merge sort having `a=2, b=2, d=1` so it is \\( O(n \log n)  \\), which is case 1
+* binary search having `a=1, b=2, d=0` so it is \\( O(\log n)  \\), which is case 1
+* Karatsuba Multiplication `a=3, b=2, d=1` so it is \\( O(n^{\log_2 3}) = O(n^{1.59}) \\), which is case 3

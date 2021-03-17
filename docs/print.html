@@ -506,7 +506,7 @@ original problem.</li>
 <h2><a class="header" href="#typical-problems" id="typical-problems">Typical problems:</a></h2>
 <ul>
 <li>
-<p>Merge sort</p>
+<p>Merge sort (recursive or bottom up)</p>
 </li>
 <li>
 <p>Karatsuba Multiplication</p>
@@ -573,6 +573,24 @@ left in the 1st array <code>b</code> when <code>c_j</code> is copied to the outp
 <p>So basically we ended with a very similar thing to Merge Sort,
 only one more operation on the merge operations. So we
 achieved \( O(n \log n) \). Pretty impressive.</p>
+<h2><a class="header" href="#the-master-method" id="the-master-method">The Master Method</a></h2>
+<p>\[ 
+\begin{align}
+\text{If }  \quad  T(n) &amp; &lt;= a T (\frac{n}{b}) + O(n^d) \\ 
+\text{Then } \quad  T(n) &amp; =
+\begin{cases}
+O(n^d \log n)       &amp; \quad \text{if } a = b^d \text{ (Case 1)} \\
+O(n^d)              &amp; \quad \text{if } a &lt; b^d \text{ (Case 2)} \\
+O(n^{\log_{b}{a} }) &amp; \quad \text{if } a &gt; b^d \text{ (Case 3)}
+\end{cases}
+\end{align}
+\]</p>
+<p>For example</p>
+<ul>
+<li>merge sort having <code>a=2, b=2, d=1</code> so it is \( O(n \log n)  \), which is case 1</li>
+<li>binary search having <code>a=1, b=2, d=0</code> so it is \( O(\log n)  \), which is case 1</li>
+<li>Karatsuba Multiplication <code>a=3, b=2, d=1</code> so it is \( O(n^{\log_2 3}) = O(n^{1.59}) \), which is case 3</li>
+</ul>
 <h1><a class="header" href="#c-memory-mode" id="c-memory-mode">C++ memory mode</a></h1>
 <ul>
 <li><a href="https://www.youtube.com/watch?v=OyNG4qiWnmU">[Video Link]</a></li>
@@ -1600,6 +1618,18 @@ fn main() {
 <p>Simply write sub topics here</p>
 <p>Did you know that you can write math equations here like this?</p>
 <p>\[ \mu = \frac{1}{N} \sum_{i=0} x_i \]</p>
+<p>The Master Method
+\[ 
+\begin{align}
+\text{If }  \quad  T(n) &amp; &lt;= a T (\frac{n}{b}) + O(n^d) \\ 
+\text{Then } \quad  T(n) &amp; =
+\begin{cases}
+O(n^d \log n)       &amp; \quad \text{if } a = b^d \text{ (Case 1)} \\
+O(n^d)              &amp; \quad \text{if } a &lt; b^d \text{ (Case 2)} \\
+O(n^{\log_{b}{a} }) &amp; \quad \text{if } a &gt; b^d \text{ (Case 3)}
+\end{cases}
+\end{align}
+\]</p>
 <p>Looks pretty awesome. More info see <a href="https://rust-lang.github.io/mdBook/format/mathjax.html">here</a></p>
 <h1><a class="header" href="#life-tips" id="life-tips">Life tips</a></h1>
 <h2><a class="header" href="#morning-tips" id="morning-tips">Morning tips</a></h2>

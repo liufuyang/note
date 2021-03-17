@@ -170,6 +170,18 @@
 <p>Simply write sub topics here</p>
 <p>Did you know that you can write math equations here like this?</p>
 <p>\[ \mu = \frac{1}{N} \sum_{i=0} x_i \]</p>
+<p>The Master Method
+\[ 
+\begin{align}
+\text{If }  \quad  T(n) &amp; &lt;= a T (\frac{n}{b}) + O(n^d) \\ 
+\text{Then } \quad  T(n) &amp; =
+\begin{cases}
+O(n^d \log n)       &amp; \quad \text{if } a = b^d \text{ (Case 1)} \\
+O(n^d)              &amp; \quad \text{if } a &lt; b^d \text{ (Case 2)} \\
+O(n^{\log_{b}{a} }) &amp; \quad \text{if } a &gt; b^d \text{ (Case 3)}
+\end{cases}
+\end{align}
+\]</p>
 <p>Looks pretty awesome. More info see <a href="https://rust-lang.github.io/mdBook/format/mathjax.html">here</a></p>
 
                     </main>
