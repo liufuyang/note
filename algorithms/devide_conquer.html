@@ -1,0 +1,332 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Divide and Conquer - Personal notebook</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="../favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="../favicon.png">
+        
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../note.html"><strong aria-hidden="true">1.</strong> Note</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../note_1/1.html"><strong aria-hidden="true">1.1.</strong> Note 1</a></li></ol></li><li class="chapter-item expanded "><a href="../algorithms.html"><strong aria-hidden="true">2.</strong> Algorithms</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../algorithms/1.html"><strong aria-hidden="true">2.1.</strong> Big O notations</a></li><li class="chapter-item expanded "><a href="../algorithms/stack_queue.html"><strong aria-hidden="true">2.2.</strong> Stack and Queue</a></li><li class="chapter-item expanded "><a href="../algorithms/devide_conquer.html" class="active"><strong aria-hidden="true">2.3.</strong> Divide and Conquer</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> Rust note</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">3.1.</strong> General</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../rust_note/general/cpp_memory_model.html"><strong aria-hidden="true">3.1.1.</strong> C++ memory mode</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.2.</strong> Note from courses</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../rust_note/courses/pattern_matching.html"><strong aria-hidden="true">3.2.1.</strong> Pattern matching</a></li><li class="chapter-item expanded "><a href="../rust_note/courses/smart_pointers.html"><strong aria-hidden="true">3.2.2.</strong> Smart pointers</a></li><li class="chapter-item expanded "><a href="../rust_note/courses/string.html"><strong aria-hidden="true">3.2.3.</strong> String</a></li></ol></li><li class="chapter-item expanded "><a href="../rust_note/tokio.html"><strong aria-hidden="true">3.3.</strong> Note for tokio dev</a></li><li class="chapter-item expanded "><a href="../rust_note/resources.html"><strong aria-hidden="true">3.4.</strong> Resources</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> Tech notes</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../tech/network_programming.html"><strong aria-hidden="true">4.1.</strong> Network Programming</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.</strong> Sub topics</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../sub/topic_1.html"><strong aria-hidden="true">5.1.</strong> Sub topic 1</a></li><li class="chapter-item expanded "><a href="../sub/life_tips.html"><strong aria-hidden="true">5.2.</strong> Life tips</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">Personal notebook</h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#divide-and-conquer" id="divide-and-conquer">Divide and Conquer</a></h1>
+<ol>
+<li>Divide into smaller problems</li>
+<li>Conquer via recursive calls</li>
+<li>Combine solutions of sub-problems into one for the 
+original problem.</li>
+</ol>
+<h2><a class="header" href="#typical-problems" id="typical-problems">Typical problems:</a></h2>
+<ul>
+<li>
+<p>Merge sort (recursive or bottom up)</p>
+</li>
+<li>
+<p>Karatsuba Multiplication</p>
+</li>
+<li>
+<p>Counting Inversions</p>
+<p>Example: (1, 3, 5, 2, 4, 6), having inversions: (3,2), (5,2), (5, 4)</p>
+<p>Can be used for: calculate the similarity between 2 persons' 10 movies sort order.</p>
+</li>
+</ul>
+<h2><a class="header" href="#counting-inversions" id="counting-inversions">Counting Inversions</a></h2>
+<p>Naive implementation is \( O(n^2) \) as we need 2 for loops.
+Via divide and conquer, what we need is this</p>
+<pre><code>Count(array a, length n) {
+    if n == 1 return 0
+    else 
+      x = Count(left half of a, n/2)
+      y = Count(right half of a, n/2)
+      z = CountSplitInv(a, n)
+
+      return x + y + z
+}
+</code></pre>
+<p><code>CountSplitInv</code> counting the split inversions, where first
+index is in the first half array, and second index is in the 
+second half array.
+Then the question is, can we do <code>CountSplitInv</code> with 
+\( O(n) \)? If so, the divide part has \( O(\log n) \), which gives us the final algorithms speed of \( O(n \log n) \). Intuitively feels not possible.</p>
+<h3><a class="header" href="#piggybacking-on-merge-sort" id="piggybacking-on-merge-sort">Piggybacking on Merge Sort</a></h3>
+<pre><code>SortAndCount(array a, length n) {
+    if n == 1 return 0
+    else 
+      b, x = SortAndCount(left half of a, n/2)
+      c, y = SortAndCount(right half of a, n/2)
+      d, z = MergeAndCountSplitInv(b, c, n)
+
+      return d, x + y + z
+}
+</code></pre>
+<p>After sorting, we can do the trick, or &quot;piggybacking&quot; 
+while merge:</p>
+<pre><code>i=0
+j=0
+z=0
+for k = 0 .. n-1 {
+    if b[i] &lt;= c[j] {
+        d[k] = b[i]
+        i++
+    } else {
+        d[k] = c[j]
+        j++
+        z += b.len - i // piggybacking part of merge
+    }
+}
+</code></pre>
+<p>So if <code>b</code>'s element all less than <code>c</code>'s element, 
+before <code>j</code> starts to add, <code>i</code> will be as <code>b.len</code>, making <code>z=0</code> in the end.</p>
+<p>Or the general claim:</p>
+<blockquote>
+<p>Claim: the numberr of split inversions involving an element 
+<code>c_j</code> from 2nd array <code>c</code> is precisely the number of elements
+left in the 1st array <code>b</code> when <code>c_j</code> is copied to the output <code>d</code>.</p>
+</blockquote>
+<p>So basically we ended with a very similar thing to Merge Sort,
+only one more operation on the merge operations. So we
+achieved \( O(n \log n) \). Pretty impressive.</p>
+<h2><a class="header" href="#the-master-method" id="the-master-method">The Master Method</a></h2>
+<p>\[ 
+\begin{align}
+\text{If }  \quad  T(n) &amp; &lt;= a T (\frac{n}{b}) + O(n^d) \\ 
+\text{Then } \quad  T(n) &amp; =
+\begin{cases}
+O(n^d \log n)       &amp; \quad \text{if } a = b^d \text{ (Case 1)} \\
+O(n^d)              &amp; \quad \text{if } a &lt; b^d \text{ (Case 2)} \\
+O(n^{\log_{b}{a} }) &amp; \quad \text{if } a &gt; b^d \text{ (Case 3)}
+\end{cases}
+\end{align}
+\]</p>
+<p>For example</p>
+<ul>
+<li>merge sort having <code>a=2, b=2, d=1</code> so it is \( O(n \log n)  \), which is case 1</li>
+<li>binary search having <code>a=1, b=2, d=0</code> so it is \( O(\log n)  \), which is case 1</li>
+<li>Karatsuba Multiplication <code>a=3, b=2, d=1</code> so it is \( O(n^{\log_2 3}) = O(n^{1.59}) \), which is case 3</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../algorithms/stack_queue.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="../rust_note/general/cpp_memory_model.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="../algorithms/stack_queue.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="../rust_note/general/cpp_memory_model.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

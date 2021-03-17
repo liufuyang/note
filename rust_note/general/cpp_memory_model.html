@@ -1,0 +1,311 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>C++ memory mode - Personal notebook</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="../../favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="../../favicon.png">
+        
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../../note.html"><strong aria-hidden="true">1.</strong> Note</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../note_1/1.html"><strong aria-hidden="true">1.1.</strong> Note 1</a></li></ol></li><li class="chapter-item expanded "><a href="../../algorithms.html"><strong aria-hidden="true">2.</strong> Algorithms</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../algorithms/1.html"><strong aria-hidden="true">2.1.</strong> Big O notations</a></li><li class="chapter-item expanded "><a href="../../algorithms/stack_queue.html"><strong aria-hidden="true">2.2.</strong> Stack and Queue</a></li><li class="chapter-item expanded "><a href="../../algorithms/devide_conquer.html"><strong aria-hidden="true">2.3.</strong> Divide and Conquer</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> Rust note</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">3.1.</strong> General</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../rust_note/general/cpp_memory_model.html" class="active"><strong aria-hidden="true">3.1.1.</strong> C++ memory mode</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.2.</strong> Note from courses</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../rust_note/courses/pattern_matching.html"><strong aria-hidden="true">3.2.1.</strong> Pattern matching</a></li><li class="chapter-item expanded "><a href="../../rust_note/courses/smart_pointers.html"><strong aria-hidden="true">3.2.2.</strong> Smart pointers</a></li><li class="chapter-item expanded "><a href="../../rust_note/courses/string.html"><strong aria-hidden="true">3.2.3.</strong> String</a></li></ol></li><li class="chapter-item expanded "><a href="../../rust_note/tokio.html"><strong aria-hidden="true">3.3.</strong> Note for tokio dev</a></li><li class="chapter-item expanded "><a href="../../rust_note/resources.html"><strong aria-hidden="true">3.4.</strong> Resources</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> Tech notes</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../tech/network_programming.html"><strong aria-hidden="true">4.1.</strong> Network Programming</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.</strong> Sub topics</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../sub/topic_1.html"><strong aria-hidden="true">5.1.</strong> Sub topic 1</a></li><li class="chapter-item expanded "><a href="../../sub/life_tips.html"><strong aria-hidden="true">5.2.</strong> Life tips</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">Personal notebook</h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#c-memory-mode" id="c-memory-mode">C++ memory mode</a></h1>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=OyNG4qiWnmU">[Video Link]</a></li>
+<li><a href="https://doc.rust-lang.org/nomicon/atomics.html">[Some docs about it]</a></li>
+</ul>
+<h1><a class="header" href="#memory-order" id="memory-order">Memory order</a></h1>
+<ul>
+<li>Acquire / Release</li>
+<li>Sequentially Consistent (SeqCst)</li>
+<li>Relaxed</li>
+</ul>
+<h2><a class="header" href="#acquire-release" id="acquire-release">Acquire-Release</a></h2>
+<p>Sort of like mutex primitives, aquire=lock, release=unlock. Acquire and Release are largely intended to be paired.</p>
+<ul>
+<li>
+<p><code>release</code> update the memory, &quot;publish&quot; to other threads, used only with <code>store</code> type operation(save/publish data out, cannot use with load)</p>
+</li>
+<li>
+<p><code>acquire</code> memory &quot;published&quot; by other threads, making it available to us, used only with <code>load</code> type of operation (cannot use with store)</p>
+</li>
+<li>
+<p>For &quot;load and store&quot; type of operation:</p>
+<ul>
+<li><code>release</code> will make load <code>relaxed</code> and store <code>release</code></li>
+<li><code>acquire</code> will make load <code>acquire</code> and store <code>relaxed</code></li>
+</ul>
+</li>
+<li>
+<p><code>AcqRel</code> or acquire and release also exist, so can be used for &quot;load and store&quot; type of operation, 
+making load <code>acquire</code> and store <code>release</code> (no relaxed). 
+This operation order could be handy for situation such as for an Arc type of thing in the end to drop
+the internal object, it may use some operation like <code>load_and_minors_1_then_store</code> so you would 
+use this <code>AcqRel</code> to make sure the thread got the updated value and all other threads has updated value when they read.
+This is illustrated in the video.</p>
+</li>
+</ul>
+<p>Intuitively, an acquire access ensures that every access after it stays after it. However operations that occur before an acquire are free to be reordered to occur after it. Similarly, a release access ensures that every access before it stays before it. However operations that occur after a release are free to be reordered to occur before it.</p>
+<p>When thread A releases a location in memory and then thread B subsequently acquires the same location in memory, causality is established. <strong>Every write (including non-atomic and relaxed atomic writes) that happened before A's release will be observed by B after its acquisition.</strong> However no causality is established with any other threads. Similarly, no causality is established if A and B access different locations in memory.</p>
+<p>Or using the words from the video:</p>
+<ul>
+<li>acquire/release: no total order of events</li>
+<li>each thread has it view of consistent ordering</li>
+</ul>
+<p>Basic use of release-acquire is therefore simple: you acquire a location of memory to begin the critical section, and then release that location to end it. For instance, a simple spinlock might look like:</p>
+<pre><pre class="playground"><code class="language-rust">use std::sync::Arc;
+use std::sync::atomic::{AtomicBool, Ordering};
+use std::thread;
+
+fn main() {
+    let lock = Arc::new(AtomicBool::new(false)); // value answers &quot;am I locked?&quot;
+
+    // ... distribute lock to threads somehow ...
+
+    // Try to acquire the lock by setting it to true
+    while lock.compare_and_swap(false, true, Ordering::Acquire) {
+        // c++ code here could be: std::this_threadd::yield() to let other thread run
+     }
+    // broke out of the loop, so we successfully acquired the lock!
+
+    // ... scary data accesses, but safe to do stuff here ...
+
+    // ok we're done, release the lock
+    lock.store(false, Ordering::Release);
+}
+</code></pre></pre>
+<h2><a class="header" href="#sequentially-consistent" id="sequentially-consistent">Sequentially Consistent</a></h2>
+<p>Be cause there is no total order of events for acquire/release, Sequentially Consistent is 
+introduced.</p>
+<p>Sequentially Consistent is the most powerful of all, implying the restrictions of all other orderings. Intuitively, a sequentially consistent operation cannot be reordered: all accesses on one thread that happen before and after a SeqCst access stay before and after it. A data-race-free program that uses only sequentially consistent atomics and data accesses has the very nice property that there is a single global execution of the program's instructions that all threads agree on. This execution is also particularly nice to reason about: it's just an interleaving of each thread's individual executions. This does not hold if you start using the weaker atomic orderings.</p>
+<p>The relative developer-friendliness of sequential consistency doesn't come for free. Even on strongly-ordered platforms sequential consistency involves emitting memory fences.</p>
+<p>In practice, sequential consistency is rarely necessary for program correctness. However sequential consistency is definitely the right choice if you're not confident about the other memory orders. Having your program run a bit slower than it needs to is certainly better than it running incorrectly! It's also mechanically trivial to downgrade atomic operations to have a weaker consistency later on. Just change <code>SeqCst</code> to <code>Relaxed</code> and you're done! Of course, proving that this transformation is correct is a whole other matter.</p>
+<h2><a class="header" href="#relaxed" id="relaxed">Relaxed</a></h2>
+<p>Relaxed accesses are the absolute weakest. They can be freely re-ordered and provide no happens-before relationship. Still, relaxed operations are still atomic. That is, they don't count as data accesses and any read-modify-write operations done to them occur atomically. Relaxed operations are appropriate for things that you definitely want to happen, but don't particularly otherwise care about. For instance, incrementing a counter can be safely done by multiple threads using a relaxed <code>fetch_add</code> if you're not using the counter to synchronize any other accesses.</p>
+<p>There's rarely a benefit in making an operation relaxed on strongly-ordered platforms, since they usually provide release-acquire semantics anyway. However relaxed operations can be cheaper on weakly-ordered platforms.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../../algorithms/devide_conquer.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="../../rust_note/courses/pattern_matching.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="../../algorithms/devide_conquer.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="../../rust_note/courses/pattern_matching.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="../../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>
