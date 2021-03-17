@@ -28,10 +28,11 @@ async fn main() {
 </details>
 
 ## About github page build
-
-https://github.com/liufuyang/note/actions/workflows/gh-pages.yml
+This github action [peaceiris/actions-gh-pages][github action] seems really handy.
+[See the config file here](https://github.com/liufuyang/note/actions/workflows/gh-pages.yml)
 
 
 [repo]: https://github.com/liufuyang/note
 [mdBook]: https://rust-lang.github.io/mdBook
 [mdHelp]: https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
+[github action]: https://github.com/peaceiris/actions-gh-pages
