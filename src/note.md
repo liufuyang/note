@@ -27,6 +27,10 @@ async fn main() {
 ```
 </details>
 
+## About github page build
+
+https://github.com/liufuyang/note/actions/workflows/gh-pages.yml
+
 
 [repo]: https://github.com/liufuyang/note
 [mdBook]: https://rust-lang.github.io/mdBook
