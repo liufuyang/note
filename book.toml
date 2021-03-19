@@ -4,7 +4,12 @@ language = "en"
 multilingual = false
 src = "src"
 title = "Personal notebook"
-git-repository-url = "https://github.com/liufuyang/note"
 
 [output.html]
+git-repository-url = "https://github.com/liufuyang/note"
+git-repository-icon = "fa-github"
 mathjax-support = true
+additional-js = ["mermaid.min.js", "mermaid-init.js"]
+
+[preprocessor.mermaid]
+command = "mdbook-mermaid"

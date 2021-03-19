@@ -27,6 +27,11 @@ async fn main() {
 ```
 </details>
 
+## How to add some graphs?
+https://github.com/badboy/mdbook-mermaid
+
+And see the `Dockerfile` in the repo how to make an image that can build the site.
+
 ## About github page build
 This github action [peaceiris/actions-gh-pages][github action] seems really handy.
 [See the config file here](https://github.com/liufuyang/note/actions/workflows/gh-pages.yml)

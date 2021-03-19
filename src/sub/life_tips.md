@@ -17,4 +17,7 @@
   * something great happened or learned today/yesterday
   * something simple
   
-Ref [here](https://www.youtube.com/watch?v=XXGINjJzwZs), [here](youtube.com/watch?v=evXi0G3dVEQ).
+Ref [here](https://www.youtube.com/watch?v=XXGINjJzwZs), [here](https://www.youtube.com/watch?v=evXi0G3dVEQ).
+
+## Health tips
+* Do more sports

@@ -8,15 +8,19 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-18.04
+    # https://www.petefreitag.com/item/903.cfm
+    container:
+      image: liufuyang/mdbook-mermaid:0.4.7
     steps:
       - uses: actions/checkout@v2
 
-      - name: Setup mdBook
-        uses: peaceiris/actions-mdbook@v1
-        with:
-          mdbook-version: '0.4.6'
-          # mdbook-version: 'latest'
-
+      # - name: Setup mdBook
+      #   uses: peaceiris/actions-mdbook@v1
+      #   with:
+      #     mdbook-version: '0.4.6'
+      #     # mdbook-version: 'latest'
+      - run: pwd
+      - run: ls /
       - run: mdbook build
 
       - name: Deploy
