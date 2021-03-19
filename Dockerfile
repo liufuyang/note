@@ -2,7 +2,7 @@
 # Cargo Build Stage
 # ------------------------------------------------------------------------------
 
-FROM rust:latest as cargo-build
+FROM ekidd/rust-musl-builder:1.50.0 as cargo-build
 
 RUN cargo install mdbook mdbook-mermaid
 
@@ -10,15 +10,17 @@ RUN cargo install mdbook mdbook-mermaid
 # Final Stage
 # ------------------------------------------------------------------------------
 
-FROM frolvlad/alpine-glibc
+FROM alpine/git:v2.30.1
 
-RUN apk update \
-  && apk add --no-cache bash 
+# Install glibc which mdbook needs, if we don't use musl builder;
+# Now we use something mentioned here, "ekidd/rust-musl-builder" seems the simplest:
+# https://stackoverflow.com/questions/49098753/unable-to-run-a-docker-image-with-a-rust-executable
+# https://dev.to/sergeyzenchenko/actix-web-in-docker-how-to-build-small-and-secure-images-2mjd
 
-COPY --from=cargo-build /usr/local/cargo/bin/mdbook /bin/mdbook
-COPY --from=cargo-build /usr/local/cargo/bin/mdbook-mermaid /bin/mdbook-mermaid
+COPY --from=cargo-build /home/rust/.cargo/bin/mdbook /bin/mdbook
+COPY --from=cargo-build /home/rust/.cargo/bin/mdbook-mermaid /bin/mdbook-mermaid
 
 WORKDIR /github/workspace/
-CMD ["mdbook"]
+ENTRYPOINT ["mdbook"]
 
-# docker run --rm -it -v $(pwd):/github/workspace liufuyang/mdbook-mermaid:0.4.7 mdbook build
+# docker run --rm -it -v $(pwd):/github/workspace liufuyang/mdbook-mermaid:0.4.7 build
