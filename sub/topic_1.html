@@ -222,6 +222,16 @@ O(n^{\log_{b}{a} }) &amp; \quad \text{if } a &gt; b^d \text{ (Case 3)}
 <h3 id="mermaid-graphs"><a class="header" href="#mermaid-graphs">Mermaid graphs</a></h3>
 <p>See <a href="https://mermaid-js.github.io/mermaid-live-editor/">here</a>
 and <a href="https://github.com/badboy/mdbook-mermaid">here</a>.</p>
+<pre><code>```mermaid
+graph TD
+    A[Christmas] --&gt;|Get money| B(Go shopping)
+    B --&gt; C{Let me think}
+    C --&gt;|One| D[Laptop]
+    C --&gt;|Two| E[iPhone]
+    C --&gt;|Three| F[fa:fa-car Car]
+```
+</code></pre>
+<p>gives:</p>
 <pre class="mermaid">graph TD
     A[Christmas] --&gt;|Get money| B(Go shopping)
     B --&gt; C{Let me think}
