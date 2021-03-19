@@ -71,6 +71,19 @@ And a hidden session like this to hide a graph:
 See [here](https://mermaid-js.github.io/mermaid-live-editor/)
 and [here](https://github.com/badboy/mdbook-mermaid).
 
+~~~
+```mermaid
+graph TD
+    A[Christmas] -->|Get money| B(Go shopping)
+    B --> C{Let me think}
+    C -->|One| D[Laptop]
+    C -->|Two| E[iPhone]
+    C -->|Three| F[fa:fa-car Car]
+```
+~~~
+
+gives:
+
 ```mermaid
 graph TD
     A[Christmas] -->|Get money| B(Go shopping)
