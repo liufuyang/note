@@ -100,7 +100,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="note.html"><strong aria-hidden="true">1.</strong> Note</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="note_1/1.html"><strong aria-hidden="true">1.1.</strong> Note 1</a></li></ol></li><li class="chapter-item expanded "><a href="algorithms.html"><strong aria-hidden="true">2.</strong> Algorithms</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="algorithms/1.html"><strong aria-hidden="true">2.1.</strong> Big O notations</a></li><li class="chapter-item expanded "><a href="algorithms/stack_queue.html"><strong aria-hidden="true">2.2.</strong> Stack and Queue</a></li><li class="chapter-item expanded "><a href="algorithms/devide_conquer.html"><strong aria-hidden="true">2.3.</strong> Divide and Conquer</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> Rust note</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">3.1.</strong> General</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="rust_note/general/cpp_memory_model.html"><strong aria-hidden="true">3.1.1.</strong> C++ memory mode</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.2.</strong> Note from courses</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="rust_note/courses/pattern_matching.html"><strong aria-hidden="true">3.2.1.</strong> Pattern matching</a></li><li class="chapter-item expanded "><a href="rust_note/courses/smart_pointers.html"><strong aria-hidden="true">3.2.2.</strong> Smart pointers</a></li><li class="chapter-item expanded "><a href="rust_note/courses/string.html"><strong aria-hidden="true">3.2.3.</strong> String</a></li></ol></li><li class="chapter-item expanded "><a href="rust_note/tokio.html"><strong aria-hidden="true">3.3.</strong> Note for tokio dev</a></li><li class="chapter-item expanded "><a href="rust_note/resources.html"><strong aria-hidden="true">3.4.</strong> Resources</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> Tech notes</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="tech/network_programming.html"><strong aria-hidden="true">4.1.</strong> Network Programming</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.</strong> Good Tips</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="sub/topic_1.html"><strong aria-hidden="true">5.1.</strong> Some Markdown Tips</a></li><li class="chapter-item expanded "><a href="sub/life_tips.html"><strong aria-hidden="true">5.2.</strong> Life Tips</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="note.html"><strong aria-hidden="true">1.</strong> Note</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="note_1/1.html"><strong aria-hidden="true">1.1.</strong> Note 1</a></li></ol></li><li class="chapter-item expanded "><a href="algorithms.html"><strong aria-hidden="true">2.</strong> Algorithms</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="algorithms/1.html"><strong aria-hidden="true">2.1.</strong> Big O notations</a></li><li class="chapter-item expanded "><a href="algorithms/stack_queue.html"><strong aria-hidden="true">2.2.</strong> Stack and Queue</a></li><li class="chapter-item expanded "><a href="algorithms/devide_conquer.html"><strong aria-hidden="true">2.3.</strong> Divide and Conquer</a></li><li class="chapter-item expanded "><a href="algorithms/sort.html"><strong aria-hidden="true">2.4.</strong> Sort</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> Rust note</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">3.1.</strong> General</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="rust_note/general/cpp_memory_model.html"><strong aria-hidden="true">3.1.1.</strong> C++ memory mode</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.2.</strong> Note from courses</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="rust_note/courses/pattern_matching.html"><strong aria-hidden="true">3.2.1.</strong> Pattern matching</a></li><li class="chapter-item expanded "><a href="rust_note/courses/smart_pointers.html"><strong aria-hidden="true">3.2.2.</strong> Smart pointers</a></li><li class="chapter-item expanded "><a href="rust_note/courses/string.html"><strong aria-hidden="true">3.2.3.</strong> String</a></li></ol></li><li class="chapter-item expanded "><a href="rust_note/tokio.html"><strong aria-hidden="true">3.3.</strong> Note for tokio dev</a></li><li class="chapter-item expanded "><a href="rust_note/resources.html"><strong aria-hidden="true">3.4.</strong> Resources</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> Tech notes</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="tech/network_programming.html"><strong aria-hidden="true">4.1.</strong> Network Programming</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.</strong> Good Tips</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="sub/topic_1.html"><strong aria-hidden="true">5.1.</strong> Some Markdown Tips</a></li><li class="chapter-item expanded "><a href="sub/life_tips.html"><strong aria-hidden="true">5.2.</strong> Life Tips</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -600,6 +600,74 @@ O(n^{\log_{b}{a} }) &amp; \quad \text{if } a &gt; b^d \text{ (Case 3)}
 <li>merge sort having <code>a=2, b=2, d=1</code> so it is \( O(n \log n)  \), which is case 1</li>
 <li>binary search having <code>a=1, b=2, d=0</code> so it is \( O(\log n)  \), which is case 1</li>
 <li>Karatsuba Multiplication <code>a=3, b=2, d=1</code> so it is \( O(n^{\log_2 3}) = O(n^{1.59}) \), which is case 3</li>
+</ul>
+<h1 id="sort"><a class="header" href="#sort">Sort</a></h1>
+<ul>
+<li><strong>Merge sort</strong>
+<ul>
+<li>\( n \log(n) \) in worst case</li>
+<li>a <code>stable</code> sort (sort by column A, then sort by column B, then for the same B, order of A preserves)</li>
+<li>simple to understand, divide and conquer (or bottom up to avoid recursion); <code>log(n)</code> levels, and each level's merge takes <code>n</code> operation, thus \( n \log(n) \)  will do</li>
+</ul>
+</li>
+<li><strong>Quick sort</strong>
+<ul>
+<li>
+<p>\( n \log(n) \) in worst case</p>
+</li>
+<li>
+<p>not a <code>stable</code> sort</p>
+</li>
+<li>
+<p>more tricky but not difficult to understand, divide and conquer: <br></p>
+<p>make sure an element's left are all smaller (or equal to) it, and the
+right part are all bigger than it (let's called it <code>partitioned</code>); then continue to sort both on left and right part;</p>
+</li>
+<li>
+<p>to make an array <code>partitioned</code> by, for eg. the first element: <br></p>
+<pre><code>[3, 5, 2, 6, 1, 4]
+i---^
+j---^
+</code></pre>
+<p>Start with <code>i</code> and <code>j</code> both after first element.
+<code>i</code> stands for <code>left of me is smaller than pivot</code>; <code>j</code> stands for <code>left of me is partitioned</code>. <br></p>
+<p>So basically we loop each element until <code>j</code> is <code>n</code>;<br></p>
+<p>For each step:<br></p>
+<ul>
+<li>If <code>a[j] &gt;= pivot</code>, then just <code>j++</code>;</li>
+<li>If <code>a[j] &lt; pivot</code>, then <code>swap(i, j)</code>, <code>i++, j++</code>;</li>
+<li>When <code>j</code> reaches the end, <code>swap(i-i, 0)</code>, return <code>i-1</code></li>
+</ul>
+<pre><code>[3, 5, 2, 6, 1, 4]
+i---^
+j------^
+</code></pre>
+<p>swap</p>
+<pre><code>[3, 2, 5, 6, 1, 4]
+i------^
+j---------^
+</code></pre>
+<pre><code>[3, 2, 5, 6, 1, 4]
+i------^
+j------------^
+</code></pre>
+<p>swap</p>
+<pre><code>[3, 2, 1, 6, 5, 4]
+i---------^
+j------------^
+</code></pre>
+<pre><code>[3, 2, 1, 6, 5, 4]
+i---------^
+j-----------------^
+</code></pre>
+<p>then last swap and return <code>i=2</code></p>
+<pre><code>[1, 2, 3, 6, 5, 4]
+i---------^
+j-----------------^
+</code></pre>
+</li>
+</ul>
+</li>
 </ul>
 <h1 id="c-memory-mode"><a class="header" href="#c-memory-mode">C++ memory mode</a></h1>
 <ul>
@@ -1720,6 +1788,16 @@ graph TD
 </li>
 </ul>
 <p>Ref <a href="https://www.youtube.com/watch?v=XXGINjJzwZs">here</a>, <a href="https://www.youtube.com/watch?v=evXi0G3dVEQ">here</a>.</p>
+<h2 id="拖延症"><a class="header" href="#拖延症">拖延症</a></h2>
+<ol>
+<li>从低期待开始</li>
+<li>寻找成就感</li>
+<li>设定期限</li>
+<li>远离干扰</li>
+</ol>
+<blockquote>
+<p>不管你面对的事情有多么困难，你有多抵触，多害怕，都不要逃避，因为没人能帮你做。而且往往你只需要迈出那第一步，剩下的第二步、第三步、第四步，都比你想象地要轻松很多</p>
+</blockquote>
 <h2 id="health-tips"><a class="header" href="#health-tips">Health tips</a></h2>
 <ul>
 <li>Do more sports</li>
