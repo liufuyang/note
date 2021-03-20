@@ -6,6 +6,7 @@
   - [Big O notations](./algorithms/1.md)
   - [Stack and Queue](./algorithms/stack_queue.md)
   - [Divide and Conquer](./algorithms/devide_conquer.md)
+  - [Sort](./algorithms/sort.md)
 - [Rust note]()
   - [General]()
     - [C++ memory mode](./rust_note/general/cpp_memory_model.md)  
