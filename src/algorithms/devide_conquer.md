@@ -93,3 +93,22 @@ For example
 * merge sort having `a=2, b=2, d=1` so it is \\( O(n \log n)  \\), which is case 1
 * binary search having `a=1, b=2, d=0` so it is \\( O(\log n)  \\), which is case 1
 * Karatsuba Multiplication `a=3, b=2, d=1` so it is \\( O(n^{\log_2 3}) = O(n^{1.59}) \\), which is case 3
+
+A simple proof could be: At each level \\( j=0,1,2,..,log_b(n) \\), there are \\(a^j\\) subproblems, each of size \\( n \over b^j \\).
+Then the total number of operations needed to solve the whole
+problem for each level is:
+\\[
+a^j  C {\left\[\frac{n}{b^j}\right\]}^d = C n^d {\left\[\frac{a}{b^d}\right\]}^j
+\\]
+Thus the total number of the whole problem is:
+\\[
+ \text{total work} \leq \displaystyle\sum_{j=0}^{\log_b n} C n^d {\left\[\frac{a}{b^d}\right\]}^j
+\\]
+where
+* \\( a \\): rate of subproblem proliferation (`RSP`)
+* \\( b^d \\): rate of work shrinkage per subproblem (`RWS`)
+
+And we see:
+- If `RSP < RWS`, then the amount of work is decreasing with the recursion level `j`
+- If `RSP > RWS`, then the amount of work is increasing with the recursion level `j`
+- If `RSP = RWS`, then the amount of work is the same at every recursion level `j`
