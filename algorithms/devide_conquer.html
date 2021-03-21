@@ -265,6 +265,27 @@ O(n^{\log_{b}{a} }) &amp; \quad \text{if } a &gt; b^d \text{ (Case 3)}
 <li>binary search having <code>a=1, b=2, d=0</code> so it is \( O(\log n)  \), which is case 1</li>
 <li>Karatsuba Multiplication <code>a=3, b=2, d=1</code> so it is \( O(n^{\log_2 3}) = O(n^{1.59}) \), which is case 3</li>
 </ul>
+<p>A simple proof could be: At each level \( j=0,1,2,..,log_b(n) \), there are \(a^j\) subproblems, each of size \( n \over b^j \).
+Then the total number of operations needed to solve the whole
+problem for each level is:
+\[
+a^j  C {\left[\frac{n}{b^j}\right]}^d = C n^d {\left[\frac{a}{b^d}\right]}^j
+\]
+Thus the total number of the whole problem is:
+\[
+\text{total work} \leq \displaystyle\sum_{j=0}^{\log_b n} C n^d {\left[\frac{a}{b^d}\right]}^j
+\]
+where</p>
+<ul>
+<li>\( a \): rate of subproblem proliferation (<code>RSP</code>)</li>
+<li>\( b^d \): rate of work shrinkage per subproblem (<code>RWS</code>)</li>
+</ul>
+<p>And we see:</p>
+<ul>
+<li>If <code>RSP &lt; RWS</code>, then the amount of work is decreasing with the recursion level <code>j</code></li>
+<li>If <code>RSP &gt; RWS</code>, then the amount of work is increasing with the recursion level <code>j</code></li>
+<li>If <code>RSP = RWS</code>, then the amount of work is the same at every recursion level <code>j</code></li>
+</ul>
 
                     </main>
 
