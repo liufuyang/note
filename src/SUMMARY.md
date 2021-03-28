@@ -22,3 +22,4 @@
 - [Good Tips]()
   - [Some Markdown Tips](./sub/topic_1.md)
   - [Life Tips](./sub/life_tips.md)
+  - [Career Tips](./sub/career_tips.md)
