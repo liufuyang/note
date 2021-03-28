@@ -7,6 +7,7 @@
   - [Stack and Queue](./algorithms/stack_queue.md)
   - [Divide and Conquer](./algorithms/devide_conquer.md)
   - [Sort](./algorithms/sort.md)
+  - [Dynamic programming](./algorithms/dynamic_programming.md)
 - [Rust note]()
   - [General]()
     - [C++ memory mode](./rust_note/general/cpp_memory_model.md)  
