@@ -100,7 +100,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="note.html"><strong aria-hidden="true">1.</strong> Note</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="note_1/1.html"><strong aria-hidden="true">1.1.</strong> Note 1</a></li></ol></li><li class="chapter-item expanded "><a href="algorithms.html"><strong aria-hidden="true">2.</strong> Algorithms</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="algorithms/1.html"><strong aria-hidden="true">2.1.</strong> Big O notations</a></li><li class="chapter-item expanded "><a href="algorithms/stack_queue.html"><strong aria-hidden="true">2.2.</strong> Stack and Queue</a></li><li class="chapter-item expanded "><a href="algorithms/devide_conquer.html"><strong aria-hidden="true">2.3.</strong> Divide and Conquer</a></li><li class="chapter-item expanded "><a href="algorithms/sort.html"><strong aria-hidden="true">2.4.</strong> Sort</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> Rust note</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">3.1.</strong> General</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="rust_note/general/cpp_memory_model.html"><strong aria-hidden="true">3.1.1.</strong> C++ memory mode</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.2.</strong> Note from courses</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="rust_note/courses/pattern_matching.html"><strong aria-hidden="true">3.2.1.</strong> Pattern matching</a></li><li class="chapter-item expanded "><a href="rust_note/courses/smart_pointers.html"><strong aria-hidden="true">3.2.2.</strong> Smart pointers</a></li><li class="chapter-item expanded "><a href="rust_note/courses/string.html"><strong aria-hidden="true">3.2.3.</strong> String</a></li></ol></li><li class="chapter-item expanded "><a href="rust_note/tokio.html"><strong aria-hidden="true">3.3.</strong> Note for tokio dev</a></li><li class="chapter-item expanded "><a href="rust_note/resources.html"><strong aria-hidden="true">3.4.</strong> Resources</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> Tech notes</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="tech/network_programming.html"><strong aria-hidden="true">4.1.</strong> Network Programming</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.</strong> Good Tips</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="sub/topic_1.html"><strong aria-hidden="true">5.1.</strong> Some Markdown Tips</a></li><li class="chapter-item expanded "><a href="sub/life_tips.html"><strong aria-hidden="true">5.2.</strong> Life Tips</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="note.html"><strong aria-hidden="true">1.</strong> Note</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="note_1/1.html"><strong aria-hidden="true">1.1.</strong> Note 1</a></li></ol></li><li class="chapter-item expanded "><a href="algorithms.html"><strong aria-hidden="true">2.</strong> Algorithms</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="algorithms/1.html"><strong aria-hidden="true">2.1.</strong> Big O notations</a></li><li class="chapter-item expanded "><a href="algorithms/stack_queue.html"><strong aria-hidden="true">2.2.</strong> Stack and Queue</a></li><li class="chapter-item expanded "><a href="algorithms/devide_conquer.html"><strong aria-hidden="true">2.3.</strong> Divide and Conquer</a></li><li class="chapter-item expanded "><a href="algorithms/sort.html"><strong aria-hidden="true">2.4.</strong> Sort</a></li><li class="chapter-item expanded "><a href="algorithms/dynamic_programming.html"><strong aria-hidden="true">2.5.</strong> Dynamic programming</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> Rust note</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">3.1.</strong> General</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="rust_note/general/cpp_memory_model.html"><strong aria-hidden="true">3.1.1.</strong> C++ memory mode</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.2.</strong> Note from courses</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="rust_note/courses/pattern_matching.html"><strong aria-hidden="true">3.2.1.</strong> Pattern matching</a></li><li class="chapter-item expanded "><a href="rust_note/courses/smart_pointers.html"><strong aria-hidden="true">3.2.2.</strong> Smart pointers</a></li><li class="chapter-item expanded "><a href="rust_note/courses/string.html"><strong aria-hidden="true">3.2.3.</strong> String</a></li></ol></li><li class="chapter-item expanded "><a href="rust_note/tokio.html"><strong aria-hidden="true">3.3.</strong> Note for tokio dev</a></li><li class="chapter-item expanded "><a href="rust_note/resources.html"><strong aria-hidden="true">3.4.</strong> Resources</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> Tech notes</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="tech/network_programming.html"><strong aria-hidden="true">4.1.</strong> Network Programming</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.</strong> Good Tips</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="sub/topic_1.html"><strong aria-hidden="true">5.1.</strong> Some Markdown Tips</a></li><li class="chapter-item expanded "><a href="sub/life_tips.html"><strong aria-hidden="true">5.2.</strong> Life Tips</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -690,6 +690,104 @@ j-----------------^
 </ul>
 </li>
 </ul>
+<h1 id="dynamic-programming"><a class="header" href="#dynamic-programming">Dynamic programming</a></h1>
+<h2 id="fibonacci"><a class="header" href="#fibonacci">Fibonacci</a></h2>
+<h3 id="recursion---exponential-waste"><a class="header" href="#recursion---exponential-waste">Recursion - Exponential waste</a></h3>
+<p>A novice programmer might implement a recersion like this below. But it has a problem called <code>expoential waste</code>.</p>
+<pre><code class="language-java">public class FibonacciR
+{
+  public static long F(int n)
+  {
+    if (n == 0) return 0;
+    if (n == 1) return 1;
+    return F(n-1) + F(n-2);
+  }
+  public static void main(String[] args)
+  {
+    int n = Integer.parseInt(args[0]);
+    StdOut.println(F(n));
+  }
+}
+</code></pre>
+<p>The issue of the recursion above is that there are many duplicated calculations performed.
+So the core of the algorithms of opertimization is to reduced the number of operations.
+And since we have many calculation already done so there should be a way to save the 
+results, then later calculations can use the previous calculatined values.</p>
+<p>This could be the core idea of <code>Dynamic programming</code>.</p>
+<h3 id="avoiding-exponential-waste"><a class="header" href="#avoiding-exponential-waste">Avoiding exponential waste</a></h3>
+<p>Memoization</p>
+<ul>
+<li>Maintain an array <code>memo[]</code> to
+remember all computed values.</li>
+<li>If value known, just return it.</li>
+<li>Otherwise, compute it, remember
+it, and then return it.</li>
+</ul>
+<pre><code class="language-java">public class FibonacciM
+{
+ static long[] memo = new long[100];
+ public static long F(int n)
+ {
+  if (n == 0) return 0;
+  if (n == 1) return 1;
+  if (memo[n] == 0)
+    memo[n] = F(n-1) + F(n-2);
+  return memo[n];
+ }
+ public static void main(String[] args)
+ {
+  int n = Integer.parseInt(args[0]);
+  StdOut.println(F(n));
+ }
+}
+</code></pre>
+<h2 id="dynamic-programming-1"><a class="header" href="#dynamic-programming-1">Dynamic programming</a></h2>
+<p>Dynamic programming.</p>
+<ul>
+<li>Build computation from the <strong>&quot;bottom up&quot;</strong>.</li>
+<li>Solve small subproblems and save solutions.</li>
+<li>Use those solutions to build bigger solutions.</li>
+</ul>
+<pre><code class="language-java">public class Fibonacci
+{
+  public static void main(String[] args)
+  {
+    int n = Integer.parseInt(args[0]);
+    long[] F = new long[n+1];
+    F[0] = 0; F[1] = 1;
+    for (int i = 2; i &lt;= n; i++)
+      F[i] = F[i-1] + F[i-2];
+    StdOut.println(F[n]);
+  }
+}
+</code></pre>
+<h3 id="dp-example-longest-common-subsequence-lcs"><a class="header" href="#dp-example-longest-common-subsequence-lcs">DP example: Longest common subsequence (LCS)</a></h3>
+<p><img src="https://user-images.githubusercontent.com/161689/112751290-78a3cb00-8fcd-11eb-9225-5c8f086e3cd0.png" alt="image" /></p>
+<p><img src="https://user-images.githubusercontent.com/161689/112751326-a5f07900-8fcd-11eb-8cc9-f93de888ab5f.png" alt="image" /></p>
+<p><img src="https://user-images.githubusercontent.com/161689/112751344-bdc7fd00-8fcd-11eb-95b8-e5cf29b7f606.png" alt="image" /></p>
+<h3 id="lcs-length-implementation"><a class="header" href="#lcs-length-implementation">LCS length implementation</a></h3>
+<pre><code class="language-java">public class LCS
+{
+  public static void main(String[] args)
+  {
+    String s = args[0];
+    String t = args[1];
+    int M = s.length();
+    int N = t.length();
+    int[][] opt = new int[M+1][N+1];
+    for (int i = M-1; i &gt;= 0; i--)
+      for (int j = N-1; j &gt;= 0; j--)
+        if (s.charAt(i) == t.charAt(j))
+          opt[i][j] = opt[i+1][j+1] + 1;
+        else
+          opt[i][j] = Math.max(opt[i+1][j], opt[i][j+1]);
+    System.out.println(opt[0][0]);
+ }
+}
+</code></pre>
+<p><img src="https://user-images.githubusercontent.com/161689/112755860-e0184580-8fe2-11eb-9291-37f63af490d9.png" alt="image" /></p>
+<p>More notes will come when the alg course touches on dynamic programming later. The above content are from the Princeton's 
+course <em>Computer Science: Programming with a Purpose</em>.</p>
 <h1 id="c-memory-mode"><a class="header" href="#c-memory-mode">C++ memory mode</a></h1>
 <ul>
 <li>[[Video Link]](https://www.youtube.com/watch?v=OyNG4qiWnmU)</li>
