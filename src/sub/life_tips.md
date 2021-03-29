@@ -29,3 +29,6 @@ Ref [here](https://www.youtube.com/watch?v=XXGINjJzwZs), [here](https://www.yout
 
 ## Health tips
 * Do more sports
+
+## Happier tips
+* When bored, reach out to a good friend, some family menber, or a memtor for a chat.
