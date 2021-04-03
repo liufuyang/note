@@ -623,15 +623,13 @@ where</p>
 <li>If <code>RSP = RWS</code>, then the amount of work is the same at every recursion level <code>j</code></li>
 </ul>
 <h1 id="sort"><a class="header" href="#sort">Sort</a></h1>
-<ul>
-<li><strong>Merge sort</strong>
+<h2 id="merge-sort"><a class="header" href="#merge-sort">Merge sort</a></h2>
 <ul>
 <li>\( n \log(n) \) in worst case</li>
 <li>a <code>stable</code> sort (sort by column A, then sort by column B, then for the same B, order of A preserves)</li>
 <li>simple to understand, divide and conquer (or bottom up to avoid recursion); <code>log(n)</code> levels, and each level's merge takes <code>n</code> operation, thus \( n \log(n) \)  will do</li>
 </ul>
-</li>
-<li><strong>Quick sort</strong>
+<h2 id="quick-sort"><a class="header" href="#quick-sort"><strong>Quick sort</strong></a></h2>
 <ul>
 <li>
 <p>\( n \log(n) \) in worst case</p>
@@ -644,8 +642,9 @@ where</p>
 <p>make sure an element's left are all smaller (or equal to) it, and the
 right part are all bigger than it (let's called it <code>partitioned</code>); then continue to sort both on left and right part;</p>
 </li>
-<li>
-<p>to make an array <code>partitioned</code> by, for eg. the first element: <br></p>
+</ul>
+<h3 id="quick-sort-partition"><a class="header" href="#quick-sort-partition">Quick sort partition</a></h3>
+<p>To make an array <code>partitioned</code> by, for eg. the first element: <br></p>
 <pre><code>[3, 5, 2, 6, 1, 4]
 i---^
 j---^
@@ -657,7 +656,7 @@ j---^
 <ul>
 <li>If <code>a[j] &gt;= pivot</code>, then just <code>j++</code>;</li>
 <li>If <code>a[j] &lt; pivot</code>, then <code>swap(i, j)</code>, <code>i++, j++</code>;</li>
-<li>When <code>j</code> reaches the end, <code>swap(i-i, 0)</code>, return <code>i-1</code></li>
+<li>When <code>j</code> reaches the end, <code>swap(i-1, 0)</code>, return <code>i-1</code></li>
 </ul>
 <pre><code>[3, 5, 2, 6, 1, 4]
 i---^
@@ -686,10 +685,17 @@ j-----------------^
 i---------^
 j-----------------^
 </code></pre>
-</li>
-</ul>
-</li>
-</ul>
+<h3 id="quick-sort-pivot-choose"><a class="header" href="#quick-sort-pivot-choose">Quick sort pivot choose</a></h3>
+<p>If an input array is already sorted, simply choose pivod as the first element
+of the array will result the running time of quick sort to be \( n^2 \).
+That is not quick.</p>
+<p>So if some <em>&quot;maigc&quot;</em> method out there can always choose the midiean value 
+as the pivot, then the quick sort running back falls back to \( n \log(n) \).</p>
+<p>A common way is to choose a <strong>random</strong> element as pivot.
+So with <strong>Random Pivot</strong> implemented, it can be approved 
+that the total number of comparisons of quik-sort 
+algorithms is equal or less than   \( 2 n \ln(n) \), 
+appriximately.</p>
 <h1 id="dynamic-programming"><a class="header" href="#dynamic-programming">Dynamic programming</a></h1>
 <h2 id="fibonacci"><a class="header" href="#fibonacci">Fibonacci</a></h2>
 <h3 id="recursion---exponential-waste"><a class="header" href="#recursion---exponential-waste">Recursion - Exponential waste</a></h3>
