@@ -8,7 +8,7 @@
   - [Divide and Conquer](./algorithms/devide_conquer.md)
   - [Sort](./algorithms/sort.md)
   - [Dynamic programming](./algorithms/dynamic_programming.md)
-- [Rust note]()
+- [Rust note](./rust_note/rust.md)
   - [General]()
     - [C++ memory mode](./rust_note/general/cpp_memory_model.md)  
   - [Note from courses]()
