@@ -72,5 +72,98 @@ as the pivot, then the quick sort running back falls back to \\( n \log(n) \\).
 A common way is to choose a **random** element as pivot.
 So with **Random Pivot** implemented, it can be approved 
 that the total number of comparisons of quik-sort 
-algorithms is equal or less than   \\( 2 n \ln(n) \\), 
+algorithms is equal or less than  \\( 2 n \ln(n) \\), 
 appriximately.
+
+So quick sort will have more comparisions than merge sort,
+but as it needs no extra memory, so it is generally faster
+than merge sort.
+
+### Quick sort partition can be tricky
+Many textbook implementations go quadratic if array
+* Is sorted or reverse sorted
+* Has many duplicates (even if randomized) (the standford course impl perhaps?)
+
+### Quick sort practical improvements 
+* Median of sample
+  * Best choice of pivot item = median
+  * Estimate true median by taking median of sample
+  * Median-of-3 (random) items (which is also used in Rust's quicksort code)
+
+### Quick select
+
+The expected running time to find the median (or the kth largest value) of an array of nn distinct keys using randomized quickselect is *linear*.
+
+### Duplicated keys - 3-way partition
+Simply put all equal values together 
+* 3-way partitioning: Goal - partition array into 3 parts
+  - lo, lt, gt, hi
+  - start with `lt=lo+1, gt=lo+1`
+  - end with `hi` goes out length range
+
+For each step:<br>
+  * If `a[hi] > pivot`, then just `hi++`;
+  * If `a[hi] == pivot`, then `swap(gt, hi)`, `gt++, hi++`
+  * If `a[hi] < pivot`, then `swap(gt, hi)`,  `swap(lt, gt)`, `lt++, gt++, hi++`;
+  * When `hi` reaches the end, `swap(lt-1, 0)`, return `lt-1, gt`
+```
+[3, 2, 1, 3, 3, 5, 6, 3, 1]
+lt--------^
+gt--------------^
+hi-----------------^
+```
+```
+[3, 2, 1, 3, 3, 5, 6, 3, 1]
+lt--------^
+gt--------------^
+hi--------------------^
+```
+```
+[3, 2, 1, 3, 3, 3, 6, 5, 1]
+lt--------^
+gt-----------------^
+hi--------------------^
+```
+```
+[3, 2, 1, 3, 3, 3, 6, 5, 1]
+lt--------^
+gt-----------------^
+hi-----------------------^
+```
+`swap(gt, hi)`
+```
+[3, 2, 1, 3, 3, 3, 1, 5, 6]
+lt--------^
+gt-----------------^
+hi-----------------------^
+```
+`swap(lt, gt)`
+```
+[3, 2, 1, 1, 3, 3, 3, 5, 6]
+lt--------^
+gt-----------------^
+hi-----------------------^
+```
+`lt++, gt++, hi++`
+```
+[3, 2, 1, 1, 3, 3, 3, 5, 6]
+lt-----------^
+gt--------------------^
+hi--------------------------^
+```
+
+Or a "from two end" approach could be like this:
+
+![image](https://user-images.githubusercontent.com/161689/113506443-35a1a480-9545-11eb-8772-e2066045a12e.png)
+
+### Bottom line
+Randomized quicksort with 3-way partitioning reduced running time from linearithmic to liner in broad class of applications.
+
+### Java Implementation
+`Arrays.sort()` in Java use mergesort instead of quicksort when sorting *reference types*, as it is **stable** and guarantees \\( n \log(n) \\) performance
+
+### Tukey's ninther
+Median of the median of 3 samples.
+Approximates the median of 9 evenly spaced entries. Uses at most 12 compares.
+
+Seems used in Rust's quicksort as well.
