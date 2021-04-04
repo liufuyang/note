@@ -694,8 +694,95 @@ as the pivot, then the quick sort running back falls back to \( n \log(n) \).</p
 <p>A common way is to choose a <strong>random</strong> element as pivot.
 So with <strong>Random Pivot</strong> implemented, it can be approved 
 that the total number of comparisons of quik-sort 
-algorithms is equal or less than   \( 2 n \ln(n) \), 
+algorithms is equal or less than  \( 2 n \ln(n) \), 
 appriximately.</p>
+<p>So quick sort will have more comparisions than merge sort,
+but as it needs no extra memory, so it is generally faster
+than merge sort.</p>
+<h3 id="quick-sort-partition-can-be-tricky"><a class="header" href="#quick-sort-partition-can-be-tricky">Quick sort partition can be tricky</a></h3>
+<p>Many textbook implementations go quadratic if array</p>
+<ul>
+<li>Is sorted or reverse sorted</li>
+<li>Has many duplicates (even if randomized) (the standford course impl perhaps?)</li>
+</ul>
+<h3 id="quick-sort-practical-improvements"><a class="header" href="#quick-sort-practical-improvements">Quick sort practical improvements</a></h3>
+<ul>
+<li>Median of sample
+<ul>
+<li>Best choice of pivot item = median</li>
+<li>Estimate true median by taking median of sample</li>
+<li>Median-of-3 (random) items (which is also used in Rust's quicksort code)</li>
+</ul>
+</li>
+</ul>
+<h3 id="quick-select"><a class="header" href="#quick-select">Quick select</a></h3>
+<p>The expected running time to find the median (or the kth largest value) of an array of nn distinct keys using randomized quickselect is <em>linear</em>.</p>
+<h3 id="duplicated-keys---3-way-partition"><a class="header" href="#duplicated-keys---3-way-partition">Duplicated keys - 3-way partition</a></h3>
+<p>Simply put all equal values together </p>
+<ul>
+<li>3-way partitioning: Goal - partition array into 3 parts
+<ul>
+<li>lo, lt, gt, hi</li>
+<li>start with <code>lt=lo+1, gt=lo+1</code></li>
+<li>end with <code>hi</code> goes out length range</li>
+</ul>
+</li>
+</ul>
+<p>For each step:<br></p>
+<ul>
+<li>If <code>a[hi] &gt; pivot</code>, then just <code>hi++</code>;</li>
+<li>If <code>a[hi] == pivot</code>, then <code>swap(gt, hi)</code>, <code>gt++, hi++</code></li>
+<li>If <code>a[hi] &lt; pivot</code>, then <code>swap(gt, hi)</code>,  <code>swap(lt, gt)</code>, <code>lt++, gt++, hi++</code>;</li>
+<li>When <code>hi</code> reaches the end, <code>swap(lt-1, 0)</code>, return <code>lt-1, gt</code></li>
+</ul>
+<pre><code>[3, 2, 1, 3, 3, 5, 6, 3, 1]
+lt--------^
+gt--------------^
+hi-----------------^
+</code></pre>
+<pre><code>[3, 2, 1, 3, 3, 5, 6, 3, 1]
+lt--------^
+gt--------------^
+hi--------------------^
+</code></pre>
+<pre><code>[3, 2, 1, 3, 3, 3, 6, 5, 1]
+lt--------^
+gt-----------------^
+hi--------------------^
+</code></pre>
+<pre><code>[3, 2, 1, 3, 3, 3, 6, 5, 1]
+lt--------^
+gt-----------------^
+hi-----------------------^
+</code></pre>
+<p><code>swap(gt, hi)</code></p>
+<pre><code>[3, 2, 1, 3, 3, 3, 1, 5, 6]
+lt--------^
+gt-----------------^
+hi-----------------------^
+</code></pre>
+<p><code>swap(lt, gt)</code></p>
+<pre><code>[3, 2, 1, 1, 3, 3, 3, 5, 6]
+lt--------^
+gt-----------------^
+hi-----------------------^
+</code></pre>
+<p><code>lt++, gt++, hi++</code></p>
+<pre><code>[3, 2, 1, 1, 3, 3, 3, 5, 6]
+lt-----------^
+gt--------------------^
+hi--------------------------^
+</code></pre>
+<p>Or a &quot;from two end&quot; approach could be like this:</p>
+<p><img src="https://user-images.githubusercontent.com/161689/113506443-35a1a480-9545-11eb-8772-e2066045a12e.png" alt="image" /></p>
+<h3 id="bottom-line"><a class="header" href="#bottom-line">Bottom line</a></h3>
+<p>Randomized quicksort with 3-way partitioning reduced running time from linearithmic to liner in broad class of applications.</p>
+<h3 id="java-implementation"><a class="header" href="#java-implementation">Java Implementation</a></h3>
+<p><code>Arrays.sort()</code> in Java use mergesort instead of quicksort when sorting <em>reference types</em>, as it is <strong>stable</strong> and guarantees \( n \log(n) \) performance</p>
+<h3 id="tukeys-ninther"><a class="header" href="#tukeys-ninther">Tukey's ninther</a></h3>
+<p>Median of the median of 3 samples.
+Approximates the median of 9 evenly spaced entries. Uses at most 12 compares.</p>
+<p>Seems used in Rust's quicksort as well.</p>
 <h1 id="dynamic-programming"><a class="header" href="#dynamic-programming">Dynamic programming</a></h1>
 <h2 id="fibonacci"><a class="header" href="#fibonacci">Fibonacci</a></h2>
 <h3 id="recursion---exponential-waste"><a class="header" href="#recursion---exponential-waste">Recursion - Exponential waste</a></h3>
