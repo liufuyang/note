@@ -167,3 +167,7 @@ Median of the median of 3 samples.
 Approximates the median of 9 evenly spaced entries. Uses at most 12 compares.
 
 Seems used in Rust's quicksort as well.
+
+## Summary
+
+![image](https://user-images.githubusercontent.com/161689/113548826-80c4c180-95f0-11eb-81e7-d9d4162c1e5d.png)
