@@ -2,7 +2,7 @@
 
 - [Note](./note.md)
   - [Note 1](./note_1/1.md) 
-- [Algorithms](./algorithms.md)
+- [Algorithms](./algorithms/algorithms.md)
   - [Big O notations](./algorithms/1.md)
   - [Stack and Queue](./algorithms/stack_queue.md)
   - [Divide and Conquer](./algorithms/devide_conquer.md)
@@ -23,3 +23,8 @@
   - [Some Markdown Tips](./sub/topic_1.md)
   - [Life Tips](./sub/life_tips.md)
   - [Career Tips](./sub/career_tips.md)
+- [Swedish Learning](./swedish/readme.md)
+  - [TV Show - Huss](./swedish/shows/huss/huss.md)
+    - [Säsong 1 - Avsnitt 1](./swedish/shows/huss/s1a1.md)
+- [Food and Drink]()
+  - [Cheese study](./food_and_drink/cheese.md)

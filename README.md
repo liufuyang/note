@@ -6,7 +6,8 @@ https://liufuyang.github.io/note
 ## How to update my note:
 https://rust-lang.github.io/mdBook
 
-* `mdbook serve --dest-dir docs`
+* `cargo install mdbook-mermaid mdbook` if not installed
+* `mdbook serve --dest-dir docs` or `./dev.sh`
 * Edit content
-* Then perhaps build again `mdbook build --dest-dir docs`
-* Then push 
+* Build locally if you want `mdbook build --dest-dir docs`
+* Other wise push to let github action build github pages 
