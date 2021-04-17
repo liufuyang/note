@@ -66,6 +66,11 @@ With plugin:
 ```
 `let mapleader = ","` can set leader key as `,`
 
+## Turn off search highlight
+```
+:noh
+```
+
 ## Plugin NERDTree
 ```
 ,t      focus on tree view
@@ -78,4 +83,13 @@ F5               refresh files
 Ctrl-p           open serach
 Ctrl-p Ctrl-s/v  open in new window
 Ctrl-p Ctrl-t    open in new tab
+
+Ctrl-b           only search in buffered files
+                 # above command is customized via setting:
+                 # nnoremap <C-b> :CtrlPBuffer<CR> 
+```
+
+## Customized COC shortcut
+```
+Ctrl-l     reformat file
 ```
