@@ -1,7 +1,8 @@
 # Summary
 
 - [Note](./note.md)
-  - [Note 1](./note_1/1.md) 
+  - [Note 1](./note/1.md)
+  - [ToDo](./note/todo.md)
 - [Algorithms](./algorithms/algorithms.md)
   - [Big O notations](./algorithms/1.md)
   - [Stack and Queue](./algorithms/stack_queue.md)
@@ -19,6 +20,8 @@
   - [Resources](./rust_note/resources.md)
 - [Tech notes]()
   - [Network Programming](./tech/network_programming.md)
+- [Efficiency Hack]()
+  - [Vi editor tips](./efficiency/vi.md)
 - [Good Tips]()
   - [Some Markdown Tips](./sub/topic_1.md)
   - [Life Tips](./sub/life_tips.md)
