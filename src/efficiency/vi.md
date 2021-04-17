@@ -84,12 +84,12 @@ Ctrl-p           open serach
 Ctrl-p Ctrl-s/v  open in new window
 Ctrl-p Ctrl-t    open in new tab
 
-Ctrl-b           only search in buffered files
+Ctrl-b           🔧 only search in buffered files
                  # above command is customized via setting:
                  # nnoremap <C-b> :CtrlPBuffer<CR> 
 ```
 
-## Customized COC shortcut
+## 🔧 Customized COC shortcut
 ```
-Ctrl-l     reformat file
+Ctrl-l     🔧 reformat file
 ```
