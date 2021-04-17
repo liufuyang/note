@@ -1977,6 +1977,9 @@ gt3        move to tab number 3
 [count]&lt;leader&gt;c&lt;space&gt; |NERDCommenterToggle|  Comment Toggle
 </code></pre>
 <p><code>let mapleader = &quot;,&quot;</code> can set leader key as <code>,</code></p>
+<h2 id="turn-off-search-highlight"><a class="header" href="#turn-off-search-highlight">Turn off search highlight</a></h2>
+<pre><code>:noh
+</code></pre>
 <h2 id="plugin-nerdtree"><a class="header" href="#plugin-nerdtree">Plugin NERDTree</a></h2>
 <pre><code>,t      focus on tree view
 Ctrl-t  toggle tree view
@@ -1986,6 +1989,13 @@ Ctrl-t  toggle tree view
 Ctrl-p           open serach
 Ctrl-p Ctrl-s/v  open in new window
 Ctrl-p Ctrl-t    open in new tab
+
+Ctrl-b           only search in buffered files
+                 # above command is customized via setting:
+                 # nnoremap &lt;C-b&gt; :CtrlPBuffer&lt;CR&gt; 
+</code></pre>
+<h2 id="customized-coc-shortcut"><a class="header" href="#customized-coc-shortcut">Customized COC shortcut</a></h2>
+<pre><code>Ctrl-l     reformat file
 </code></pre>
 <h1 id="some-markdown-tips"><a class="header" href="#some-markdown-tips">Some Markdown Tips</a></h1>
 <p>Simply write sub topics here.</p>
