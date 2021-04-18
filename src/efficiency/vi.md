@@ -39,6 +39,17 @@ tX  til next 'X' (similar to above, but cursor is before X)
 TX  til previous 'X' (cursor is behind X)
 ```
 
+## Copy Paste stuff
+
+How to select a word, copy it and replace another word.
+```
+yiw	    Yank inner word (copy word under cursor, say "first").
+...	    Move the cursor to another word (say "second").
+viwp	Select "second", then replace it with "first".
+...	    Move the cursor to another word (say "third").
+viw"0p	Select "third", then replace it with "first".
+```
+
 ## Window and Tab
 ```
 Ctrl-W s   split window horiontally, can be used with ctrlpvim after Ctrl-P to open file
@@ -65,8 +76,14 @@ With plugin:
 [count]<leader>cc |NERDCommenterComment|   Comment out the current line or text selected in visual mode.
 [count]<leader>cn |NERDCommenterNested|    Same as cc but forces nesting.
 [count]<leader>c<space> |NERDCommenterToggle|  Comment Toggle
+
+[count] gcc     🔧 comment toggle, need a special setup, see my mac-settings repo's config files.
 ```
-`let mapleader = ","` can set leader key as `,`
+
+To make it work with IntelliJ with the ideavim plugin, some config is needed to turn comment feature on.
+
+`let mapleader = ","` can set leader key as `,`; then add `set commentary` will do.
+If in IntelliJ with the ideavim plugin, use `gcc` to comment.
 
 ## Turn off search highlight
 ```
