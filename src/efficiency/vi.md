@@ -48,6 +48,36 @@ yiw	    Yank inner word (copy word under cursor, say "first").
 viwp	Select "second", then replace it with "first".
 ...	    Move the cursor to another word (say "third").
 viw"0p	Select "third", then replace it with "first".
+
+🔥 Copy a word and paste it over other words:
+
+yiw	    Yank inner word (copy word under cursor, say "first").
+...	    Move the cursor to another word (say "second").
+ciw Ctrl-R 0 Esc	🔥Change "second", replacing it with "first".
+...	    Move the cursor to another word (say "third").
+.	    Repeat the operation (change word and replace it with "first").
+...	    Move the cursor to another word and press . to repeat the change.
+
+Copy text in quotes, and paste it over other quoted text:
+
+yi"	    Yank inner text (text containing cursor which is in quotes).
+...	    Move the cursor to other quoted text.
+ci" Ctrl-R 0 Esc	🔥Change the quoted text, replacing it with the copied text.
+...	    Move the cursor to more quoted text.
+.	    Repeat the operation (change the quoted text and replace it with the copy).
+...	    Move the cursor to more quoted text and press . to repeat the change.
+
+Copy a line and paste it over other lines:
+
+yy	    Yank current line (say "first line").
+...	    Move the cursor to another line (say "second line").
+Vp	    Select "second line", then replace it with "first line".
+...	    Move the cursor to another line (say "third line").
+V"0p    Select "third line", then replace it with "first line".
+
+Deleting, changing and yanking text copies the affected text to the unnamed register (""). Yanking text also copies the text to register 0 ("0). So the command yiw copies the current word to "" and to "0.
+
+yl /vy/xu     Yank current character. Composing the yank operation with the so often used "one character to the right" motion
 ```
 
 ## Window and Tab
@@ -147,15 +177,23 @@ K          show documentation
 
 # Tmux
 
-## Window
+## Window and Pane
 ```
 Ctrl-b c      create window
 Ctrl-b n/p    go to next or previous window
 Ctrl-b w      list all windows
+Ctrl-b 0/1..  go to window number 0/1/...
 
 Ctrl-b %      split horisontal pane
 Ctrl-b "      split vertical pane
 Ctrl-b o      go to next pane
+```
 
+## Tmux Session
+```
+tmux new -s <name>   create new session
+Ctrl-b d             detach session
+Ctrl-b x             kill current session
+tmux ls              list sessions
 ```
 
