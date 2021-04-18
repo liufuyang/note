@@ -46,6 +46,8 @@ Ctrl-W v   split window vertically, can be used with ctrlpvim after Ctrl-P to op
 
 Ctrl-W l   jump to the window on the right
 
+Ctrl-W x   switch current window with next one
+
 gt         move to the tab after
 gT         move to the tab before
 gt3        move to tab number 3
@@ -75,6 +77,9 @@ With plugin:
 ```
 ,t      focus on tree view
 Ctrl-t  toggle tree view
+
+Ctrl-j  🔧 customized - :NERDTreeFind
+,n      🔧 customized - :NERDTreeFind
 ```
 
 ## PlugIn CtrlP to find and open files
@@ -89,7 +94,23 @@ Ctrl-b           🔧 only search in buffered files
                  # nnoremap <C-b> :CtrlPBuffer<CR> 
 ```
 
+## PlugIn VimTest
+```
+Plug 'vim-test/vim-test'
+https://github.com/vim-test/vim-test
+:TestNearest run nearest test
+:TestFile    run all test in file
+:TestSuite   run the whole test suite
+:TestLast    run last test
+:TestVisit   visit the test file from which you last run your tests
+```
+
 ## 🔧 Customized COC shortcut
 ```
 Ctrl-l     🔧 reformat file
+
+gb         🔧 go to definition
+gy         🔧 go to type definition
+gi         🔧 go to implementation
+gr         🔧 references
 ```
