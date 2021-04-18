@@ -108,9 +108,15 @@ https://github.com/vim-test/vim-test
 ## 🔧 Customized COC shortcut
 ```
 Ctrl-l     🔧 reformat file
+Ctrl-space    give suggestions
 
 gb         🔧 go to definition
 gy         🔧 go to type definition
 gi         🔧 go to implementation
 gr         🔧 references
+
+gp         go to previous issue
+gå         go to next issue
+
+K          show documentation
 ```
