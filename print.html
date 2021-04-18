@@ -1988,11 +1988,15 @@ gt3        move to tab number 3
 
 [count] gcc     🔧 comment toggle, need a special setup, see my mac-settings repo's config files.
 </code></pre>
-<p>To make it work with IntelliJ with the ideavim plugin, some config is needed to turn comment feature on.</p>
-<p><code>let mapleader = &quot;,&quot;</code> can set leader key as <code>,</code>; then add <code>set commentary</code> will do.
+<p>For IntelliJ's ideavim plugin, add <code>set commentary</code> in it's config file.
 If in IntelliJ with the ideavim plugin, use <code>gcc</code> to comment.</p>
 <h2 id="turn-off-search-highlight"><a class="header" href="#turn-off-search-highlight">Turn off search highlight</a></h2>
 <pre><code>:noh
+</code></pre>
+<h2 id="spell-check-with-neovim"><a class="header" href="#spell-check-with-neovim">Spell check with NeoVim</a></h2>
+<pre><code>z=     give suggestions
+zg     add it as a good word
+zw     add it as a wrong word
 </code></pre>
 <h2 id="plugin-nerdtree"><a class="header" href="#plugin-nerdtree">Plugin NERDTree</a></h2>
 <pre><code>,t      focus on tree view
