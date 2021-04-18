@@ -80,14 +80,19 @@ With plugin:
 [count] gcc     🔧 comment toggle, need a special setup, see my mac-settings repo's config files.
 ```
 
-To make it work with IntelliJ with the ideavim plugin, some config is needed to turn comment feature on.
-
-`let mapleader = ","` can set leader key as `,`; then add `set commentary` will do.
+For IntelliJ's ideavim plugin, add `set commentary` in it's config file.
 If in IntelliJ with the ideavim plugin, use `gcc` to comment.
 
 ## Turn off search highlight
 ```
 :noh
+```
+
+## Spell check with NeoVim
+```
+z=     give suggestions
+zg     add it as a good word
+zw     add it as a wrong word
 ```
 
 ## Plugin NERDTree
