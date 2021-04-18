@@ -142,3 +142,20 @@ gå         go to next issue
 
 K          show documentation
 ```
+
+---
+
+# Tmux
+
+## Window
+```
+Ctrl-b c      create window
+Ctrl-b n/p    go to next or previous window
+Ctrl-b w      list all windows
+
+Ctrl-b %      split horisontal pane
+Ctrl-b "      split vertical pane
+Ctrl-b o      go to next pane
+
+```
+
