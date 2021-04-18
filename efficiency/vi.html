@@ -208,6 +208,14 @@ FX  fall to previous 'X' (f and F put the cursor on X)
 tX  til next 'X' (similar to above, but cursor is before X)
 TX  til previous 'X' (cursor is behind X)
 </code></pre>
+<h2 id="copy-paste-stuff"><a class="header" href="#copy-paste-stuff">Copy Paste stuff</a></h2>
+<p>How to select a word, copy it and replace another word.</p>
+<pre><code>yiw	    Yank inner word (copy word under cursor, say &quot;first&quot;).
+...	    Move the cursor to another word (say &quot;second&quot;).
+viwp	Select &quot;second&quot;, then replace it with &quot;first&quot;.
+...	    Move the cursor to another word (say &quot;third&quot;).
+viw&quot;0p	Select &quot;third&quot;, then replace it with &quot;first&quot;.
+</code></pre>
 <h2 id="window-and-tab"><a class="header" href="#window-and-tab">Window and Tab</a></h2>
 <pre><code>Ctrl-W s   split window horiontally, can be used with ctrlpvim after Ctrl-P to open file
 Ctrl-W v   split window vertically, can be used with ctrlpvim after Ctrl-P to open file
@@ -231,8 +239,12 @@ gt3        move to tab number 3
 <pre><code>[count]&lt;leader&gt;cc |NERDCommenterComment|   Comment out the current line or text selected in visual mode.
 [count]&lt;leader&gt;cn |NERDCommenterNested|    Same as cc but forces nesting.
 [count]&lt;leader&gt;c&lt;space&gt; |NERDCommenterToggle|  Comment Toggle
+
+[count] gcc     🔧 comment toggle, need a special setup, see my mac-settings repo's config files.
 </code></pre>
-<p><code>let mapleader = &quot;,&quot;</code> can set leader key as <code>,</code></p>
+<p>To make it work with IntelliJ with the ideavim plugin, some config is needed to turn comment feature on.</p>
+<p><code>let mapleader = &quot;,&quot;</code> can set leader key as <code>,</code>; then add <code>set commentary</code> will do.
+If in IntelliJ with the ideavim plugin, use <code>gcc</code> to comment.</p>
 <h2 id="turn-off-search-highlight"><a class="header" href="#turn-off-search-highlight">Turn off search highlight</a></h2>
 <pre><code>:noh
 </code></pre>
