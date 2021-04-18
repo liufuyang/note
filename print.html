@@ -1960,6 +1960,8 @@ Ctrl-W v   split window vertically, can be used with ctrlpvim after Ctrl-P to op
 
 Ctrl-W l   jump to the window on the right
 
+Ctrl-W x   switch current window with next one
+
 gt         move to the tab after
 gT         move to the tab before
 gt3        move to tab number 3
@@ -1983,6 +1985,9 @@ gt3        move to tab number 3
 <h2 id="plugin-nerdtree"><a class="header" href="#plugin-nerdtree">Plugin NERDTree</a></h2>
 <pre><code>,t      focus on tree view
 Ctrl-t  toggle tree view
+
+Ctrl-j  🔧 customized - :NERDTreeFind
+,n      🔧 customized - :NERDTreeFind
 </code></pre>
 <h2 id="plugin-ctrlp-to-find-and-open-files"><a class="header" href="#plugin-ctrlp-to-find-and-open-files">PlugIn CtrlP to find and open files</a></h2>
 <pre><code>F5               refresh files
@@ -1994,8 +1999,22 @@ Ctrl-b           🔧 only search in buffered files
                  # above command is customized via setting:
                  # nnoremap &lt;C-b&gt; :CtrlPBuffer&lt;CR&gt; 
 </code></pre>
+<h2 id="plugin-vimtest"><a class="header" href="#plugin-vimtest">PlugIn VimTest</a></h2>
+<pre><code>Plug 'vim-test/vim-test'
+https://github.com/vim-test/vim-test
+:TestNearest run nearest test
+:TestFile    run all test in file
+:TestSuite   run the whole test suite
+:TestLast    run last test
+:TestVisit   visit the test file from which you last run your tests
+</code></pre>
 <h2 id="-customized-coc-shortcut"><a class="header" href="#-customized-coc-shortcut">🔧 Customized COC shortcut</a></h2>
 <pre><code>Ctrl-l     🔧 reformat file
+
+gb         🔧 go to definition
+gy         🔧 go to type definition
+gi         🔧 go to implementation
+gr         🔧 references
 </code></pre>
 <h1 id="some-markdown-tips"><a class="header" href="#some-markdown-tips">Some Markdown Tips</a></h1>
 <p>Simply write sub topics here.</p>
