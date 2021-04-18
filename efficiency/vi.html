@@ -215,6 +215,36 @@ TX  til previous 'X' (cursor is behind X)
 viwp	Select &quot;second&quot;, then replace it with &quot;first&quot;.
 ...	    Move the cursor to another word (say &quot;third&quot;).
 viw&quot;0p	Select &quot;third&quot;, then replace it with &quot;first&quot;.
+
+🔥 Copy a word and paste it over other words:
+
+yiw	    Yank inner word (copy word under cursor, say &quot;first&quot;).
+...	    Move the cursor to another word (say &quot;second&quot;).
+ciw Ctrl-R 0 Esc	🔥Change &quot;second&quot;, replacing it with &quot;first&quot;.
+...	    Move the cursor to another word (say &quot;third&quot;).
+.	    Repeat the operation (change word and replace it with &quot;first&quot;).
+...	    Move the cursor to another word and press . to repeat the change.
+
+Copy text in quotes, and paste it over other quoted text:
+
+yi&quot;	    Yank inner text (text containing cursor which is in quotes).
+...	    Move the cursor to other quoted text.
+ci&quot; Ctrl-R 0 Esc	🔥Change the quoted text, replacing it with the copied text.
+...	    Move the cursor to more quoted text.
+.	    Repeat the operation (change the quoted text and replace it with the copy).
+...	    Move the cursor to more quoted text and press . to repeat the change.
+
+Copy a line and paste it over other lines:
+
+yy	    Yank current line (say &quot;first line&quot;).
+...	    Move the cursor to another line (say &quot;second line&quot;).
+Vp	    Select &quot;second line&quot;, then replace it with &quot;first line&quot;.
+...	    Move the cursor to another line (say &quot;third line&quot;).
+V&quot;0p    Select &quot;third line&quot;, then replace it with &quot;first line&quot;.
+
+Deleting, changing and yanking text copies the affected text to the unnamed register (&quot;&quot;). Yanking text also copies the text to register 0 (&quot;0). So the command yiw copies the current word to &quot;&quot; and to &quot;0.
+
+yl /vy/xu     Yank current character. Composing the yank operation with the so often used &quot;one character to the right&quot; motion
 </code></pre>
 <h2 id="window-and-tab"><a class="header" href="#window-and-tab">Window and Tab</a></h2>
 <pre><code>Ctrl-W s   split window horiontally, can be used with ctrlpvim after Ctrl-P to open file
@@ -294,15 +324,21 @@ K          show documentation
 </code></pre>
 <hr />
 <h1 id="tmux"><a class="header" href="#tmux">Tmux</a></h1>
-<h2 id="window"><a class="header" href="#window">Window</a></h2>
+<h2 id="window-and-pane"><a class="header" href="#window-and-pane">Window and Pane</a></h2>
 <pre><code>Ctrl-b c      create window
 Ctrl-b n/p    go to next or previous window
 Ctrl-b w      list all windows
+Ctrl-b 0/1..  go to window number 0/1/...
 
 Ctrl-b %      split horisontal pane
 Ctrl-b &quot;      split vertical pane
 Ctrl-b o      go to next pane
-
+</code></pre>
+<h2 id="tmux-session"><a class="header" href="#tmux-session">Tmux Session</a></h2>
+<pre><code>tmux new -s &lt;name&gt;   create new session
+Ctrl-b d             detach session
+Ctrl-b x             kill current session
+tmux ls              list sessions
 </code></pre>
 
                     </main>
