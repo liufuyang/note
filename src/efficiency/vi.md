@@ -5,6 +5,8 @@
 w   move to beginning of next word
 b   move to previous beginning of word
 e   move to end of word
+ge  move to previous end of word
+
 gg  move to first line
 G   move to last line
 12gg or 12G moves to line 12
@@ -15,6 +17,9 @@ _   🔥 move to first non-blank character of the line
 g_  move to last non-blank character of the line
 
 g;  🔥 jump to the place of last edit. can be quite helpful while debugging or editing files.
+
+%   move to the matching part of a (, [ or {
+[{  move to the first enclosure of { above
 
 Ctrl-D  move half-page down
 Ctrl-U  move half-page up
@@ -37,6 +42,63 @@ fX  fall onto to next 'X', in the same line (X is any character)
 FX  fall to previous 'X' (f and F put the cursor on X)
 tX  til next 'X' (similar to above, but cursor is before X)
 TX  til previous 'X' (cursor is behind X)
+```
+
+## Editing
+```
+i, a, A, o, O   into insert mode in different locations
+r, R            replace char or word
+
+,, (2 comma)    🔧 customized to add a ; at the end of the line
+                inoremap <leader>, <C-o>A;<ESC>
+                innoremap <leader>, A;<ESC>
+```
+
+## Options
+```
+:noh           turn off highlight
+:set hls       highlight all matching phrases
+:set ic        set ignore case for search
+:set noic      set not ignore case again
+:set invic     use inv to invert the option - f.g. ic here
+```
+
+## Search stuff
+```
+/              find pattern
+n              go to next found pattern
+
+:! grep -rni --include=\*.md . -e 'yank'     use a grep command to show what md files from
+                                             current directory contains word 'yank' or 'Yank'
+                                             r: recursive, n: show line number, i: ignore case
+```
+
+## Replace/Substitue stuff
+```
+To substitute new for the first old in a line type
+~~~ cmd
+        :s/old/new
+~~~
+    To substitute new for all 'old's on a line type
+
+~~~ cmd
+        :s/old/new/g
+~~~
+    To substitute phrases between two line #'s type
+
+~~~ cmd
+        :#,#s/old/new/g
+~~~
+    To substitute all occurrences in the file type
+
+~~~ cmd
+        :%s/old/new/g
+~~~
+    To ask for confirmation each time add 'c'
+
+~~~ cmd
+        :%s/old/new/gc
+~~~
 ```
 
 ## Copy Paste stuff
