@@ -68,9 +68,10 @@ r, R            replace char or word
 /              find pattern
 n              go to next found pattern
 
-:! grep -rni --include=\*.md . -e 'yank'     use a grep command to show what md files from
-                                             current directory contains word 'yank' or 'Yank'
-                                             r: recursive, n: show line number, i: ignore case
+:! grep -rin -A2 -B2 --color --include=\*.md . -e 'yank'
+                             use a grep command to show what md files from
+                             current directory contains word 'yank' or 'Yank'
+                             r: recursive, n: show line number, i: ignore case
 ```
 
 ## Replace/Substitue stuff
