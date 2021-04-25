@@ -141,9 +141,9 @@ Ctrl-p           open serach
 Ctrl-p Ctrl-s/v  open in new window
 Ctrl-p Ctrl-t    open in new tab
 
-Ctrl-b           🔧 only search in buffered files
+,p               🔧 only search in buffered files
                  # above command is customized via setting:
-                 # nnoremap <C-b> :CtrlPBuffer<CR> 
+                 # nnoremap <leader>p :CtrlPBuffer<CR> 
 ```
 
 ## PlugIn VimTest
@@ -195,5 +195,9 @@ tmux new -s <name>   create new session
 Ctrl-b d             detach session
 Ctrl-b x             kill current session
 tmux ls              list sessions
+
+tmux kill-session -t [name]
+tmux rename-session [-t current-name] [new-name]
+Ctrl-b $             to rename session while in tmux
 ```
 

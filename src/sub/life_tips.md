@@ -19,6 +19,12 @@
   
 Ref [here](https://www.youtube.com/watch?v=XXGINjJzwZs), [here](https://www.youtube.com/watch?v=evXi0G3dVEQ).
 
+## Daily Goal
+* Plan entertaining hours, delay gratification
+* Try fight with social media / Youtube addiction
+* Read more books, write more notes, eat less in the afternoons
+* Regular fasting
+
 ## 拖延症
 
 1. 从低期待开始

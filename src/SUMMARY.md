@@ -20,6 +20,8 @@
   - [Resources](./rust_note/resources.md)
 - [Tech notes]()
   - [Network Programming](./tech/network_programming.md)
+  - [Java](./tech/java/java.md)
+    - [Scheduler stuff](./tech/java/scheduler.md)
 - [Efficiency Hack]()
   - [Vi editor tips](./efficiency/vi.md)
 - [Good Tips]()
