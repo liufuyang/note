@@ -33,3 +33,4 @@
     - [Säsong 1 - Avsnitt 1](./swedish/shows/huss/s1a1.md)
 - [Food and Drink]()
   - [Cheese study](./food_and_drink/cheese.md)
+  - [Resturants in Stockholm](./food_and_drink/stockholm_restaurants.md)

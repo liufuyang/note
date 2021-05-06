@@ -171,3 +171,45 @@ Seems used in Rust's quicksort as well.
 ## Summary
 
 ![image](https://user-images.githubusercontent.com/161689/113548826-80c4c180-95f0-11eb-81e7-d9d4162c1e5d.png)
+
+---
+
+## Priority Queue - Binary Heap and Heap Sort
+
+Two operations needed:
+- remove the maximum
+- insert
+
+Priority queue applications
+- Event-driven simulation. [customers in a line, colliding particles]
+- Numerical computation. [reducing roundoff error]
+- Data compression. [Huffman codes]
+- Graph searching. [Dijkstra's algorithm, Prim's algorithm]
+- Number theory. [sum of powers]
+- Artificial intelligence. \[[A\* search](https://liufuyang.github.io/note/algorithms/stack_queue.html#search-algorithm)\]
+- Statistics. [maintain largest M values in a sequence]
+- Operating systems. [load balancing, interrupt handling]
+- Discrete optimization. [bin packing, scheduling]
+- Spam filtering. [Bayesian spam filter]
+
+![image](https://user-images.githubusercontent.com/161689/117346317-e2a27080-aea7-11eb-90b1-c21663dd84c5.png)
+![image](https://user-images.githubusercontent.com/161689/117346449-09f93d80-aea8-11eb-826f-74dd551aab7d.png)
+
+### Binary Heap
+
+The *binary heap* is a data structure that can efficiently support 
+the basic priority-queue operations. A *binary tree* is *heap-ordered* 
+if the key in each node is larger than or equal to the keys in that 
+node's two children (if any).
+
+- Height of complete tree with N nodes is `lg N`
+- Array representation, with indices start at 1, largest key at the root
+- Take nodes in level order
+- No explicit links needed!
+- Largest key is a[1], which is root of binary tree
+- Can use array indices to move through tree
+  - Parent of node at k is at `k/2`
+  - Children of node at k are at `2k` and `2k+1`
+
+![image](https://user-images.githubusercontent.com/161689/117347090-e97db300-aea8-11eb-806c-53f13a13278c.png)
+
