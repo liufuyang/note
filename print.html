@@ -2164,7 +2164,34 @@ END
 <p>\[ 
 \frac{1}{2} + \frac{1}{4} + \frac{1}{8} + ... = \frac 1 2 {\sum^{\infty }_{n = 0} \frac{1}{2^n}} = \frac 1 2 \frac 1 {1-\frac 1 2} = 1
 \]</p>
-<h1 id="chapter-1"><a class="header" href="#chapter-1">Chapter 1</a></h1>
+<h1 id="chapter-12---basics-and-bayes-rule"><a class="header" href="#chapter-12---basics-and-bayes-rule">Chapter 1+2 - Basics and Bayes' Rule</a></h1>
+<h3 id="de-morgans-law"><a class="header" href="#de-morgans-law">De Morgans' Law</a></h3>
+<ul>
+<li>
+<p>\( (S \cap T)^c = S^c \cup T^c \) and \( (S \cup T)^c = S^c \cap T^c \)</p>
+</li>
+<li>
+<p>\( (S^c \cap T^c)^c = S \cup T \)</p>
+</li>
+</ul>
+<h3 id="problem-4-parking-lot-problem"><a class="header" href="#problem-4-parking-lot-problem">Problem 4. Parking lot problem</a></h3>
+<p>Mary and Tom park their cars in an empty parking lot with 𝑛≥2 consecutive parking spaces (i.e, 𝑛 spaces in a row, where only one car fits in each space). Mary and Tom pick parking spaces at random; of course, they must each choose a different space. (All pairs of distinct parking spaces are equally likely.) What is the probability that there is at most one empty parking space between them?</p>
+<details>
+<summary>View answer</summary>
+<ul>
+<li>when first car is at head or tail, second car has 2 configurations for each case (gives 4 configurations)</li>
+<li>when first car is at head+1 or tail-1, second har has 3 configurations for each case (gives 6 configurations)</li>
+<li>when first car is at the rest of the place, second car has 4 configurations for each case, giving 4*(n-4) configurations</li>
+<li>the total number of all possible configurations is n*(n-1)</li>
+<li>so the answer should be (4*(n-4)+ 4 +6)/(n*(n-1))</li>
+</ul>
+</details>
+<h3 id="3-important-tools"><a class="header" href="#3-important-tools">3 Important tools</a></h3>
+<ul>
+<li>Multiplication rule</li>
+<li>Total probability theorem</li>
+<li>Bayes' rule (-&gt; inference)</li>
+</ul>
 <h1 id="vi-editor-tips"><a class="header" href="#vi-editor-tips">Vi editor tips</a></h1>
 <h2 id="moving"><a class="header" href="#moving">Moving</a></h2>
 <pre><code>w   move to beginning of next word
@@ -2636,6 +2663,14 @@ Perhaps should try something else next time.</p>
 <li>Price: mid</li>
 <li>Score: 4 / 5</li>
 </ul>
+<h3 id="rawbata---rörstrandsgatan-15-1"><a class="header" href="#rawbata---rörstrandsgatan-15-1">Rawbata - Rörstrandsgatan 15</a></h3>
+<ul>
+<li><a href="https://rawbata.se/">Japanese BBQ ramen</a></li>
+<li>Price: mid/high</li>
+<li>Score: 3.5 / 5</li>
+</ul>
+<p>Only tried ramen sometime ago, just so so.
+Perhaps should try something else next time.</p>
 <p>Seems quite large portion.</p>
 
                     </main>
