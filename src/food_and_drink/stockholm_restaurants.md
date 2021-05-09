@@ -62,4 +62,13 @@ Grilled fish seems quite nice
 - Price: mid
 - Score: 4 / 5
 
+### Rawbata - Rörstrandsgatan 15
+- [Japanese BBQ ramen](https://rawbata.se/)
+- Price: mid/high
+- Score: 3.5 / 5
+
+Only tried ramen sometime ago, just so so.
+Perhaps should try something else next time.
+
 Seems quite large portion.
+
