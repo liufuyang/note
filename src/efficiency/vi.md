@@ -1,4 +1,4 @@
-# Vi editor tips
+# 📝 Vi editor tips
 
 ## Moving
 ```

@@ -183,6 +183,7 @@ Then with a `node` defined as
 - a `path cost` (from initial state to node)
 
 Then a search algorithm can be defined as:
+
 ### **Search algorithm**
 
 * Start with a `frontier` that contains the initial state.
@@ -259,6 +260,11 @@ One variant of the algorithms is a **greedy best-first search**
     true cost), and
     - `h(n)` is consistent (for every node n and
     successor n' with step cost c, `h(n) ≤ h(n') + c)`
+
+To facilitate a fast way to pick "a lowest value (or highest) from a queue",
+a data structure called [`Priority Queue`](https://liufuyang.github.io/note/algorithms/sort.html#priority-queue---binary-heap-and-heap-sort)
+can be used as it as uses `binary heap` to achieve `log N` order-of-growth for 
+both queue insert and queue delete operation. 
 
 Another variant of this type of algorithm is `Adversarial Search` - which is used for problems like Tic-Tac-Toe games
 

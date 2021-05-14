@@ -9,6 +9,8 @@ title = "Personal notebook"
 git-repository-url = "https://github.com/liufuyang/note"
 git-repository-icon = "fa-github"
 mathjax-support = true
+default-theme = "ayu"
+preferred-dark-theme = "ayu"
 additional-js = ["mermaid.min.js", "mermaid-init.js"]
 
 [preprocessor.mermaid]
