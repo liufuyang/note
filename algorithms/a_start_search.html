@@ -1,0 +1,388 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js ayu">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>A * Search homework - Personal notebook</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="../favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="../favicon.png">
+        
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "ayu" : "ayu";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('ayu')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../note.html"><strong aria-hidden="true">1.</strong> Note</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../note/1.html"><strong aria-hidden="true">1.1.</strong> Note 1</a></li><li class="chapter-item expanded "><a href="../note/todo.html"><strong aria-hidden="true">1.2.</strong> ToDo</a></li></ol></li><li class="chapter-item expanded "><a href="../algorithms/algorithms.html"><strong aria-hidden="true">2.</strong> Algorithms</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../algorithms/1.html"><strong aria-hidden="true">2.1.</strong> Big O notations</a></li><li class="chapter-item expanded "><a href="../algorithms/stack_queue.html"><strong aria-hidden="true">2.2.</strong> Stack and Queue</a></li><li class="chapter-item expanded "><a href="../algorithms/devide_conquer.html"><strong aria-hidden="true">2.3.</strong> Divide and Conquer</a></li><li class="chapter-item expanded "><a href="../algorithms/sort.html"><strong aria-hidden="true">2.4.</strong> Sort</a></li><li class="chapter-item expanded "><a href="../algorithms/dynamic_programming.html"><strong aria-hidden="true">2.5.</strong> Dynamic programming</a></li><li class="chapter-item expanded "><a href="../algorithms/a_start_search.html" class="active"><strong aria-hidden="true">2.6.</strong> A * Search homework</a></li><li class="chapter-item expanded "><a href="../algorithms/symbol_tables.html"><strong aria-hidden="true">2.7.</strong> Symbol tables and Binary Search Tree</a></li><li class="chapter-item expanded "><a href="../algorithms/balanced_search_tree.html"><strong aria-hidden="true">2.8.</strong> Balanced Search Trees</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../algorithms/balanced_search_tree/red_black_bst.html"><strong aria-hidden="true">2.8.1.</strong> Red-Black BSTs</a></li><li class="chapter-item expanded "><a href="../algorithms/balanced_search_tree/b_tree.html"><strong aria-hidden="true">2.8.2.</strong> B-Trees</a></li><li class="chapter-item expanded "><a href="../algorithms/balanced_search_tree/kd_tree.html"><strong aria-hidden="true">2.8.3.</strong> Kd-Trees</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../rust_note/rust.html"><strong aria-hidden="true">3.</strong> Rust note</a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">3.1.</strong> General</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../rust_note/general/cpp_memory_model.html"><strong aria-hidden="true">3.1.1.</strong> C++ memory mode</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.2.</strong> Note from courses</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../rust_note/courses/pattern_matching.html"><strong aria-hidden="true">3.2.1.</strong> Pattern matching</a></li><li class="chapter-item expanded "><a href="../rust_note/courses/smart_pointers.html"><strong aria-hidden="true">3.2.2.</strong> Smart pointers</a></li><li class="chapter-item expanded "><a href="../rust_note/courses/string.html"><strong aria-hidden="true">3.2.3.</strong> String</a></li></ol></li><li class="chapter-item expanded "><a href="../rust_note/tokio.html"><strong aria-hidden="true">3.3.</strong> Note for tokio dev</a></li><li class="chapter-item expanded "><a href="../rust_note/resources.html"><strong aria-hidden="true">3.4.</strong> Resources</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> Tech notes</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../tech/network_programming.html"><strong aria-hidden="true">4.1.</strong> Network Programming</a></li><li class="chapter-item expanded "><a href="../tech/java/java.html"><strong aria-hidden="true">4.2.</strong> Java</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../tech/java/scheduler.html"><strong aria-hidden="true">4.2.1.</strong> Scheduler stuff</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../prob_and_stats/mit_course/index.html"><strong aria-hidden="true">5.</strong> Probability and Statistics</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../prob_and_stats/maths.html"><strong aria-hidden="true">5.1.</strong> Useful maths equations</a></li><li class="chapter-item expanded "><a href="../prob_and_stats/mit_course/chapter_1.html"><strong aria-hidden="true">5.2.</strong> Chapter 1</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.</strong> Efficiency Hack</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../efficiency/vi.html"><strong aria-hidden="true">6.1.</strong> 📝 Vi editor tips</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">7.</strong> Good Tips</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../sub/topic_1.html"><strong aria-hidden="true">7.1.</strong> Some Markdown Tips</a></li><li class="chapter-item expanded "><a href="../sub/life_tips.html"><strong aria-hidden="true">7.2.</strong> Life Tips</a></li><li class="chapter-item expanded "><a href="../sub/career_tips.html"><strong aria-hidden="true">7.3.</strong> Career Tips</a></li></ol></li><li class="chapter-item expanded "><a href="../swedish/index.html"><strong aria-hidden="true">8.</strong> Swedish Learning</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../swedish/shows/huss/huss.html"><strong aria-hidden="true">8.1.</strong> TV Show - Huss</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../swedish/shows/huss/s1a1.html"><strong aria-hidden="true">8.1.1.</strong> Säsong 1 - Avsnitt 1</a></li></ol></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">9.</strong> Food and Drink</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../food_and_drink/cheese.html"><strong aria-hidden="true">9.1.</strong> Cheese study</a></li><li class="chapter-item expanded "><a href="../food_and_drink/stockholm_restaurants.html"><strong aria-hidden="true">9.2.</strong> Restaurants in Stockholm</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu (default)</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">Personal notebook</h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                        <a href="https://github.com/liufuyang/note" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="a--search-homework"><a class="header" href="#a--search-homework">A * Search homework</a></h1>
+<ul>
+<li><a href="https://liufuyang.github.io/note/algorithms/stack_queue.html#use-stackqueue-for-search-algorithm">My own notes for search algorithm via CS50 course</a></li>
+</ul>
+<p><a href="https://coursera.cs.princeton.edu/algs4/assignments/8puzzle/specification.php">Write a program</a> to solve the 8-puzzle problem (and its natural generalizations) using the <strong>A* search algorithm</strong>.</p>
+<p><img src="https://user-images.githubusercontent.com/161689/118130722-fc8b0880-b3fd-11eb-9dea-1a0591a6da6a.png" alt="image" /></p>
+<h3 id="the-problem"><a class="header" href="#the-problem">The problem</a></h3>
+<p>The <a href="http://en.wikipedia.org/wiki/Fifteen_puzzle">8-puzzle</a> is a sliding puzzle that is played on a 3-by-3 grid with 8 square tiles labeled 1 through 8, plus a blank square. The goal is to rearrange the tiles so that they are in row-major order, using as few moves as possible. You are permitted to slide tiles either horizontally or vertically into the blank square. The following diagram shows a sequence of moves from an initial board (left) to the goal board (right).</p>
+<p><img src="https://user-images.githubusercontent.com/161689/118130883-25130280-b3fe-11eb-9049-1c9142a7c9a4.png" alt="image" /></p>
+<h3 id="board-data-type"><a class="header" href="#board-data-type">Board data type</a></h3>
+<p>To begin, create a data type that models an n-by-n board with sliding tiles. Implement an immutable data type Board with the following API:</p>
+<pre><code class="language-java">public class Board {
+
+    // create a board from an n-by-n array of tiles,
+    // where tiles[row][col] = tile at (row, col)
+    public Board(int[][] tiles)
+                                           
+    // string representation of this board
+    public String toString()
+
+    // board dimension n
+    public int dimension()
+
+    // number of tiles out of place
+    public int hamming()
+
+    // sum of Manhattan distances between tiles and goal
+    public int manhattan()
+
+    // is this board the goal board?
+    public boolean isGoal()
+
+    // does this board equal y?
+    public boolean equals(Object y)
+
+    // all neighboring boards
+    public Iterable&lt;Board&gt; neighbors()
+
+    // a board that is obtained by exchanging any pair of tiles
+    public Board twin()
+
+    // unit testing (not graded)
+    public static void main(String[] args)
+
+}
+</code></pre>
+<p><em>Constructor</em>.  You may assume that the constructor receives an n-by-n array containing the \( n^2 \) integers between 0 and \(n^2 − 1\), where 0 represents the blank square. You may also assume that <code>2 ≤ n &lt; 128</code>.</p>
+<p><em>String representation</em>. <code>The toString()</code> method returns a string composed of n + 1 lines. The first line contains the board size n; the remaining n lines contains the n-by-n grid of tiles in row-major order, using 0 to designate the blank square.</p>
+<p><img src="https://user-images.githubusercontent.com/161689/118242131-45de6500-b49d-11eb-8db4-a7af8ee80e57.png" alt="string representation" /></p>
+<p><em>Hamming and Manhattan distances</em>.  To measure how close a board is to the goal board, we define two notions of distance. 
+The <code>Hamming distance</code> betweeen a board and the goal board is the number of tiles in the wrong position.
+The <code>Manhattan distance</code> between a board and the goal board is the sum of the Manhattan distances (sum of the vertical and horizontal distance) from the tiles to their goal positions.</p>
+<p><img src="https://user-images.githubusercontent.com/161689/118242364-8b029700-b49d-11eb-9e29-3d0d0a4637c1.png" alt="distance" /></p>
+<p><em>Comparing two boards for equality</em>. Two boards are equal if they are have the same size and their corresponding tiles are in the same positions.
+The <code>equals()</code> method is inherited from <code>java.lang.Object</code>, so it must obey all of Java’s requirements.</p>
+<p><em>Neighboring boards</em>.  The <code>neighbors()</code> method returns an iterable containing the neighbors of the board. Depending on the location of the blank square, a board can have 2, 3, or 4 neighbors.</p>
+<p><img src="https://user-images.githubusercontent.com/161689/118242497-b1c0cd80-b49d-11eb-8c55-24620bab212a.png" alt="neighbors" /></p>
+<p><em>Unit testing</em>. Your <code>main()</code> method should call each public method directly and help verify that they works as prescribed (e.g., by printing results to standard output).</p>
+<p><em>Performance requirements</em>.  Your implementation should support all Board methods in time proportional to n2 (or better) in the worst case.</p>
+<p><strong>A* search</strong>. Now, we describe a solution to the 8-puzzle problem that illustrates a general artificial intelligence methodology known as the <a href="http://en.wikipedia.org/wiki/A*_search_algorithm">A* search algorithm</a>.
+We define a <code>search node</code>(or called as <code>state</code> in <a href="https://liufuyang.github.io/note/algorithms/stack_queue.html#use-stackqueue-for-search-algorithm">other context</a>) of the game to be a board, the number of moves made to reach the board, and the previous search node. First, insert the initial search node (the initial board, 0 moves, and a null previous search node) into a <code>priority queue</code>. Then, delete from the priority queue the search node with the minimum priority, and insert onto the priority queue all neighboring search nodes (those that can be reached in one move from the dequeued search node). Repeat this procedure until the search node dequeued corresponds to the goal board.</p>
+<p>The efficacy of this approach hinges on the choice of <em>priority function</em> for a search node. We consider two priority functions:</p>
+<ul>
+<li><em>The Hamming priority</em> function is the Hamming distance of a board plus the number of moves made so far to get to the search node. Intuitively, a search node with a small number of tiles in the wrong position is close to the goal, and we prefer a search node if has been reached using a small number of moves.</li>
+<li><em>The Manhattan priority</em> function is the Manhattan distance of a board plus the number of moves made so far to get to the search node.</li>
+</ul>
+<p>To solve the puzzle from a given search node on the priority queue, the total number of moves we need to make (including those already made) is at least its priority, using either the Hamming or Manhattan priority function. Why? Consequently, when the goal board is dequeued, we have discovered not only a sequence of moves from the initial board to the goal board, but one that makes the <em>fewest</em> moves. (Challenge for the mathematically inclined: prove this fact.)</p>
+<p><em>Game tree</em>. One way to view the computation is as a game tree, where each search node is a node in the game tree and the children of a node correspond to its neighboring search nodes. The root of the game tree is the initial search node; the internal nodes have already been processed; the leaf nodes are maintained in a <em>priority queue</em>;
+at each step, the A* algorithm removes the node with the smallest priority from the priority queue and processes it (by adding its children to both the game tree and the priority queue).</p>
+<p>For example, the following diagram illustrates the game tree after each of the first three steps of running the A* search algorithm on a 3-by-3 puzzle using the Manhattan priority function.</p>
+<p><img src="https://user-images.githubusercontent.com/161689/118252728-601e4000-b4a9-11eb-9e9d-1c3076eb4cac.png" alt="image" /></p>
+<p><strong>Solver data type</strong>. In this part, you will implement A* search to solve n-by-n slider puzzles. Create an immutable data type Solver with the following API:</p>
+<pre><code class="language-java">public class Solver {
+
+    // find a solution to the initial board (using the A* algorithm)
+    public Solver(Board initial)
+
+    // is the initial board solvable? (see below)
+    public boolean isSolvable()
+
+    // min number of moves to solve initial board; -1 if unsolvable
+    public int moves()
+
+    // sequence of boards in a shortest solution; null if unsolvable
+    public Iterable&lt;Board&gt; solution()
+
+    // test client (see below) 
+    public static void main(String[] args)
+
+}
+</code></pre>
+<p><em>Implementation requirement</em>. To implement the A* algorithm, you must use the
+<a href="https://algs4.cs.princeton.edu/code/javadoc/edu/princeton/cs/algs4/MinPQ.html">MinPQ</a> data type for the priority queue.</p>
+<p><em>Corner cases</em>. </p>
+<ul>
+<li>Throw an IllegalArgumentException in the constructor if the argument is null.</li>
+<li>Return -1 in moves() if the board is unsolvable.</li>
+<li>Return null in solution() if the board is unsolvable.</li>
+</ul>
+<p><em>Test client</em>. The following test client takes the name of an input file as a command-line argument and prints the minimum number of moves to solve the puzzle and a corresponding solution.</p>
+<pre><code class="language-java">public static void main(String[] args) {
+
+    // create initial board from file
+    In in = new In(args[0]);
+    int n = in.readInt();
+    int[][] tiles = new int[n][n];
+    for (int i = 0; i &lt; n; i++)
+        for (int j = 0; j &lt; n; j++)
+            tiles[i][j] = in.readInt();
+    Board initial = new Board(tiles);
+
+    // solve the puzzle
+    Solver solver = new Solver(initial);
+
+    // print solution to standard output
+    if (!solver.isSolvable())
+        StdOut.println(&quot;No solution possible&quot;);
+    else {
+        StdOut.println(&quot;Minimum number of moves = &quot; + solver.moves());
+        for (Board board : solver.solution())
+            StdOut.println(board);
+    }
+}
+</code></pre>
+<p>The input file contains the board size n, followed by the n-by-n grid of tiles, using 0 to designate the blank square.</p>
+<p><img src="https://user-images.githubusercontent.com/161689/118253356-20a42380-b4aa-11eb-801f-8fb8ea590e49.png" alt="image" /></p>
+<p><em>Two optimizations</em>. To speed up your solver, implement the following two optimizations:</p>
+<ul>
+<li><em>The critical optimization</em>. A* search has one annoying feature: search nodes corresponding to the same board are enqueued on the priority queue many times (e.g., the bottom-left search node in the game-tree diagram above). To reduce unnecessary exploration of useless search nodes, when considering the neighbors of a search node, don’t enqueue a neighbor if its board is the same as the board of the previous search node in the game tree.</li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/161689/118253437-36194d80-b4aa-11eb-985e-1838209bdde1.png" alt="image" /></p>
+<ul>
+<li><em>Caching the Hamming and Manhattan priorities.</em>
+To avoid recomputing the Manhattan priority of a search node from scratch each time during various priority queue operations, pre-compute its value when you construct the search node; save it in an instance variable; and return the saved value as needed. This caching technique is broadly applicable: consider using it in any situation where you are recomputing the same quantity many times and for which computing that quantity is a bottleneck operation.</li>
+</ul>
+<p><em>Detecting unsolvable boards</em>. Not all initial boards can lead to the goal board by a sequence of moves, including these two:</p>
+<p><img src="https://user-images.githubusercontent.com/161689/118253502-49c4b400-b4aa-11eb-905c-1761f1f0af23.png" alt="image" /></p>
+<p>To detect such situations, use the fact that boards are divided into two equivalence classes with respect to reachability:</p>
+<ul>
+<li>Those that can lead to the goal board</li>
+<li>Those that can lead to the goal board if we modify the initial board by swapping any pair of tiles (the blank square is not a tile)</li>
+</ul>
+<p>(Difficult challenge for the mathematically inclined: prove this fact.) To apply the fact, run the A* algorithm on two puzzle instances—one with the initial board and one with the initial board modified by swapping a pair of tiles—in lockstep (alternating back and forth between exploring search nodes in each of the two game trees). Exactly one of the two will lead to the goal board.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../algorithms/dynamic_programming.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="../algorithms/symbol_tables.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="../algorithms/dynamic_programming.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="../algorithms/symbol_tables.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+        <script type="text/javascript" src="../mermaid.min.js"></script>
+        
+        <script type="text/javascript" src="../mermaid-init.js"></script>
+        
+
+        
+
+    </body>
+</html>

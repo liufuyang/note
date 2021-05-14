@@ -1,0 +1,288 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js ayu">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Symbol tables and Binary Search Tree - Personal notebook</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="../favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="../favicon.png">
+        
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "ayu" : "ayu";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('ayu')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../note.html"><strong aria-hidden="true">1.</strong> Note</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../note/1.html"><strong aria-hidden="true">1.1.</strong> Note 1</a></li><li class="chapter-item expanded "><a href="../note/todo.html"><strong aria-hidden="true">1.2.</strong> ToDo</a></li></ol></li><li class="chapter-item expanded "><a href="../algorithms/algorithms.html"><strong aria-hidden="true">2.</strong> Algorithms</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../algorithms/1.html"><strong aria-hidden="true">2.1.</strong> Big O notations</a></li><li class="chapter-item expanded "><a href="../algorithms/stack_queue.html"><strong aria-hidden="true">2.2.</strong> Stack and Queue</a></li><li class="chapter-item expanded "><a href="../algorithms/devide_conquer.html"><strong aria-hidden="true">2.3.</strong> Divide and Conquer</a></li><li class="chapter-item expanded "><a href="../algorithms/sort.html"><strong aria-hidden="true">2.4.</strong> Sort</a></li><li class="chapter-item expanded "><a href="../algorithms/dynamic_programming.html"><strong aria-hidden="true">2.5.</strong> Dynamic programming</a></li><li class="chapter-item expanded "><a href="../algorithms/a_start_search.html"><strong aria-hidden="true">2.6.</strong> A * Search homework</a></li><li class="chapter-item expanded "><a href="../algorithms/symbol_tables.html" class="active"><strong aria-hidden="true">2.7.</strong> Symbol tables and Binary Search Tree</a></li><li class="chapter-item expanded "><a href="../algorithms/balanced_search_tree.html"><strong aria-hidden="true">2.8.</strong> Balanced Search Trees</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../algorithms/balanced_search_tree/red_black_bst.html"><strong aria-hidden="true">2.8.1.</strong> Red-Black BSTs</a></li><li class="chapter-item expanded "><a href="../algorithms/balanced_search_tree/b_tree.html"><strong aria-hidden="true">2.8.2.</strong> B-Trees</a></li><li class="chapter-item expanded "><a href="../algorithms/balanced_search_tree/kd_tree.html"><strong aria-hidden="true">2.8.3.</strong> Kd-Trees</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../rust_note/rust.html"><strong aria-hidden="true">3.</strong> Rust note</a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">3.1.</strong> General</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../rust_note/general/cpp_memory_model.html"><strong aria-hidden="true">3.1.1.</strong> C++ memory mode</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.2.</strong> Note from courses</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../rust_note/courses/pattern_matching.html"><strong aria-hidden="true">3.2.1.</strong> Pattern matching</a></li><li class="chapter-item expanded "><a href="../rust_note/courses/smart_pointers.html"><strong aria-hidden="true">3.2.2.</strong> Smart pointers</a></li><li class="chapter-item expanded "><a href="../rust_note/courses/string.html"><strong aria-hidden="true">3.2.3.</strong> String</a></li></ol></li><li class="chapter-item expanded "><a href="../rust_note/tokio.html"><strong aria-hidden="true">3.3.</strong> Note for tokio dev</a></li><li class="chapter-item expanded "><a href="../rust_note/resources.html"><strong aria-hidden="true">3.4.</strong> Resources</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> Tech notes</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../tech/network_programming.html"><strong aria-hidden="true">4.1.</strong> Network Programming</a></li><li class="chapter-item expanded "><a href="../tech/java/java.html"><strong aria-hidden="true">4.2.</strong> Java</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../tech/java/scheduler.html"><strong aria-hidden="true">4.2.1.</strong> Scheduler stuff</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../prob_and_stats/mit_course/index.html"><strong aria-hidden="true">5.</strong> Probability and Statistics</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../prob_and_stats/maths.html"><strong aria-hidden="true">5.1.</strong> Useful maths equations</a></li><li class="chapter-item expanded "><a href="../prob_and_stats/mit_course/chapter_1.html"><strong aria-hidden="true">5.2.</strong> Chapter 1</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.</strong> Efficiency Hack</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../efficiency/vi.html"><strong aria-hidden="true">6.1.</strong> 📝 Vi editor tips</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">7.</strong> Good Tips</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../sub/topic_1.html"><strong aria-hidden="true">7.1.</strong> Some Markdown Tips</a></li><li class="chapter-item expanded "><a href="../sub/life_tips.html"><strong aria-hidden="true">7.2.</strong> Life Tips</a></li><li class="chapter-item expanded "><a href="../sub/career_tips.html"><strong aria-hidden="true">7.3.</strong> Career Tips</a></li></ol></li><li class="chapter-item expanded "><a href="../swedish/index.html"><strong aria-hidden="true">8.</strong> Swedish Learning</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../swedish/shows/huss/huss.html"><strong aria-hidden="true">8.1.</strong> TV Show - Huss</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../swedish/shows/huss/s1a1.html"><strong aria-hidden="true">8.1.1.</strong> Säsong 1 - Avsnitt 1</a></li></ol></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">9.</strong> Food and Drink</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../food_and_drink/cheese.html"><strong aria-hidden="true">9.1.</strong> Cheese study</a></li><li class="chapter-item expanded "><a href="../food_and_drink/stockholm_restaurants.html"><strong aria-hidden="true">9.2.</strong> Restaurants in Stockholm</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu (default)</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">Personal notebook</h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                        <a href="https://github.com/liufuyang/note" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="symbol-tables"><a class="header" href="#symbol-tables">Symbol tables</a></h1>
+<p>Key-value pair abstraction - Map/Dictionary</p>
+<ul>
+<li>key -&gt; value</li>
+<li>insert</li>
+<li>search/get</li>
+<li>delete</li>
+</ul>
+<h2 id="binary-search-tree-bst"><a class="header" href="#binary-search-tree-bst">Binary search tree (BST)</a></h2>
+<ul>
+<li>Each node has a key</li>
+<li>For every key: 
+<ul>
+<li>Larger than all keys in its left subtree</li>
+<li>Smaller than all keys in its right subtree</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/161689/118122782-99947400-b3f3-11eb-8cb6-6d8b44431cf9.png" alt="image" /></p>
+<p><img src="https://user-images.githubusercontent.com/161689/118122841-b466e880-b3f3-11eb-937d-8ecf53afb509.png" alt="image" /></p>
+<p><img src="https://user-images.githubusercontent.com/161689/118122888-c3e63180-b3f3-11eb-9265-abe6c318b8e6.png" alt="image" /></p>
+<p><img src="https://user-images.githubusercontent.com/161689/118122925-d496a780-b3f3-11eb-918e-fc6e232de6e8.png" alt="image" /></p>
+<p><img src="https://user-images.githubusercontent.com/161689/118124959-a4043d00-b3f6-11eb-812a-d2e0e7076cd1.png" alt="floor" /></p>
+<p><img src="https://user-images.githubusercontent.com/161689/118125294-12e19600-b3f7-11eb-8615-fb16fe62ab9e.png" alt="count" /></p>
+<p><img src="https://user-images.githubusercontent.com/161689/118125409-34db1880-b3f7-11eb-8374-c6fefe5a67c9.png" alt="rank" /></p>
+<p><img src="https://user-images.githubusercontent.com/161689/118123893-27249380-b3f5-11eb-9ff4-4e1bbf08ff02.png" alt="shape" /></p>
+<p><img src="https://user-images.githubusercontent.com/161689/118124296-aca84380-b3f5-11eb-8501-260df1c7a6c7.png" alt="image" /></p>
+<p><img src="https://user-images.githubusercontent.com/161689/118125483-55a36e00-b3f7-11eb-8fa7-8c3a672b5d4a.png" alt="in order traversal" /></p>
+<p><img src="https://user-images.githubusercontent.com/161689/118125866-d4001000-b3f7-11eb-9237-0759e7db1ddb.png" alt="image" /></p>
+<p><img src="https://user-images.githubusercontent.com/161689/118126011-ff82fa80-b3f7-11eb-9ccf-907e62157358.png" alt="Summary" /></p>
+<p>So with BST the drawback includes:</p>
+<ul>
+<li>No good guarantee that if insertion has order, the tree will be imbalanced. (The red black tree can help)</li>
+<li>when deleting: the order of growth of the expected height of a binary search tree with n keys after a long intermixed sequence of random insertions and random Hibbard deletions is: <code>sqrt(N)</code>. This currently is not optimized to <code>log N</code> and it is an open question.</li>
+</ul>
+<hr />
+<h3 id="notes-on-delete"><a class="header" href="#notes-on-delete">Notes on delete</a></h3>
+<p><img src="https://user-images.githubusercontent.com/161689/118127981-9bae0100-b3fa-11eb-8915-0780634e3ba9.png" alt="0 child" /></p>
+<p><img src="https://user-images.githubusercontent.com/161689/118128059-b3858500-b3fa-11eb-8159-2ecb4068784f.png" alt="1 child" /></p>
+<p><img src="https://user-images.githubusercontent.com/161689/118128101-c13b0a80-b3fa-11eb-8f90-5288c73a1dd9.png" alt="2 child" /></p>
+<p><img src="https://user-images.githubusercontent.com/161689/118128303-00695b80-b3fb-11eb-853e-558aaa3c1e92.png" alt="image" /></p>
+<p><img src="https://user-images.githubusercontent.com/161689/118128349-0e1ee100-b3fb-11eb-81c3-8f3ddf449ca4.png" alt="image" /></p>
+<p><img src="https://user-images.githubusercontent.com/161689/118128749-9d2bf900-b3fb-11eb-8881-0e36c1324f31.png" alt="image" /></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../algorithms/a_start_search.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="../algorithms/balanced_search_tree.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="../algorithms/a_start_search.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="../algorithms/balanced_search_tree.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+        <script type="text/javascript" src="../mermaid.min.js"></script>
+        
+        <script type="text/javascript" src="../mermaid-init.js"></script>
+        
+
+        
+
+    </body>
+</html>
