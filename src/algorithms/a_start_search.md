@@ -180,3 +180,18 @@ To detect such situations, use the fact that boards are divided into two equival
 * Those that can lead to the goal board if we modify the initial board by swapping any pair of tiles (the blank square is not a tile)
 
 (Difficult challenge for the mathematically inclined: prove this fact.) To apply the fact, run the A\* algorithm on two puzzle instances—one with the initial board and one with the initial board modified by swapping a pair of tiles—in lockstep (alternating back and forth between exploring search nodes in each of the two game trees). Exactly one of the two will lead to the goal board.
+
+---
+
+### Summary
+
+I have some sample solution [here](https://github.com/liufuyang/algs4/blob/main/algs_princeton/4_a_start_search_pq/Solver.java) for this exercises. 
+
+The most important hints could be:
+- You would need to implement a linked list type of structure to keep all the visited states and link them to the current state so to allow it to be traced back in the end.
+- For that *critical optimizaiton* part where making sure we don't insert a visitedstate into the frontier again. I initially tried to put all the visited state in a 
+large SET and each time check the common set whether it contains the state before 
+inserting but that apparently is not always correct (and it is slow). One only 
+need to check all the state in it's state chain to know whether it is a state can be inserted to frontier. Also as we are not dealing some type of circled graphs so
+to speed up we only needed to check the state (one of the neighbor) a single time
+with current state's previous state.
