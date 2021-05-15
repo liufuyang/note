@@ -9,7 +9,7 @@
   - [Divide and Conquer](./algorithms/devide_conquer.md)
   - [Sort](./algorithms/sort.md)
   - [Dynamic programming](./algorithms/dynamic_programming.md)
-  - [A * Search homework](./algorithms/a_start_search.md)
+  - [A * Search homework](./algorithms/a_star_search.md)
   - [Symbol tables and Binary Search Tree](./algorithms/symbol_tables.md)
   - [Balanced Search Trees](./algorithms/balanced_search_tree.md)
     - [Red-Black BSTs](./algorithms/balanced_search_tree/red_black_bst.md)
