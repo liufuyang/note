@@ -26,4 +26,42 @@ Mary and Tom park their cars in an empty parking lot with 𝑛≥2 consecutive p
 - Total probability theorem
 - Bayes' rule (-> inference)
 
+### Conditional probability
+
+\\[
+P(A | B) = \frac{ P(A \cap B)}{ P(B)}
+\\]
+
+\\[
+P(A | B) P(B)= P(B | A) P(A)
+\\]
+
+\\[
+P(A | B) = \frac{ P(B | A) P(A) } { P(B | A) P(A) + P(B | A^C) P( A^C)}
+\\]
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/161689/118391403-61c83f00-b634-11eb-930a-5a3485b787e7.png" width="200" alt="image"/>
+</p>
+
+### Multiplication rule 
+
+![image](https://user-images.githubusercontent.com/161689/118391741-35152700-b636-11eb-8693-2175e57036bc.png)
+
+
+### Total probability theorem
+
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/161689/118392492-51b35e00-b63a-11eb-91a8-d213871c1a12.png" width="160" alt="image"/>
+</p>
+
+
+\\(
+P(B) = P(B | A) P(A) + P(B | A^C) P( A^C)
+\\) can be generalized to:
+
+\\[
+P(B) = \sum_{i} P(B | A_i) P(A_i) \quad \text{ given } \sum_i P(A_i) = 1
+\\]
 

@@ -30,7 +30,7 @@
     - [Scheduler stuff](./tech/java/scheduler.md)
 - [Probability and Statistics](./prob_and_stats/mit_course/readme.md)
   - [Useful maths equations](./prob_and_stats/maths.md)
-  - [Chapter 1](./prob_and_stats/mit_course/chapter_1.md)
+  - [Chapter 1 & 2](./prob_and_stats/mit_course/chapter_1.md)
 - [Efficiency Hack]()
   - [📝 Vi editor tips](./efficiency/vi.md)
 - [Good Tips]()
