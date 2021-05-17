@@ -65,3 +65,23 @@ P(B) = P(B | A) P(A) + P(B | A^C) P( A^C)
 P(B) = \sum_{i} P(B | A_i) P(A_i) \quad \text{ given } \sum_i P(A_i) = 1
 \\]
 
+### Definition of independence:
+\\[
+P(A \cap B) = P(A) \cdot P(B)
+\\]
+
+Which also implies \\( P(B | A) = P(B); P(A | B) = P(A)\\), and also implies
+\\( P(A \cap B^C) = P(A) \cdot P(B^C) \\).
+
+Note that `ìndependence` has no relation related to `disjoint`.
+Independence is a relation about information. It is important 
+to always keep in mind the intuitive meaning of independence.
+Two events are independent if the occurrence of one event 
+does not change our beliefs about the other.
+
+### Conditional independence
+
+![image](https://user-images.githubusercontent.com/161689/118397477-80d6c900-b654-11eb-8200-a9ad148dc8a6.png)
+
+![image](https://user-images.githubusercontent.com/161689/118397652-651ff280-b655-11eb-9b29-42c8a4bfa275.png)
+
