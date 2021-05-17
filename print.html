@@ -2427,6 +2427,20 @@ P(B) = P(B | A) P(A) + P(B | A^C) P( A^C)
 <p>\[
 P(B) = \sum_{i} P(B | A_i) P(A_i) \quad \text{ given } \sum_i P(A_i) = 1
 \]</p>
+<h3 id="definition-of-independence"><a class="header" href="#definition-of-independence">Definition of independence:</a></h3>
+<p>\[
+P(A \cap B) = P(A) \cdot P(B)
+\]</p>
+<p>Which also implies \( P(B | A) = P(B); P(A | B) = P(A)\), and also implies
+\( P(A \cap B^C) = P(A) \cdot P(B^C) \).</p>
+<p>Note that <code>ìndependence</code> has no relation related to <code>disjoint</code>.
+Independence is a relation about information. It is important 
+to always keep in mind the intuitive meaning of independence.
+Two events are independent if the occurrence of one event 
+does not change our beliefs about the other.</p>
+<h3 id="conditional-independence"><a class="header" href="#conditional-independence">Conditional independence</a></h3>
+<p><img src="https://user-images.githubusercontent.com/161689/118397477-80d6c900-b654-11eb-8200-a9ad148dc8a6.png" alt="image" /></p>
+<p><img src="https://user-images.githubusercontent.com/161689/118397652-651ff280-b655-11eb-9b29-42c8a4bfa275.png" alt="image" /></p>
 <h1 id="-vi-editor-tips"><a class="header" href="#-vi-editor-tips">📝 Vi editor tips</a></h1>
 <h2 id="moving"><a class="header" href="#moving">Moving</a></h2>
 <pre><code>w   move to beginning of next word
