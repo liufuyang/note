@@ -85,3 +85,60 @@ does not change our beliefs about the other.
 
 ![image](https://user-images.githubusercontent.com/161689/118397652-651ff280-b655-11eb-9b29-42c8a4bfa275.png)
 
+---
+
+### Permutation & Combination
+
+Permutation - pick `r` items out of `n` items, order matters:
+\\[
+P = \frac{n!}{(n-r)!}
+\\]
+
+Combination - pick `r` items out of `n` items, order does not matter:
+\\[
+C = \frac{P}{r!} = \frac{n!}{(n-r)! \cdot r!}
+\\]
+
+Number of subsets of `n` element:
+\\[
+2^n
+\\]
+
+\\[
+\sum_{k=0}^{n} \left(
+    \begin{array}{c}
+      n \\\\
+      k
+    \end{array}
+  \right) = 2^n
+\\]
+
+Number of possible outcomes of continuously toss a fair 6-faces dice for `n` times:
+\\[
+6^n
+\\]
+
+**Binomial coefficient** \\( \left( \begin{array}{c} n \\\\ k  \end{array} \right) \\)
+- n>=1 independent coin tosses `P(H)=p` :
+\\[
+P(k \quad heads) = \left(
+    \begin{array}{c}
+      n \\\\
+      k
+    \end{array}
+  \right) p^k (1-p)^{n-k} 
+\\]
+
+\\[
+\sum_{k=0}^{n} \left(
+    \begin{array}{c}
+      n \\\\
+      k
+    \end{array}
+  \right) p^k (1-p)^{n-k} = 1
+\\]
+
+**Multinomial coefficient**
+
+![image](https://user-images.githubusercontent.com/161689/118716976-bf6fad80-b825-11eb-9182-4b8f74994077.png)
+
