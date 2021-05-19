@@ -237,6 +237,54 @@ does not change our beliefs about the other.</p>
 <h3 id="conditional-independence"><a class="header" href="#conditional-independence">Conditional independence</a></h3>
 <p><img src="https://user-images.githubusercontent.com/161689/118397477-80d6c900-b654-11eb-8200-a9ad148dc8a6.png" alt="image" /></p>
 <p><img src="https://user-images.githubusercontent.com/161689/118397652-651ff280-b655-11eb-9b29-42c8a4bfa275.png" alt="image" /></p>
+<hr />
+<h3 id="permutation--combination"><a class="header" href="#permutation--combination">Permutation &amp; Combination</a></h3>
+<p>Permutation - pick <code>r</code> items out of <code>n</code> items, order matters:
+\[
+P = \frac{n!}{(n-r)!}
+\]</p>
+<p>Combination - pick <code>r</code> items out of <code>n</code> items, order does not matter:
+\[
+C = \frac{P}{r!} = \frac{n!}{(n-r)! \cdot r!}
+\]</p>
+<p>Number of subsets of <code>n</code> element:
+\[
+2^n
+\]</p>
+<p>\[
+\sum_{k=0}^{n} \left(
+\begin{array}{c}
+n \\
+k
+\end{array}
+\right) = 2^n
+\]</p>
+<p>Number of possible outcomes of continuously toss a fair 6-faces dice for <code>n</code> times:
+\[
+6^n
+\]</p>
+<p><strong>Binomial coefficient</strong> \( \left( \begin{array}{c} n \\ k  \end{array} \right) \)</p>
+<ul>
+<li>n&gt;=1 independent coin tosses <code>P(H)=p</code> :
+\[
+P(k \quad heads) = \left(
+\begin{array}{c}
+n \\
+k
+\end{array}
+\right) p^k (1-p)^{n-k} 
+\]</li>
+</ul>
+<p>\[
+\sum_{k=0}^{n} \left(
+\begin{array}{c}
+n \\
+k
+\end{array}
+\right) p^k (1-p)^{n-k} = 1
+\]</p>
+<p><strong>Multinomial coefficient</strong></p>
+<p><img src="https://user-images.githubusercontent.com/161689/118716976-bf6fad80-b825-11eb-9182-4b8f74994077.png" alt="image" /></p>
 
                     </main>
 
