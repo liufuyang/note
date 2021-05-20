@@ -335,7 +335,12 @@ Approximates the median of 9 evenly spaced entries. Uses at most 12 compares.</p
 <p><img src="https://user-images.githubusercontent.com/161689/117543270-55ccf380-b01c-11eb-9b12-a96d4f0cccdf.png" alt="summary" /></p>
 <hr />
 <h2 id="priority-queue---binary-heap-and-heap-sort"><a class="header" href="#priority-queue---binary-heap-and-heap-sort">Priority Queue - Binary Heap and Heap Sort</a></h2>
-<p>Two operations needed:</p>
+<p><a href="https://d3c33hcgiwev3.cloudfront.net/_b85511f4ea522da4caf6b02d10fc0bad_24PriorityQueues.pdf?Expires=1621555200&amp;Signature=ErS4FX0or3b2I%7EF14QbeAblhGzPnhfvTBc%7EkolEojufmcyOIODw5gxHAS4p0o7DlH9JO79uAbqIoitA1H08-3x8BL3rExU5lOczQORb62RHLjau-ht8MSvPuJ1J9y7rNfHmyYleDuZ3IQgQkZwtRZk6kOXholuL6raotiQCyweM_&amp;Key-Pair-Id=APKAJLTNE6QMUY6HBC5A">Full lecture slides here</a></p>
+<p><strong>Priority Queue</strong> is super useful for fast 
+Breadth-First Search (BFS) in algorithms like A* search, 
+or it can be used in sort algorithm called Heap Sort 
+(basically you make a Priority queue then pop out elements and they will be in order)</p>
+<p>It needs to implement two operations efficiently:</p>
 <ul>
 <li>remove the maximum</li>
 <li>insert</li>
@@ -355,6 +360,18 @@ Approximates the median of 9 evenly spaced entries. Uses at most 12 compares.</p
 </ul>
 <p><img src="https://user-images.githubusercontent.com/161689/117346317-e2a27080-aea7-11eb-90b1-c21663dd84c5.png" alt="image" />
 <img src="https://user-images.githubusercontent.com/161689/117346449-09f93d80-aea8-11eb-826f-74dd551aab7d.png" alt="image" /></p>
+<p><strong>Priority Queue</strong> can be implemented via <strong>binary heap</strong> - which 
+is an <em>array representation of a heap-ordered complete binary tree</em>.</p>
+<p><img src="https://user-images.githubusercontent.com/161689/118765898-fe305280-b87b-11eb-8e7e-118bc8a3ec7d.png" alt="image" /></p>
+<ul>
+<li>Largest key is <code>a[1]</code>, which is root of binary tree.</li>
+<li>Can use array indices to move through tree.
+<ul>
+<li>Parent of node at <code>k</code> is at <code>k/2</code>.</li>
+<li>Children of node at <code>k</code> are at <code>2k</code> and <code>2k+1</code>.</li>
+</ul>
+</li>
+</ul>
 <h3 id="binary-heap"><a class="header" href="#binary-heap">Binary Heap</a></h3>
 <p>The <em>binary heap</em> is a data structure that can efficiently support 
 the basic priority-queue operations. A <em>binary tree</em> is <em>heap-ordered</em> 
