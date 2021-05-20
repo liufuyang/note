@@ -147,6 +147,18 @@ an uses more space;
 in most cases very fast, occasionally slow when resizing,
 with the claim of adding an element has constant **amortized time** cost. And less wasted space
 
+## Priority Queues (a.k.a Binary heap)
+
+Besides the "linear" array/linked-list type of queue implementation, 
+`Binary heap` can also be used to construct
+**an array representation of a heap-ordered complete binary tree**, 
+which can be used as a special queue where you can always get the most 
+min (or max) value of a queue. See more about it in the search algorithm
+session below.
+
+And it can also be used as a sorting algoritm called 
+`Heap sort`. [See more notes about Priority Queues here](https://liufuyang.github.io/note/algorithms/sort.html#priority-queue---binary-heap-and-heap-sort)
+
 ---
 
 ## Use stack/queue for Search Algorithm
@@ -154,6 +166,11 @@ with the claim of adding an element has constant **amortized time** cost. And le
 One quite useful thing about `stack` and `queue` is that
 * `stack` can be used for `Depth-First Search` (DFS)
 * `queue` can be used for `Breadth-First Search` (BFS)
+
+And `Priority queue` can be used for even faster search algoritms to 
+only focus on the most possible directions (the shortest path for example).
+
+[See more notes about Priority Queues here](https://liufuyang.github.io/note/algorithms/sort.html#priority-queue---binary-heap-and-heap-sort)
 
 <iframe width="640" height="360" src="https://www.youtube.com/embed/WbzNRTTrX0g?t=1557" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 

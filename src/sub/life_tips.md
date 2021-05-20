@@ -38,3 +38,12 @@ Ref [here](https://www.youtube.com/watch?v=XXGINjJzwZs), [here](https://www.yout
 
 ## Happier tips
 * When bored, reach out to a good friend, some family menber, or a memtor for a chat.
+
+## General tips
+- From Daniel EK: pay attention to daily accumulation and compound effect after span of years, value the free time you have before you got kids
+- About stock/market: for average people we can perhaps just do long term investment,
+and buy in/after when you hear big crash news, and sell when your friends/relatives
+asking you how to open trading accounts.
+- You can never really predict the top of the market. If you feel things not correct,
+the actual change might happen after days or months...
+

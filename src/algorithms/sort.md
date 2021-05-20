@@ -176,7 +176,14 @@ Seems used in Rust's quicksort as well.
 
 ## Priority Queue - Binary Heap and Heap Sort
 
-Two operations needed:
+[Full lecture slides here](https://d3c33hcgiwev3.cloudfront.net/_b85511f4ea522da4caf6b02d10fc0bad_24PriorityQueues.pdf?Expires=1621555200&Signature=ErS4FX0or3b2I~F14QbeAblhGzPnhfvTBc~kolEojufmcyOIODw5gxHAS4p0o7DlH9JO79uAbqIoitA1H08-3x8BL3rExU5lOczQORb62RHLjau-ht8MSvPuJ1J9y7rNfHmyYleDuZ3IQgQkZwtRZk6kOXholuL6raotiQCyweM_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A)
+
+**Priority Queue** is super useful for fast 
+Breadth-First Search (BFS) in algorithms like A\* search, 
+or it can be used in sort algorithm called Heap Sort 
+(basically you make a Priority queue then pop out elements and they will be in order)
+
+It needs to implement two operations efficiently:
 - remove the maximum
 - insert
 
@@ -194,6 +201,16 @@ Priority queue applications
 
 ![image](https://user-images.githubusercontent.com/161689/117346317-e2a27080-aea7-11eb-90b1-c21663dd84c5.png)
 ![image](https://user-images.githubusercontent.com/161689/117346449-09f93d80-aea8-11eb-826f-74dd551aab7d.png)
+
+**Priority Queue** can be implemented via **binary heap** - which 
+is an *array representation of a heap-ordered complete binary tree*.
+
+![image](https://user-images.githubusercontent.com/161689/118765898-fe305280-b87b-11eb-8e7e-118bc8a3ec7d.png)
+
+- Largest key is `a[1]`, which is root of binary tree.
+- Can use array indices to move through tree.
+  - Parent of node at `k` is at `k/2`.
+  - Children of node at `k` are at `2k` and `2k+1`.
 
 ### Binary Heap
 
