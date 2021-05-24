@@ -25,16 +25,25 @@ Ref [here](https://www.youtube.com/watch?v=XXGINjJzwZs), [here](https://www.yout
 * Read more books, write more notes, eat less in the afternoons
 * Regular fasting
 
+## Weekly Goal
+* Write a weekly work summary and note down
+  - major accomplishment
+  - perhaps something learned
+  - perhaps something could be done better, less hurry, or some actions could have been avoided?
+
 ## 拖延症
 
 1. 从低期待开始
 2. 寻找成就感
 3. 设定期限
 4. 远离干扰
+1. 先搞五分钟再说
 > 不管你面对的事情有多么困难，你有多抵触，多害怕，都不要逃避，因为没人能帮你做。而且往往你只需要迈出那第一步，剩下的第二步、第三步、第四步，都比你想象地要轻松很多
 
 ## Health tips
 * Do more sports
+- vitamin D, potassium and so on are important!
+- listen to Dr. Breg
 
 ## Happier tips
 * When bored, reach out to a good friend, some family menber, or a memtor for a chat.

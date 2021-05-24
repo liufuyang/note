@@ -10,7 +10,7 @@
   - [Sort](./algorithms/sort.md)
   - [Dynamic programming](./algorithms/dynamic_programming.md)
   - [A * Search homework](./algorithms/a_star_search.md)
-  - [Symbol tables and Binary Search Tree](./algorithms/symbol_tables.md)
+  - [Binary Search Tree](./algorithms/binary_search_tree.md)
   - [Balanced Search Trees](./algorithms/balanced_search_tree.md)
     - [Red-Black BSTs](./algorithms/balanced_search_tree/red_black_bst.md)
     - [B-Trees](./algorithms/balanced_search_tree/b_tree.md)
