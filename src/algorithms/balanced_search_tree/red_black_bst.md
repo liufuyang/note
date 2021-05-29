@@ -14,5 +14,5 @@ then it has \\(height \leq 2 log_{2}(n + 1) \\)
 
 ## Rotations
 
-- Left Rotations
-  of a parent x and right child y
+- Left Rotation
+- Right Rotation
