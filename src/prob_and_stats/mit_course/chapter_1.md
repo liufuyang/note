@@ -1,4 +1,4 @@
-# Chapter 1+2 - Basics and Bayes' Rule
+# Chapter 1 - Basics and Bayes' Rule
 
 ### De Morgans' Law
 
@@ -141,4 +141,56 @@ P(k \quad heads) = \left(
 **Multinomial coefficient**
 
 ![image](https://user-images.githubusercontent.com/161689/118716976-bf6fad80-b825-11eb-9182-4b8f74994077.png)
+
+---
+
+# Chapter 2 - Discrete Random Variables
+
+Random variable examples:
+- Bernoulli
+- Uniform
+- Binomial 
+- Geometric
+
+## Random Variables
+Random variables can be understand as a `function` that
+transfers `a random selection` of a sample, into a 
+numeric value.
+
+随机变量可以看作是一个函数！！！
+
+**Notation:** random variable `X`, numerical value `x`
+
+## Probability Mass Function (PMF)
+`PMF` also called as `probablility distribution`.
+
+### Bernoulli
+- X = 1, with probability p,
+- X = 0, with probability 1 - p.
+
+E[X] = p;
+
+var(X) = p(1-p)
+
+### Uniform
+- each outcome have the same probability
+
+E(X) = 1 / (b-a+1)
+
+var(X) = 1/12 * (b-a) * (b-a+2)
+
+### Binomial
+- `n` independent tosses of a coin with P(Heads)=p,
+with `X` = number of heads observed.
+
+
+### Geometric 
+- infinitely many independent tosses of a coin,
+P(Heads)=p,`X` = number of tosses until the first Heads.
+\\( P(X=k) = (1-p)^{k-1} p \\). If p=0.5, then it is like 
+1/2, 1/4, 1/8 ... 
+
+## Variance
+
+![image](https://user-images.githubusercontent.com/161689/120107513-94f4ed00-c161-11eb-8339-80539c5681be.png)
 
