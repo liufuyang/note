@@ -2637,6 +2637,12 @@ TX  til previous 'X' (cursor is behind X)
 <pre><code>i, a, A, o, O   into insert mode in different locations
 r, R            replace char or word
 
+ci&quot;             change inside quotes
+di&quot;             delete inside quotes
+
+ca&quot;             change around quotes, include quotes
+da&quot;             delete around quotes
+
 ,, (2 comma)    🔧 customized to add a ; at the end of the line
                 inoremap &lt;leader&gt;, &lt;C-o&gt;A;&lt;ESC&gt;
                 innoremap &lt;leader&gt;, A;&lt;ESC&gt;
