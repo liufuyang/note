@@ -49,6 +49,12 @@ TX  til previous 'X' (cursor is behind X)
 i, a, A, o, O   into insert mode in different locations
 r, R            replace char or word
 
+ci"             change inside quotes
+di"             delete inside quotes
+
+ca"             change around quotes, include quotes
+da"             delete around quotes
+
 ,, (2 comma)    🔧 customized to add a ; at the end of the line
                 inoremap <leader>, <C-o>A;<ESC>
                 innoremap <leader>, A;<ESC>
