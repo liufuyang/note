@@ -2569,27 +2569,52 @@ numeric value.</p>
 <li>X = 0, with probability 1 - p.</li>
 </ul>
 <p>E[X] = p;</p>
-<p>var(X) = p(1-p)</p>
+<p>var(X) = E[X^2] - (E[X])^2 = p(1-p)</p>
 <h3 id="uniform"><a class="header" href="#uniform">Uniform</a></h3>
 <ul>
 <li>each outcome have the same probability</li>
+<li>h(X) = 1 / (b-a+1)</li>
+<li>E[X] = (a + b) / 2</li>
+<li>var(X) = 1/12 * (b-a) * (b-a+2)</li>
 </ul>
-<p>E(X) = 1 / (b-a+1)</p>
-<p>var(X) = 1/12 * (b-a) * (b-a+2)</p>
+<p>For the continuous case:</p>
+<ul>
+<li>E[X] = (a + b) / 2</li>
+<li>var(X) = 1/12 * (b-a)^2</li>
+</ul>
 <h3 id="binomial"><a class="header" href="#binomial">Binomial</a></h3>
 <ul>
 <li><code>n</code> independent tosses of a coin with P(Heads)=p,
 with <code>X</code> = number of heads observed.</li>
 </ul>
+<p>E(X) = E(X1) + E(X2) ... + E(Xn) = p + p + p + ... p = n * p</p>
+<p>var(X) = var(X1 + X2 + ...) = var(X1) + var(X2)... 
+= n * var(X1) = n * BernoulliVar = np(1-p)</p>
+<p>Note above: because of independence.</p>
 <h3 id="geometric"><a class="header" href="#geometric">Geometric</a></h3>
 <ul>
 <li>infinitely many independent tosses of a coin,
 P(Heads)=p,<code>X</code> = number of tosses until the first Heads.
 \( P(X=k) = (1-p)^{k-1} p \). If p=0.5, then it is like 
 1/2, 1/4, 1/8 ... </li>
+<li>model the time we have to wait until something happens, especially 
+for the continuous case.</li>
 </ul>
+<p><em>Memorylessness</em></p>
+<ul>
+<li>E[X] = 1 / p</li>
+<li>var(X) = (1-p)/p^2</li>
+</ul>
+<p>For the continuous case:</p>
+<ul>
+<li>E[x] = 1/lambda</li>
+<li>var(X) = 1/lambda^2</li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/161689/120707865-1da1bf00-c4bb-11eb-97db-41c577f516c5.png" alt="image" /></p>
+<p><img src="https://user-images.githubusercontent.com/161689/123541710-25fdba80-d746-11eb-8f2d-6e455fa48a63.png" alt="image" /></p>
 <h2 id="variance"><a class="header" href="#variance">Variance</a></h2>
 <p><img src="https://user-images.githubusercontent.com/161689/120107513-94f4ed00-c161-11eb-8339-80539c5681be.png" alt="image" /></p>
+<p><img src="https://user-images.githubusercontent.com/161689/122638344-dee34a00-d0f3-11eb-9110-e9865fc4f380.png" alt="independence" /></p>
 <h1 id="-vi-editor-tips"><a class="header" href="#-vi-editor-tips">📝 Vi editor tips</a></h1>
 <h2 id="moving"><a class="header" href="#moving">Moving</a></h2>
 <pre><code>w   move to beginning of next word
