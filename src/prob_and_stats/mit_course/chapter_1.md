@@ -170,27 +170,54 @@ numeric value.
 
 E[X] = p;
 
-var(X) = p(1-p)
+var(X) = E[X^2] - (E[X])^2 = p(1-p)
 
 ### Uniform
 - each outcome have the same probability
+- h(X) = 1 / (b-a+1)
+- E[X] = (a + b) / 2
+- var(X) = 1/12 * (b-a) * (b-a+2)
 
-E(X) = 1 / (b-a+1)
-
-var(X) = 1/12 * (b-a) * (b-a+2)
+For the continuous case:
+- E[X] = (a + b) / 2
+- var(X) = 1/12 * (b-a)^2
 
 ### Binomial
 - `n` independent tosses of a coin with P(Heads)=p,
 with `X` = number of heads observed.
 
+E(X) = E(X1) + E(X2) ... + E(Xn) = p + p + p + ... p = n * p
+
+var(X) = var(X1 + X2 + ...) = var(X1) + var(X2)... 
+= n * var(X1) = n * BernoulliVar = np(1-p)
+
+Note above: because of independence.
 
 ### Geometric 
 - infinitely many independent tosses of a coin,
 P(Heads)=p,`X` = number of tosses until the first Heads.
 \\( P(X=k) = (1-p)^{k-1} p \\). If p=0.5, then it is like 
 1/2, 1/4, 1/8 ... 
+- model the time we have to wait until something happens, especially 
+for the continuous case.
+
+*Memorylessness*
+
+- E[X] = 1 / p
+- var(X) = (1-p)/p^2
+
+For the continuous case:
+- E[x] = 1/lambda
+- var(X) = 1/lambda^2
+
+![image](https://user-images.githubusercontent.com/161689/120707865-1da1bf00-c4bb-11eb-97db-41c577f516c5.png)
+
+![image](https://user-images.githubusercontent.com/161689/123541710-25fdba80-d746-11eb-8f2d-6e455fa48a63.png)
+
 
 ## Variance
 
 ![image](https://user-images.githubusercontent.com/161689/120107513-94f4ed00-c161-11eb-8339-80539c5681be.png)
+
+![independence](https://user-images.githubusercontent.com/161689/122638344-dee34a00-d0f3-11eb-9110-e9865fc4f380.png)
 
