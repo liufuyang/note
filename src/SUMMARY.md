@@ -33,6 +33,7 @@
   - [Chapter 1 & 2](./prob_and_stats/mit_course/chapter_1.md)
 - [Efficiency Hack]()
   - [📝 Vi editor tips](./efficiency/vi.md)
+- [Markdown Notes](./md/md.md)  
 - [Good Tips]()
   - [Some Markdown Tips](./sub/topic_1.md)
   - [Life Tips](./sub/life_tips.md)
