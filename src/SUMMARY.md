@@ -28,6 +28,7 @@
   - [Network Programming](./tech/network_programming.md)
   - [Java](./tech/java/java.md)
     - [Scheduler stuff](./tech/java/scheduler.md)
+  - [CLI tools](./tech/cli_tools.md)
 - [Probability and Statistics](./prob_and_stats/mit_course/readme.md)
   - [Useful maths equations](./prob_and_stats/maths.md)
   - [Chapter 1 & 2](./prob_and_stats/mit_course/chapter_1.md)
