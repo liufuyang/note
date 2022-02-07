@@ -203,7 +203,7 @@ worst case: \(height \leq c log_{2}(n) \)</p>
 <h2 id="left-leaning-red-black-bsts-guibas-sedgewick-1979-and-sedgewick-2007"><a class="header" href="#left-leaning-red-black-bsts-guibas-sedgewick-1979-and-sedgewick-2007">Left-leaning red-black BSTs (Guibas-Sedgewick 1979 and Sedgewick 2007)</a></h2>
 <p>Idea: ensure that hight always O(log N) (best possible)</p>
 <img width="600" src="https://user-images.githubusercontent.com/161689/152679596-37d0522d-a4ef-4fac-80e1-24e521a608de.png"/>
-<p>A BST that has rules:</p>
+<p>A Red-Black BST that has rules:</p>
 <ul>
 <li>each node <code>red</code> or <code>black</code></li>
 <li>root is always black</li>
@@ -212,7 +212,7 @@ worst case: \(height \leq c log_{2}(n) \)</p>
 <li>red node =&gt; only black children</li>
 </ul>
 </li>
-<li>every root-Null path (like in a unsuccessful search) has same number of black nodes</li>
+<li>every root-Null path (like in an unsuccessful search) has the same number of black nodes</li>
 <li>red links lean left</li>
 </ul>
 <blockquote>
@@ -227,6 +227,24 @@ then it has \(height \leq 2 log_{2}(n + 1) \)</p>
 </blockquote>
 </blockquote>
 <img width="600" src="https://user-images.githubusercontent.com/161689/152679725-09e13abf-7e23-4add-9115-da159026c59d.png"/>
+<blockquote>
+<blockquote>
+<p>Every root to leaf path has the same number of black nodes</p>
+</blockquote>
+</blockquote>
+<iframe width="640" height="360"
+src="https://www.youtube.com/embed/YPnFn-LOPLY"
+frameborder="0" allow="accelerometer; autoplay; clipboard-write;
+encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+<p>Sedgewick's friend wrote him a late night email
+telling him in this show they actually got the line
+for Red-Black tree correct. 
+(And I don't think that helps with the ladies :) )</p>
+<details>
+  <summary>Click to see scripts...</summary>
+  <img width="600" src="https://user-images.githubusercontent.com/161689/152861051-1ca05eb1-17b6-4b12-bc73-1f19949c446a.png" />
+</details>
 <h2 id="achieved-by-3-basic-operations"><a class="header" href="#achieved-by-3-basic-operations">Achieved by 3 basic operations</a></h2>
 <ul>
 <li>Left Rotation</li>

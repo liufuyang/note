@@ -1301,7 +1301,7 @@ worst case: \(height \leq c log_{2}(n) \)</p>
 <h2 id="left-leaning-red-black-bsts-guibas-sedgewick-1979-and-sedgewick-2007"><a class="header" href="#left-leaning-red-black-bsts-guibas-sedgewick-1979-and-sedgewick-2007">Left-leaning red-black BSTs (Guibas-Sedgewick 1979 and Sedgewick 2007)</a></h2>
 <p>Idea: ensure that hight always O(log N) (best possible)</p>
 <img width="600" src="https://user-images.githubusercontent.com/161689/152679596-37d0522d-a4ef-4fac-80e1-24e521a608de.png"/>
-<p>A BST that has rules:</p>
+<p>A Red-Black BST that has rules:</p>
 <ul>
 <li>each node <code>red</code> or <code>black</code></li>
 <li>root is always black</li>
@@ -1310,7 +1310,7 @@ worst case: \(height \leq c log_{2}(n) \)</p>
 <li>red node =&gt; only black children</li>
 </ul>
 </li>
-<li>every root-Null path (like in a unsuccessful search) has same number of black nodes</li>
+<li>every root-Null path (like in an unsuccessful search) has the same number of black nodes</li>
 <li>red links lean left</li>
 </ul>
 <blockquote>
@@ -1325,6 +1325,24 @@ then it has \(height \leq 2 log_{2}(n + 1) \)</p>
 </blockquote>
 </blockquote>
 <img width="600" src="https://user-images.githubusercontent.com/161689/152679725-09e13abf-7e23-4add-9115-da159026c59d.png"/>
+<blockquote>
+<blockquote>
+<p>Every root to leaf path has the same number of black nodes</p>
+</blockquote>
+</blockquote>
+<iframe width="640" height="360"
+src="https://www.youtube.com/embed/YPnFn-LOPLY"
+frameborder="0" allow="accelerometer; autoplay; clipboard-write;
+encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+<p>Sedgewick's friend wrote him a late night email
+telling him in this show they actually got the line
+for Red-Black tree correct. 
+(And I don't think that helps with the ladies :) )</p>
+<details>
+  <summary>Click to see scripts...</summary>
+  <img width="600" src="https://user-images.githubusercontent.com/161689/152861051-1ca05eb1-17b6-4b12-bc73-1f19949c446a.png" />
+</details>
 <h2 id="achieved-by-3-basic-operations"><a class="header" href="#achieved-by-3-basic-operations">Achieved by 3 basic operations</a></h2>
 <ul>
 <li>Left Rotation</li>
@@ -1334,6 +1352,12 @@ then it has \(height \leq 2 log_{2}(n + 1) \)</p>
 <img width="600" src="https://user-images.githubusercontent.com/161689/152679888-dcb6aa7b-1eaa-412c-8fba-9fe60b2e07ff.png"/>
 <img width="600" src="https://user-images.githubusercontent.com/161689/152679920-8546ea77-4396-4e63-ab8f-8dc90110975b.png"/>
 <h1 id="b-trees"><a class="header" href="#b-trees">B-Trees</a></h1>
+<p><img src="https://user-images.githubusercontent.com/161689/152861534-d9b1fac0-f8fd-4471-9f72-873d6c021107.png" alt="image" />
+<img src="https://user-images.githubusercontent.com/161689/152861575-99f12d24-5c63-4e3f-b080-bcc86e25c6a5.png" alt="image" />
+<img src="https://user-images.githubusercontent.com/161689/152861603-3056652a-2dd7-4a86-adec-9b3b23c7c494.png" alt="image" />
+<img src="https://user-images.githubusercontent.com/161689/152861672-638c0071-2cdc-45c1-9a10-ff5e5aa63df9.png" alt="image" />
+<img src="https://user-images.githubusercontent.com/161689/152861710-4c456c51-0692-4ab4-9b63-da26abd4c5c5.png" alt="image" />
+<img src="https://user-images.githubusercontent.com/161689/152861763-4e8bdf02-2a92-44ea-85a8-66bc92312184.png" alt="image" /></p>
 <h1 id="kd-trees"><a class="header" href="#kd-trees">Kd-Trees</a></h1>
 <h1 id="rust-note"><a class="header" href="#rust-note">Rust note</a></h1>
 <p><img src="https://media.githubusercontent.com/media/usagi/rust-memory-container-cs/master/3840x2160/rust-memory-container-cs-3840x2160-dark-back.png" alt="memory_cheat" /></p>
