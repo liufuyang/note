@@ -35,12 +35,12 @@ Idea: ensure that hight always O(log N) (best possible)
 
 <img width="600" src="https://user-images.githubusercontent.com/161689/152679596-37d0522d-a4ef-4fac-80e1-24e521a608de.png"/>
 
-A BST that has rules:
+A Red-Black BST that has rules:
 - each node `red` or `black`
 - root is always black
 - no red nodes in a row
   - red node => only black children
-- every root-Null path (like in a unsuccessful search) has same number of black nodes
+- every root-Null path (like in an unsuccessful search) has the same number of black nodes
 - red links lean left
 
 >> Left-leaning red-black BSTs: 1-1 correspondence with 2-3 trees
@@ -49,6 +49,24 @@ A BST that has rules:
 then it has \\(height \leq 2 log_{2}(n + 1) \\)
 
 <img width="600" src="https://user-images.githubusercontent.com/161689/152679725-09e13abf-7e23-4add-9115-da159026c59d.png"/>
+
+>> Every root to leaf path has the same number of black nodes
+
+<iframe width="640" height="360"
+src="https://www.youtube.com/embed/YPnFn-LOPLY"
+frameborder="0" allow="accelerometer; autoplay; clipboard-write;
+encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+
+Sedgewick's friend wrote him a late night email
+telling him in this show they actually got the line
+for Red-Black tree correct. 
+(And I don't think that helps with the ladies :) )
+
+<details>
+  <summary>Click to see scripts...</summary>
+  <img width="600" src="https://user-images.githubusercontent.com/161689/152861051-1ca05eb1-17b6-4b12-bc73-1f19949c446a.png" />
+</details>
 
 ## Achieved by 3 basic operations
 
