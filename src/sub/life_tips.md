@@ -5,10 +5,11 @@
 * Make bed
 * Meditation 10-20m, draw attention back to breath, 7 days will have effect?
 * Tune into the peak state -> "I can do it mode"
-  * code shower?
+  * code shower?!🤔
   * 4:16:8 breath exercise
   * short exercise, or a walk outside
   * 5 - 10 daily journal
+* Peaceful mindset reminding, see below 静心做事法
 
 ## Evening tips
 * Summary daily journal
@@ -30,6 +31,17 @@ Ref [here](https://www.youtube.com/watch?v=XXGINjJzwZs), [here](https://www.yout
   - major accomplishment
   - perhaps something learned
   - perhaps something could be done better, less hurry, or some actions could have been avoided?
+
+## 静心做事法
+一定记住干活说话的时候不要急，要静心细水的来，包括打字😄 这样貌似可以更能集中精力。
+* 能`慢`下来干事情，这样焦躁感觉会减少很多
+* 能`慢`下来说事情，别人也能够更好的理解
+
+记得年轻的时候，其实也包括现在，很多情况下还是干事情太急躁，包括打字都想打很快。
+给人讲东西说话也快，着急别人理解慢。其实都可以慢下来，平着心去做事，有一种稳妥，
+心静的感觉。
+
+感觉这个可以每天早上起来回想一下。
 
 ## 拖延症
 
