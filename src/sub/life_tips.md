@@ -26,11 +26,21 @@ Ref [here](https://www.youtube.com/watch?v=XXGINjJzwZs), [here](https://www.yout
 * Read more books, write more notes, eat less in the afternoons
 * Regular fasting
 
+## Daily Productivity Tips
+* Keep a todo list and clear it every day before sleep
+  * Put each day's tasks into their own planning/notes
+
 ## Weekly Goal
 * Write a weekly work summary and note down
   - major accomplishment
   - perhaps something learned
   - perhaps something could be done better, less hurry, or some actions could have been avoided?
+
+## 耐心，专心，静心
+* 禁走险，一误万误
+* 禁性猴，事万功一
+* 禁无章，仅专万事
+得有计划，分主次
 
 ## 静心做事法
 一定记住干活说话的时候不要急，要静心细水的来，包括打字😄 这样貌似可以更能集中精力。
@@ -50,6 +60,8 @@ Ref [here](https://www.youtube.com/watch?v=XXGINjJzwZs), [here](https://www.yout
 3. 设定期限
 4. 远离干扰
 1. 先搞五分钟再说
+> 不要想着去完成✅ 只看现在这五分钟，半小时能带来的好处
+> 只要今天作出了一点点改进或者进步，明天就会更好一些
 > 不管你面对的事情有多么困难，你有多抵触，多害怕，都不要逃避，因为没人能帮你做。而且往往你只需要迈出那第一步，剩下的第二步、第三步、第四步，都比你想象地要轻松很多
 
 ## Health tips
