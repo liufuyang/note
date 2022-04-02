@@ -20,3 +20,5 @@ Geometric application of BSTs
 
 ## 2-d orthogonal range search - Kd-trees
 
+> `Kd tree`: Recursively partition k-dimensional space into 2 halfspaces
+

@@ -48,3 +48,5 @@
 - [Food and Drink]()
   - [Cheese study](./food_and_drink/cheese.md)
   - [Restaurants in Stockholm](./food_and_drink/stockholm_restaurants.md)
+- [Random thoughs]()
+  - [About learning and memory](./random/learning_and_memory.md)
