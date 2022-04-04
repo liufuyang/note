@@ -15,6 +15,7 @@
     - [Red-Black BSTs](./algorithms/balanced_search_tree/red_black_bst.md)
     - [B-Trees](./algorithms/balanced_search_tree/b_tree.md)
     - [Kd-Trees](./algorithms/balanced_search_tree/kd_tree.md)
+  - [Raft](./algorithms/raft.md)
 - [System Design]()
   - [Cache](./system_design/cache.md)
 - [Rust note](./rust_note/rust.md)
