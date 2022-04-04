@@ -45,7 +45,10 @@ if we have the same term value, then I don't vote to her (so as she won't vote f
   - From `Rules for Servers`: If RPC request or response contains term T > currentTerm:
     set currentTerm = T, convert to follower
   - The candidate situation mentioned above
-  - if `notYetVoted` or `votedTheSameBefore`, then do the vote, set `votedFor` and reset my `election timeout`
+  - if `notYetVoted` or `votedTheSameBefore`, then do the vote, set `votedFor` and reset my `election timeout`;
+  It is important to have `votedFor` set and checked here as it helps in the case where
+  there is multiple candidates alive, then no multiple leaders are selected, as we make
+  sure each voter can only vote to one candidate.
 
 ## HeartBeat - a.k.a Empty AppendEntries RPC
 After the Leader is elected, the `electionTimeoutTime` or `election timeout` should then be
