@@ -1,5 +1,13 @@
 # Life tips
 
+## Important tips
+- Sleep is important, try best to get enough
+- Sport is important, daily sprint or long walk helps.
+  - Do not sit and work hard on something for a long time - 45M break is GOOD
+  - Do not be influenced by short videos for too long
+- Learn some tips on fast reading
+- Read more, focus more, plan better
+
 ## Morning tips
 * Most important time is the 1 hour in the morning
 * Make bed
@@ -66,8 +74,8 @@ Ref [here](https://www.youtube.com/watch?v=XXGINjJzwZs), [here](https://www.yout
 
 ## Health tips
 * Do more sports
-- vitamin D, potassium and so on are important!
-- listen to Dr. Breg
+- Vitamin D, K2, potassium and so on are important!
+- Listen to Dr. Breg
 
 ## Happier tips
 * When bored, reach out to a good friend, some family menber, or a memtor for a chat.
