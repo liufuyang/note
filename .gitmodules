@@ -1,0 +1,3 @@
+[submodule "src/sub/HumanSystemOptimization"]
+	path = src/sub/HumanSystemOptimization
+	url = git@github.com:zijie0/HumanSystemOptimization.git
