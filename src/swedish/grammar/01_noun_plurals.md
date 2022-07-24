@@ -4,12 +4,12 @@
 - Rivstart A1/A2 Övningsbok - page 36
 
 | `En` word type | situation                                              | Singular Definite | Plural Indefinite | Plural Definite |
-|----------------|--------------------------------------------------------|------------------|---------------|-----------------|
-| en 1           | ends with consonant <br> 辅音                            | + en             | + ar          | + na            |
-| en 2.a         | ends with consonant, <br> but the stress on last vowel | + en             | ~~a~~ + er    | + na            |
-| en 2.b         | ends with vowel, <br> but the stress on last vowel     | + n              | ~~a~~ + er    | + na            |
-| en 3           | ends in `a`                                            | + n              | ~~a~~ + or    | + na            |
-| en 4           | ends in `e`                                            | + n              | ~~a~~ + ar    | + na            |
+|----------------|--------------------------------------------------------|-------------------|-------------------|-----------------|
+| en 1           | ends with consonant <br> 辅音                            | + en              | + ar              | + na            |
+| en 2.a         | ends with consonant, <br> but the stress on last vowel | + en              | ~~a~~ + er        | + na            |
+| en 2.b         | ends with vowel, <br> but the stress on last vowel     | + n               | ~~a~~ + er        | + na            |
+| en 3           | ends in `a`                                            | + n               | ~~a~~ + or        | + na            |
+| en 4           | ends in `e`                                            | + n               | ~~a~~ + ar        | + na            |
 
 | `Ett` word type | situation                                             | Singular Definite | Plural Indefinite | Plural Definite |
 |-----------------|-------------------------------------------------------|-------------------|-------------------|-----------------|
