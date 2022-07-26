@@ -21,7 +21,7 @@
 
 ### The passive
 Adding an `s`
-- If present tense ending in `r`, then + ~~r~~s
+- If present tense ending in `r`, then + ~~r~~ s
   - öppnar -> öppnas
 - If present tense ending in `er` then usually the whole ending disappears
   - köpper -> köps
