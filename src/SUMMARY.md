@@ -53,6 +53,7 @@
     - [Verbs](./swedish/grammar/02_verbs.md)
   - [Folkuniversitetet]()
     - [2022 A1](./swedish/folkuniversitetet/2022_A1.md)
+    - [2022 A2](./swedish/folkuniversitetet/2022_A2.md)
   - [TV Show - Huss](./swedish/shows/huss/huss.md)
     - [Säsong 1 - Avsnitt 1](./swedish/shows/huss/s1a1.md)
 - [Food and Drink]()
