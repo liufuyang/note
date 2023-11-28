@@ -26,6 +26,8 @@
     - [Smart pointers](./rust_note/courses/smart_pointers.md)
     - [String](./rust_note/courses/string.md)
   - [Note for tokio dev](./rust_note/tokio.md)
+  - [Book note - Rust atomics and locks]()
+    - [SpinLock implementation](./rust_note/book_atomics_and_locks/spin_lock.md)
   - [Resources](./rust_note/resources.md)
 - [Tech notes]()
   - [Network Programming](./tech/network_programming.md)
