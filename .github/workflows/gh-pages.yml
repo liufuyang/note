@@ -7,7 +7,7 @@ on:
 
 jobs:
   deploy:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-22.04
     # https://www.petefreitag.com/item/903.cfm
     container:
       image: liufuyang/mdbook-mermaid:0.4.7
