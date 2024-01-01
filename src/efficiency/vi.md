@@ -21,8 +21,8 @@ g;  🔥 jump to the place of last edit. can be quite helpful while debugging or
 %   move to the matching part of a (, [ or {
 [{  move to the first enclosure of { above
 
-Ctrl-D  move half-page down
-Ctrl-U  move half-page up
+Ctrl-D  🔥 move half-page down
+Ctrl-U  🔥 move half-page up
 Ctrl-B  page up
 Ctrl-F  page down
 Ctrl-O  🔥 jump to last (older) cursor position
@@ -42,6 +42,9 @@ fX  fall onto to next 'X', in the same line (X is any character)
 FX  fall to previous 'X' (f and F put the cursor on X)
 tX  til next 'X' (similar to above, but cursor is before X)
 TX  til previous 'X' (cursor is behind X)
+
+J   join, move next line below to the end of current line (but adds a space)
+Jx  join like above, and remove the added space.
 ```
 
 ## Editing
@@ -54,6 +57,12 @@ di"             delete inside quotes
 
 ca"             change around quotes, include quotes
 da"             delete around quotes
+
+d0              delete till be beginning of current line
+d$, D           delete till the end of current line
+
+u               undo
+Ctrl-r          redo
 
 ,, (2 comma)    🔧 customized to add a ; at the end of the line
                 inoremap <leader>, <C-o>A;<ESC>
