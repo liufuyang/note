@@ -1,4 +1,4 @@
-# Java
+# ♨️ Java
 
 An interesting blog on some Java Features such as
 `DelayQueue` `StampedLock` and `Phaser`

@@ -64,6 +64,9 @@ d$, D           delete till the end of current line
 u               undo
 Ctrl-r          redo
 
+>>              indent the current line
+>iB, >i}        indent the current Block
+
 ,, (2 comma)    🔧 customized to add a ; at the end of the line
                 inoremap <leader>, <C-o>A;<ESC>
                 innoremap <leader>, A;<ESC>
