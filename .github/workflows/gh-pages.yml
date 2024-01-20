@@ -8,17 +8,40 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-22.04
-    # https://www.petefreitag.com/item/903.cfm
-    container:
-      image: liufuyang/mdbook-mermaid:0.4.7
     steps:
       - uses: actions/checkout@v2
+      # Install Rust & its package manager Cargo
+      - name: Install cargo
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+          profile: minimal
 
-      # - name: Setup mdBook
-      #   uses: peaceiris/actions-mdbook@v1
-      #   with:
-      #     mdbook-version: '0.4.6'
-      #     mdbook-version: 'latest'
+      # Cache installation assets
+      - name: Cache cargo registry
+        uses: actions/cache@v1
+        with:
+          path: ~/.cargo/registry
+          key: ${{ runner.os }}-cargo-registry-${{ hashFiles('**/Cargo.lock') }}
+      - name: Cache cargo index
+        uses: actions/cache@v1
+        with:
+          path: ~/.cargo/git
+          key: ${{ runner.os }}-cargo-index-${{ hashFiles('**/Cargo.lock') }}
+      - name: Cache cargo build
+        uses: actions/cache@v1
+        with:
+          path: target
+          key: ${{ runner.os }}-cargo-build-target-${{ hashFiles('**/Cargo.lock') }}
+
+      # Install mdbook and requirements
+      - name: Install mdbook and epub plugin
+        uses: actions-rs/cargo@v1
+        with:
+          command: install
+          args: mdbook mdbook-mermaid
+
+      # Run mdbook build
       - run: mdbook build
       - run: ls ./book
 
