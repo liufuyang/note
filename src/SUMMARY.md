@@ -40,6 +40,7 @@
   - [Chapter 1 & 2](./prob_and_stats/mit_course/chapter_1.md)
 - [Efficiency Hack]()
   - [📝 Vi editor tips](./efficiency/vi.md)
+  - [Git tips](./efficiency/git.md)
 - [Markdown Notes]()
   - [Some Markdown Tips](./md/md.md)
   - [`<details>` usage](./md/details.md)
