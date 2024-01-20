@@ -1,6 +1,6 @@
 # Git tips
 
-```shell
+```sh
 # only show logs related to main and a branch-a
 
 git lg main..branch-a

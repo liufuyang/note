@@ -35,7 +35,7 @@ jobs:
           key: ${{ runner.os }}-cargo-build-target-${{ hashFiles('**/Cargo.lock') }}
 
       # Install mdbook and requirements
-      - name: Install mdbook and epub plugin
+      - name: Install mdbook and mdbook-mermaid
         uses: actions-rs/cargo@v1
         with:
           command: install
