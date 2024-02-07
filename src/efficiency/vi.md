@@ -72,6 +72,24 @@ Ctrl-r          redo
                 innoremap <leader>, A;<ESC>
 ```
 
+## Folding
+```
+zo              Open one fold under the cursor.
+zO              Open folds, recursively.
+zc              Close one fold under the cursor.
+zC              Close folds, recursively.
+
+zM              Close all folds: set 'foldlevel' to 0. 'foldenable' will be set.
+zR              Open all folds. This sets 'foldlevel' to highest fold level.
+```
+
+For ideavim, set up as such:
+```
+nnoremap zC :action CollapseRegionRecursively<CR>
+nnoremap zO :action ExpandRegionRecursively<CR>
+```
+
+
 ## Options
 ```
 :noh           turn off highlight
