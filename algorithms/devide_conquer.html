@@ -182,7 +182,7 @@
 <ol>
 <li>Divide into smaller problems</li>
 <li>Conquer via recursive calls</li>
-<li>Combine solutions of sub-problems into one for the 
+<li>Combine solutions of sub-problems into one for the
 original problem.</li>
 </ol>
 <h2 id="typical-problems"><a class="header" href="#typical-problems">Typical problems:</a></h2>
@@ -213,9 +213,9 @@ Via divide and conquer, what we need is this</p>
 }
 </code></pre>
 <p><code>CountSplitInv</code> counting the split inversions, where first
-index is in the first half array, and second index is in the 
+index is in the first half array, and second index is in the
 second half array.
-Then the question is, can we do <code>CountSplitInv</code> with 
+Then the question is, can we do <code>CountSplitInv</code> with
 \( O(n) \)? If so, the divide part has \( O(\log n) \), which gives us the final algorithms speed of \( O(n \log n) \). Intuitively feels not possible.</p>
 <h3 id="piggybacking-on-merge-sort"><a class="header" href="#piggybacking-on-merge-sort">Piggybacking on Merge Sort</a></h3>
 <pre><code>SortAndCount(array a, length n) {
@@ -228,7 +228,7 @@ Then the question is, can we do <code>CountSplitInv</code> with
       return d, x + y + z
 }
 </code></pre>
-<p>After sorting, we can do the trick, or &quot;piggybacking&quot; 
+<p>After sorting, we can do the trick, or "piggybacking"
 while merge:</p>
 <pre><code>i=0
 j=0
@@ -244,11 +244,11 @@ for k = 0 .. n-1 {
     }
 }
 </code></pre>
-<p>So if <code>b</code>'s element all less than <code>c</code>'s element, 
+<p>So if <code>b</code>'s element all less than <code>c</code>'s element,
 before <code>j</code> starts to add, <code>i</code> will be as <code>b.len</code>, making <code>z=0</code> in the end.</p>
 <p>Or the general claim:</p>
 <blockquote>
-<p>Claim: the numberr of split inversions involving an element 
+<p>Claim: the numberr of split inversions involving an element
 <code>c_j</code> from 2nd array <code>c</code> is precisely the number of elements
 left in the 1st array <code>b</code> when <code>c_j</code> is copied to the output <code>d</code>.</p>
 </blockquote>
@@ -256,9 +256,9 @@ left in the 1st array <code>b</code> when <code>c_j</code> is copied to the outp
 only one more operation on the merge operations. So we
 achieved \( O(n \log n) \). Pretty impressive.</p>
 <h2 id="the-master-method"><a class="header" href="#the-master-method">The Master Method</a></h2>
-<p>\[ 
+<p>\[
 \begin{align}
-\text{If }  \quad  T(n) &amp; &lt;= a T (\frac{n}{b}) + O(n^d) \\ 
+\text{If }  \quad  T(n) &amp; &lt;= a T (\frac{n}{b}) + O(n^d) \\
 \text{Then } \quad  T(n) &amp; =
 \begin{cases}
 O(n^d \log n)       &amp; \quad \text{if } a = b^d \text{ (Case 1)} \\

@@ -188,7 +188,7 @@ Let's see how often I can keep this updated...</p>
 <li><code>mdbook serve --dest-dir docs --open</code></li>
 <li>Edit content</li>
 <li>Then perhaps build again <code>mdbook build --dest-dir docs</code></li>
-<li>Then push </li>
+<li>Then push</li>
 </ul>
 <details>
 <summary>Some hidden code here</summary>
@@ -196,7 +196,7 @@ Let's see how often I can keep this updated...</p>
 
 #[tokio::main]
 async fn main() {
-    let routes = warp::any().map(|| &quot;Hello, World!&quot;);
+    let routes = warp::any().map(|| "Hello, World!");
     warp::serve(routes).run(([127, 0, 0, 1], 3030)).await;
 }</code></pre></pre>
 </details>

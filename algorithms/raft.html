@@ -188,7 +188,7 @@
 <img src="https://user-images.githubusercontent.com/161689/161535678-86a9157c-c756-4832-99b5-75a1c2dca49d.png" alt="image" /></p>
 <blockquote>
 <p><strong>Raft Core Feature</strong></p>
-<p>If committed --meaning--&gt; Present in the future leader's logs, and this is 
+<p>If committed --meaning--&gt; Present in the future leader's logs, and this is
 achieved by:</p>
 <ul>
 <li>Restrictions on leader election (See voting rules)</li>
@@ -198,7 +198,7 @@ achieved by:</p>
 <h2 id="leader-election"><a class="header" href="#leader-election">Leader Election</a></h2>
 <p>We firstly look at <code>Leader Election</code> mechanism - which is implemented by two parts:</p>
 <ol>
-<li><code>RequestVote</code> - each node start as <code>Follower</code> and when <code>election timeout</code> passes 
+<li><code>RequestVote</code> - each node start as <code>Follower</code> and when <code>election timeout</code> passes
 and no HeartBeat received before, then a node step up as <code>Candidate</code> and send votes
 to rest of the nodes and if collect more than half (count itself as well), it
 steps up as a <code>Leader</code>, which keeps sending <code>HeartBeat</code> to others.</li>
@@ -217,7 +217,7 @@ have been fetched.</li>
 <li>Each places when a candidate/leader step down to a follower,
 remember to set <code>votedFor</code> back to <code>nil</code> or <code>-1</code> so to allow it gives a valid vote
 in the next round of voting process.</li>
-<li>Not like Follower, Candidates can probably send out the next round of vote 
+<li>Not like Follower, Candidates can probably send out the next round of vote
 with a shorter and fixed Duration than
 a Follower's <code>election timeout duration</code>, in the case when this round of vote does not
 get enough votes; But at the same time</li>
@@ -245,7 +245,7 @@ sure each voter can only vote to one candidate.</li>
 <li><strong>Restrictions on leader election</strong>
 <ul>
 <li>When voting, include <code>lastLogIndex</code> and <code>lastLogTerm</code></li>
-<li>Voting server <code>v</code> denies vote if its log is &quot;more complete&quot;:
+<li>Voting server <code>v</code> denies vote if its log is "more complete":
 <pre><code>if (lastTerm_v &gt; lastTerm_c) || (lastTerm_v == lastTerm_c) &amp;&amp; (lastIndex_v &gt; lastIndex_c)
   return false
 </code></pre>
@@ -296,7 +296,7 @@ we can always have a candidate selected after a few rounds.</p>
 with a long timeout anymore as if we do that, the timeout
 will be a time much longer than the election timeout of other
 followers then it ended up constantly new candidate showing up.</p>
-<p>However, if we let leader ticker async, for example, start a 
+<p>However, if we let leader ticker async, for example, start a
 goroutine and send a HeartBeat call every 100ms, then the other
 subtle issue is that we have to make sure, when those goroutines
 finishes in different time and order, we can still handle things
@@ -315,7 +315,7 @@ same follower replied out of order.</li>
 This is where the paper didn't say much, but basically there
 is two cases we need to speed-up follower log.</p>
 <ol>
-<li>During follower replying <code>HeartBeat</code>, when follower's <code>LastLogTerm</code> is greater than leader's <code>rf.log[nextIndex-1].Term</code> (or <code>args.PrevLogTerm</code>), 
+<li>During follower replying <code>HeartBeat</code>, when follower's <code>LastLogTerm</code> is greater than leader's <code>rf.log[nextIndex-1].Term</code> (or <code>args.PrevLogTerm</code>),
 so we roll <code>nextIndex</code> to the smaller side until it reaches an entry with the same term as leader's <code>PrevLogTerm</code>,
 by cutting follower's log and replying to leader with a smaller <code>LastLogIndex</code>;
 <pre><code>Leader:   [0, 1, 1, 2, 2, 2, 4, 4,]
@@ -324,7 +324,7 @@ Follower: [0, 1, 1, 3, 3, ] then we should cut it to:
           [0, 1, 1, ]       &lt;-----------------------|
                     ^-------new `nextIndex` found by `LastLogIndex`
 </code></pre>
-Also, when PrevLogIndex/Term matches, remove all the following entries that starts with a miss match of any 
+Also, when PrevLogIndex/Term matches, remove all the following entries that starts with a miss match of any
 entry term from leader's incoming entries
 <pre><code>Leader:   [0, 1, 1, 2, 2, 2, 4, 4,]
 Entries:               ^ [2, 4, 4,]

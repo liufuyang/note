@@ -227,7 +227,7 @@
 <p><em>Constructor</em>.  You may assume that the constructor receives an n-by-n array containing the \( n^2 \) integers between 0 and \(n^2 − 1\), where 0 represents the blank square. You may also assume that <code>2 ≤ n &lt; 128</code>.</p>
 <p><em>String representation</em>. <code>The toString()</code> method returns a string composed of n + 1 lines. The first line contains the board size n; the remaining n lines contains the n-by-n grid of tiles in row-major order, using 0 to designate the blank square.</p>
 <p><img src="https://user-images.githubusercontent.com/161689/118242131-45de6500-b49d-11eb-8db4-a7af8ee80e57.png" alt="string representation" /></p>
-<p><em>Hamming and Manhattan distances</em>.  To measure how close a board is to the goal board, we define two notions of distance. 
+<p><em>Hamming and Manhattan distances</em>.  To measure how close a board is to the goal board, we define two notions of distance.
 The <code>Hamming distance</code> betweeen a board and the goal board is the number of tiles in the wrong position.
 The <code>Manhattan distance</code> between a board and the goal board is the sum of the Manhattan distances (sum of the vertical and horizontal distance) from the tiles to their goal positions.</p>
 <p><img src="https://user-images.githubusercontent.com/161689/118242364-8b029700-b49d-11eb-9e29-3d0d0a4637c1.png" alt="distance" /></p>
@@ -271,7 +271,7 @@ at each step, the A* algorithm removes the node with the smallest priority from 
 </code></pre>
 <p><em>Implementation requirement</em>. To implement the A* algorithm, you must use the
 <a href="https://algs4.cs.princeton.edu/code/javadoc/edu/princeton/cs/algs4/MinPQ.html">MinPQ</a> data type for the priority queue.</p>
-<p><em>Corner cases</em>. </p>
+<p><em>Corner cases</em>.</p>
 <ul>
 <li>Throw an IllegalArgumentException in the constructor if the argument is null.</li>
 <li>Return -1 in moves() if the board is unsolvable.</li>
@@ -294,9 +294,9 @@ at each step, the A* algorithm removes the node with the smallest priority from 
 
     // print solution to standard output
     if (!solver.isSolvable())
-        StdOut.println(&quot;No solution possible&quot;);
+        StdOut.println("No solution possible");
     else {
-        StdOut.println(&quot;Minimum number of moves = &quot; + solver.moves());
+        StdOut.println("Minimum number of moves = " + solver.moves());
         for (Board board : solver.solution())
             StdOut.println(board);
     }
@@ -323,13 +323,13 @@ To avoid recomputing the Manhattan priority of a search node from scratch each t
 <p>(Difficult challenge for the mathematically inclined: prove this fact.) To apply the fact, run the A* algorithm on two puzzle instances—one with the initial board and one with the initial board modified by swapping a pair of tiles—in lockstep (alternating back and forth between exploring search nodes in each of the two game trees). Exactly one of the two will lead to the goal board.</p>
 <hr />
 <h3 id="summary"><a class="header" href="#summary">Summary</a></h3>
-<p>I have some sample solution <a href="https://github.com/liufuyang/algs4/blob/main/algs_princeton/4_a_start_search_pq/Solver.java">here</a> for this exercises. </p>
+<p>I have some sample solution <a href="https://github.com/liufuyang/algs4/blob/main/algs_princeton/4_a_start_search_pq/Solver.java">here</a> for this exercises.</p>
 <p>The most important hints could be:</p>
 <ul>
 <li>You would need to implement a linked list type of structure to keep all the visited states and link them to the current state so to allow it to be traced back in the end.</li>
-<li>For that <em>critical optimizaiton</em> part where making sure we don't insert a visitedstate into the frontier again. I initially tried to put all the visited state in a 
-large SET and each time check the common set whether it contains the state before 
-inserting but that apparently is not always correct (and it is slow). One only 
+<li>For that <em>critical optimizaiton</em> part where making sure we don't insert a visitedstate into the frontier again. I initially tried to put all the visited state in a
+large SET and each time check the common set whether it contains the state before
+inserting but that apparently is not always correct (and it is slow). One only
 need to check all the state in it's state chain to know whether it is a state can be inserted to frontier. Also as we are not dealing some type of circled graphs so
 to speed up we only needed to check the state (one of the neighbor) a single time
 with current state's previous state.</li>

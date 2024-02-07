@@ -187,10 +187,10 @@
 </ul>
 <pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
-</span>let s_on_stack: Box&lt;&amp;str&gt; = Box::new(&quot;hello&quot;); // string is still on stack
-let s_on_heap: Box&lt;str&gt; = Box::from(&quot;hello&quot;); // string is copied onto heap
-println!(&quot;s_on_stack = {}&quot;, s_on_stack);
-println!(&quot;s_on_heap = {}&quot;, s_on_heap);
+</span>let s_on_stack: Box&lt;&amp;str&gt; = Box::new("hello"); // string is still on stack
+let s_on_heap: Box&lt;str&gt; = Box::from("hello"); // string is copied onto heap
+println!("s_on_stack = {}", s_on_stack);
+println!("s_on_heap = {}", s_on_heap);
 <span class="boring">}</span></code></pre></pre>
 <h2 id="using-deref-trait-to-auto-dereference"><a class="header" href="#using-deref-trait-to-auto-dereference">Using <code>Deref</code> trait to auto dereference</a></h2>
 <pre><pre class="playground"><code class="language-rust">use std::ops::Deref;
@@ -218,12 +218,12 @@ struct User {
 
 impl User {
     fn print_name(&amp;self) {
-        println!(&quot;My name is {}&quot;, self.name);
+        println!("My name is {}", self.name);
     }
 }
 
 fn main() {
-    let user_pointer = MySmartPointer::new(User {name: &quot;Alex&quot;});
+    let user_pointer = MySmartPointer::new(User {name: "Alex"});
     user_pointer.print_name(); // auto deref
 }</code></pre></pre>
 <h2 id="using-box-for-unknown-size-type"><a class="header" href="#using-box-for-unknown-size-type">Using <code>Box</code> for unknown size type</a></h2>
@@ -237,7 +237,7 @@ use crate::List::{Cons, Nil};
 
 fn main() {
     let list = Cons(1, Cons(2, Cons(3, Nil)));
-    println!(&quot;{:?}&quot;, list);
+    println!("{:?}", list);
     // recursive type has infinite size, won't compile
 }</code></pre></pre>
 <p>Above code won't compile as Rust cannot know the size of a <code>List</code> as it is recursive. Now we can use <code>Box&lt;&gt;</code> to make it's size known at compile time.</p>
@@ -254,7 +254,7 @@ fn main() {
         Box::new(Cons(2,
             Box::new(Cons(3,
                 Box::new(Nil))))));
-    println!(&quot;{:?}&quot;, list);
+    println!("{:?}", list);
 }</code></pre></pre>
 
                     </main>

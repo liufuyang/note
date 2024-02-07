@@ -179,8 +179,8 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="pattern-matching"><a class="header" href="#pattern-matching">Pattern matching</a></h1>
-<p>Patterns come in two forms: refutable and irrefutable. 
-Patterns that will match for any possible value passed are <em>irrefutable</em>. An example would be x in the statement <code>let x = 5;</code> because <code>x</code> matches anything and therefore cannot fail to match. 
+<p>Patterns come in two forms: refutable and irrefutable.
+Patterns that will match for any possible value passed are <em>irrefutable</em>. An example would be x in the statement <code>let x = 5;</code> because <code>x</code> matches anything and therefore cannot fail to match.
 (Meaning it always will have a match.)</p>
 <p>Patterns that can fail to match for some possible value are <em>refutable</em>. An example would be <code>Some(x)</code> in the expression <code>if let Some(x) = a_value</code> because if the value in the <code>a_value</code> variable is <code>None</code> rather than <code>Some</code>, the <code>Some(x)</code> pattern will not match.</p>
 <h2 id="pattern-matching-type"><a class="header" href="#pattern-matching-type">Pattern matching type</a></h2>
@@ -206,13 +206,13 @@ assert_eq!(4, y);
 non-references like expressions.</p>
 <pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
-</span>let x: Option&lt;String&gt; = Some(&quot;hello&quot;.into());
+</span>let x: Option&lt;String&gt; = Some("hello".into());
 match &amp;x {
-    Some(s) =&gt; println!(&quot;{}&quot;, s), // nothing moves here, `s` is a &amp;String,
+    Some(s) =&gt; println!("{}", s), // nothing moves here, `s` is a &amp;String,
                                   // the same as `Some(ref s) =&gt; ...`, with `ref` added by compiler behind the scene
-    None =&gt; println!(&quot;nothing&quot;)
+    None =&gt; println!("nothing")
 }
-println!(&quot;{}&quot;, x.unwrap());       // x still owns the String 
+println!("{}", x.unwrap());       // x still owns the String 
 <span class="boring">}</span></code></pre></pre>
 
                     </main>

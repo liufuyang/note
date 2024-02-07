@@ -193,23 +193,23 @@
 <p>Sort of like mutex primitives, aquire=lock, release=unlock. Acquire and Release are largely intended to be paired.</p>
 <ul>
 <li>
-<p><code>release</code> update the memory, &quot;publish&quot; to other threads, used only with <code>store</code> type operation(save/publish data out, cannot use with load)</p>
+<p><code>release</code> update the memory, "publish" to other threads, used only with <code>store</code> type operation(save/publish data out, cannot use with load)</p>
 </li>
 <li>
-<p><code>acquire</code> memory &quot;published&quot; by other threads, making it available to us, used only with <code>load</code> type of operation (cannot use with store)</p>
+<p><code>acquire</code> memory "published" by other threads, making it available to us, used only with <code>load</code> type of operation (cannot use with store)</p>
 </li>
 <li>
-<p>For &quot;load and store&quot; type of operation:</p>
+<p>For "load and store" type of operation:</p>
 <ul>
 <li><code>release</code> will make load <code>relaxed</code> and store <code>release</code></li>
 <li><code>acquire</code> will make load <code>acquire</code> and store <code>relaxed</code></li>
 </ul>
 </li>
 <li>
-<p><code>AcqRel</code> or acquire and release also exist, so can be used for &quot;load and store&quot; type of operation, 
-making load <code>acquire</code> and store <code>release</code> (no relaxed). 
+<p><code>AcqRel</code> or acquire and release also exist, so can be used for "load and store" type of operation,
+making load <code>acquire</code> and store <code>release</code> (no relaxed).
 This operation order could be handy for situation such as for an Arc type of thing in the end to drop
-the internal object, it may use some operation like <code>load_and_minors_1_then_store</code> so you would 
+the internal object, it may use some operation like <code>load_and_minors_1_then_store</code> so you would
 use this <code>AcqRel</code> to make sure the thread got the updated value and all other threads has updated value when they read.
 This is illustrated in the video.</p>
 </li>
@@ -227,7 +227,7 @@ use std::sync::atomic::{AtomicBool, Ordering};
 use std::thread;
 
 fn main() {
-    let lock = Arc::new(AtomicBool::new(false)); // value answers &quot;am I locked?&quot;
+    let lock = Arc::new(AtomicBool::new(false)); // value answers "am I locked?"
 
     // ... distribute lock to threads somehow ...
 
@@ -243,7 +243,7 @@ fn main() {
     lock.store(false, Ordering::Release);
 }</code></pre></pre>
 <h2 id="sequentially-consistent"><a class="header" href="#sequentially-consistent">Sequentially Consistent</a></h2>
-<p>Be cause there is no total order of events for acquire/release, Sequentially Consistent is 
+<p>Be cause there is no total order of events for acquire/release, Sequentially Consistent is
 introduced.</p>
 <p>Sequentially Consistent is the most powerful of all, implying the restrictions of all other orderings. Intuitively, a sequentially consistent operation cannot be reordered: all accesses on one thread that happen before and after a SeqCst access stay before and after it. A data-race-free program that uses only sequentially consistent atomics and data accesses has the very nice property that there is a single global execution of the program's instructions that all threads agree on. This execution is also particularly nice to reason about: it's just an interleaving of each thread's individual executions. This does not hold if you start using the weaker atomic orderings.</p>
 <p>The relative developer-friendliness of sequential consistency doesn't come for free. Even on strongly-ordered platforms sequential consistency involves emitting memory fences.</p>

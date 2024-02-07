@@ -189,7 +189,7 @@ Let's see how often I can keep this updated...</p>
 <li><code>mdbook serve --dest-dir docs --open</code></li>
 <li>Edit content</li>
 <li>Then perhaps build again <code>mdbook build --dest-dir docs</code></li>
-<li>Then push </li>
+<li>Then push</li>
 </ul>
 <details>
 <summary>Some hidden code here</summary>
@@ -197,7 +197,7 @@ Let's see how often I can keep this updated...</p>
 
 #[tokio::main]
 async fn main() {
-    let routes = warp::any().map(|| &quot;Hello, World!&quot;);
+    let routes = warp::any().map(|| "Hello, World!");
     warp::serve(routes).run(([127, 0, 0, 1], 3030)).await;
 }</code></pre></pre>
 </details>
@@ -284,14 +284,14 @@ pub struct LinkedList&lt;T&gt; {
 <li>When <code>tail</code> less than 1/4 of capacity, can reduce capacity by 1/2 of current capacity, to save space;</li>
 <li>In Java, when removing element from the list, besides change
 head and tail values, also set <code>null</code> to the array so to let
-those removed nodes can be garbage collected later. </li>
+those removed nodes can be garbage collected later.</li>
 </ul>
 <h2 id="dequeue---a-double-ended-queue"><a class="header" href="#dequeue---a-double-ended-queue">Dequeue - a double-ended queue</a></h2>
 <p>Dequeue -a double-ended queue or <code>deque</code> (pronounced “deck”)
 is a generalization of a stack and a queue that supports adding and removing items from either the front or the back of the data structure.</p>
 <p>One type of implementation could be using a <code>double linked list</code>, so both ends can remove nodes.</p>
 <p>Another approach (I suppose) could be using <code>two stacks</code>, with either stack implementations mentioned above.
-Then one stack is kept as <code>positive</code> while another kept as 
+Then one stack is kept as <code>positive</code> while another kept as
 <code>negative</code>.</p>
 <p>So the <code>deque</code> can probably be implemented as something like:</p>
 <pre><code class="language-java">    // add the item to the front
@@ -323,9 +323,9 @@ Then one stack is kept as <code>positive</code> while another kept as
     }
 </code></pre>
 <p>Haven't tried to do my homework with the Princeton course,
-but hopefully this works. Otherwise the code might later 
+but hopefully this works. Otherwise the code might later
 be at <a href="https://github.com/liufuyang/algs4/tree/main/algs_princeton/2_queues">here</a>.
-Update: As the homework requires <code>constant worst time</code> so 
+Update: As the homework requires <code>constant worst time</code> so
 I used a double linked list to implement it. So I can
 just guess now the above idea will work :)</p>
 <h2 id="randomizedqueue"><a class="header" href="#randomizedqueue">RandomizedQueue</a></h2>
@@ -347,32 +347,32 @@ during <code>enqueue</code> operation:</p>
 </code></pre>
 <p>Key is on that <code>swap</code> call. Basically the shuffle
 idea is very simple, when adding a new item into
-the array, then randomly select an item from the 
+the array, then randomly select an item from the
 array (including the newly added one) then swap
 the newly added one with the selected item.</p>
 <p>See <a href="https://github.com/liufuyang/algs4/tree/main/algs_princeton/2_queues">code here</a>.</p>
 <p>By the way, this <strong><code>Knuth Shuffle</code></strong> idea seems
 pretty powerful as it uses linear time for shuffling
-a N-th array. Better than make N random floats and 
+a N-th array. Better than make N random floats and
 sort them to have a new index list.</p>
 <h2 id="linked-list-impl-vs-array-impl"><a class="header" href="#linked-list-impl-vs-array-impl">Linked list impl vs Array impl</a></h2>
-<p>I guess simply put, </p>
+<p>I guess simply put,</p>
 <ul>
 <li><code>linked list</code> is good for constant time
-operations <strong>in the worst case</strong>, though slower each time, 
+operations <strong>in the worst case</strong>, though slower each time,
 an uses more space;</li>
-<li><code>resizing array</code> is 
+<li><code>resizing array</code> is
 in most cases very fast, occasionally slow when resizing,
 with the claim of adding an element has constant <strong>amortized time</strong> cost. And less wasted space</li>
 </ul>
 <h2 id="priority-queues-aka-binary-heap"><a class="header" href="#priority-queues-aka-binary-heap">Priority Queues (a.k.a Binary heap)</a></h2>
-<p>Besides the &quot;linear&quot; array/linked-list type of queue implementation, 
+<p>Besides the "linear" array/linked-list type of queue implementation,
 <code>Binary heap</code> can also be used to construct
-<strong>an array representation of a heap-ordered complete binary tree</strong>, 
-which can be used as a special queue where you can always get the most 
+<strong>an array representation of a heap-ordered complete binary tree</strong>,
+which can be used as a special queue where you can always get the most
 min (or max) value of a queue. See more about it in the search algorithm
 session below.</p>
-<p>And it can also be used as a sorting algoritm called 
+<p>And it can also be used as a sorting algoritm called
 <code>Heap sort</code>. <a href="https://liufuyang.github.io/note/algorithms/sort.html#priority-queue---binary-heap-and-heap-sort">See more notes about Priority Queues here</a></p>
 <hr />
 <h2 id="use-stackqueue-for-search-algorithm"><a class="header" href="#use-stackqueue-for-search-algorithm">Use stack/queue for Search Algorithm</a></h2>
@@ -381,19 +381,19 @@ session below.</p>
 <li><code>stack</code> can be used for <code>Depth-First Search</code> (DFS)</li>
 <li><code>queue</code> can be used for <code>Breadth-First Search</code> (BFS)</li>
 </ul>
-<p>And <code>Priority queue</code> can be used for even faster search algoritms to 
+<p>And <code>Priority queue</code> can be used for even faster search algoritms to
 only focus on the most possible directions (the shortest path for example).</p>
 <p><a href="https://liufuyang.github.io/note/algorithms/sort.html#priority-queue---binary-heap-and-heap-sort">See more notes about Priority Queues here</a></p>
 <iframe width="640" height="360" src="https://www.youtube.com/embed/WbzNRTTrX0g?t=1557" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <p>Quite interesting.</p>
-<p>It seems that a general &quot;Graph Search&quot; type of problem 
+<p>It seems that a general "Graph Search" type of problem
 can be solved by this abstract framework:</p>
 <blockquote>
 <ul>
 <li><code>agent</code> - entity that perceives its environment and acts upon that environment</li>
 <li><code>state</code> - a configuration of the agent and
 its environment;
-<code>initial state</code> - the state in which the agent begins </li>
+<code>initial state</code> - the state in which the agent begins</li>
 <li><code>actions</code> - choices that can be made in a state, like edges in graphs; <code>ACTIONS(s)</code> returns the set of actions that
 can be executed in state s</li>
 <li><code>transition model</code> or <code>RESULT(s, a)</code>
@@ -404,7 +404,7 @@ is a goal state</li>
 <li><code>frontier</code> - a stack or queue to keep track of the nodes to be explored</li>
 </ul>
 </blockquote>
-<p>Then with a <code>node</code> defined as 
+<p>Then with a <code>node</code> defined as
 <strong>a data structure that keeps track of</strong></p>
 <ul>
 <li>a <code>state</code></li>
@@ -428,23 +428,23 @@ aren't already in the <code>frontier</code> or the explored set.</li>
 </ul>
 </li>
 </ul>
-<p>For example, in a simple maze search problem, the <code>state</code> of 
-the node is just the current position, the <code>actions</code> of the 
+<p>For example, in a simple maze search problem, the <code>state</code> of
+the node is just the current position, the <code>actions</code> of the
 node is just the next possible directions that the agent can go to, leading to the following states.</p>
 <p>In a social network problem, for example in the homework's
-movie actors <code>degree</code> problem, the <code>state</code> of 
-the node is just the actor id, the <code>actions</code> of the 
+movie actors <code>degree</code> problem, the <code>state</code> of
+the node is just the actor id, the <code>actions</code> of the
 node is just the movies this actor performed, which can lead to other <code>state</code> (or actors).</p>
 <p>Some example code on the <code>degree</code> problem might look like this.</p>
 <pre><code class="language-python">def shortest_path(source, target):
-    &quot;&quot;&quot;
+    """
     Returns the shortest list of (movie_id, person_id) pairs that connect the source to the target.
     
     If no possible path, returns None.
 
     Action: movie id
     State: person id
-    &quot;&quot;&quot;
+    """
 
     start = Node(state=source, parent=None, action=None)
     frontier = QueueFrontier()
@@ -458,8 +458,8 @@ node is just the movies this actor performed, which can lead to other <code>stat
         node = frontier.remove()
         explored.add(node.state)
 
-        for action in people[node.state][&quot;movies&quot;]:
-            for state in movies[action][&quot;stars&quot;]: 
+        for action in people[node.state]["movies"]:
+            for state in movies[action]["stars"]: 
                 if not frontier.contains_state(state) and state not in explored:
                     child = Node(state=state, parent=node, action=action)
                     frontier.add(child)
@@ -473,8 +473,8 @@ node is just the movies this actor performed, which can lead to other <code>stat
                         actions_and_states.reverse()
                         return actions_and_states
 </code></pre>
-<p>And normally a <code>queue</code> is used as the <code>frontier</code> in order 
-to perform <code>Breadth-First Search</code> - which seem to be the 
+<p>And normally a <code>queue</code> is used as the <code>frontier</code> in order
+to perform <code>Breadth-First Search</code> - which seem to be the
 best option for general problems as you want to find the shortest path to the goal.</p>
 <p>One variant of the algorithms is a <strong>greedy best-first search</strong></p>
 <ul>
@@ -494,10 +494,10 @@ successor n' with step cost c, <code>h(n) ≤ h(n') + c)</code></li>
 </ul>
 </li>
 </ul>
-<p>To facilitate a fast way to pick &quot;a lowest value (or highest) from a queue&quot;,
+<p>To facilitate a fast way to pick "a lowest value (or highest) from a queue",
 a data structure called <a href="https://liufuyang.github.io/note/algorithms/sort.html#priority-queue---binary-heap-and-heap-sort"><code>Priority Queue</code></a>
-can be used as it as uses <code>binary heap</code> to achieve <code>log N</code> order-of-growth for 
-both queue insert and queue delete operation. </p>
+can be used as it as uses <code>binary heap</code> to achieve <code>log N</code> order-of-growth for
+both queue insert and queue delete operation.</p>
 <p>Another variant of this type of algorithm is <code>Adversarial Search</code> - which is used for problems like Tic-Tac-Toe games</p>
 <p>So for games:</p>
 <ul>
@@ -539,7 +539,7 @@ needed for game problems with very large search space.</p>
 <ol>
 <li>Divide into smaller problems</li>
 <li>Conquer via recursive calls</li>
-<li>Combine solutions of sub-problems into one for the 
+<li>Combine solutions of sub-problems into one for the
 original problem.</li>
 </ol>
 <h2 id="typical-problems"><a class="header" href="#typical-problems">Typical problems:</a></h2>
@@ -570,9 +570,9 @@ Via divide and conquer, what we need is this</p>
 }
 </code></pre>
 <p><code>CountSplitInv</code> counting the split inversions, where first
-index is in the first half array, and second index is in the 
+index is in the first half array, and second index is in the
 second half array.
-Then the question is, can we do <code>CountSplitInv</code> with 
+Then the question is, can we do <code>CountSplitInv</code> with
 \( O(n) \)? If so, the divide part has \( O(\log n) \), which gives us the final algorithms speed of \( O(n \log n) \). Intuitively feels not possible.</p>
 <h3 id="piggybacking-on-merge-sort"><a class="header" href="#piggybacking-on-merge-sort">Piggybacking on Merge Sort</a></h3>
 <pre><code>SortAndCount(array a, length n) {
@@ -585,7 +585,7 @@ Then the question is, can we do <code>CountSplitInv</code> with
       return d, x + y + z
 }
 </code></pre>
-<p>After sorting, we can do the trick, or &quot;piggybacking&quot; 
+<p>After sorting, we can do the trick, or "piggybacking"
 while merge:</p>
 <pre><code>i=0
 j=0
@@ -601,11 +601,11 @@ for k = 0 .. n-1 {
     }
 }
 </code></pre>
-<p>So if <code>b</code>'s element all less than <code>c</code>'s element, 
+<p>So if <code>b</code>'s element all less than <code>c</code>'s element,
 before <code>j</code> starts to add, <code>i</code> will be as <code>b.len</code>, making <code>z=0</code> in the end.</p>
 <p>Or the general claim:</p>
 <blockquote>
-<p>Claim: the numberr of split inversions involving an element 
+<p>Claim: the numberr of split inversions involving an element
 <code>c_j</code> from 2nd array <code>c</code> is precisely the number of elements
 left in the 1st array <code>b</code> when <code>c_j</code> is copied to the output <code>d</code>.</p>
 </blockquote>
@@ -613,9 +613,9 @@ left in the 1st array <code>b</code> when <code>c_j</code> is copied to the outp
 only one more operation on the merge operations. So we
 achieved \( O(n \log n) \). Pretty impressive.</p>
 <h2 id="the-master-method"><a class="header" href="#the-master-method">The Master Method</a></h2>
-<p>\[ 
+<p>\[
 \begin{align}
-\text{If }  \quad  T(n) &amp; &lt;= a T (\frac{n}{b}) + O(n^d) \\ 
+\text{If }  \quad  T(n) &amp; &lt;= a T (\frac{n}{b}) + O(n^d) \\
 \text{Then } \quad  T(n) &amp; =
 \begin{cases}
 O(n^d \log n)       &amp; \quad \text{if } a = b^d \text{ (Case 1)} \\
@@ -712,12 +712,12 @@ j-----------------^
 <p>If an input array is already sorted, simply choose pivod as the first element
 of the array will result the running time of quick sort to be \( n^2 \).
 That is not quick.</p>
-<p>So if some <em>&quot;maigc&quot;</em> method out there can always choose the midiean value 
+<p>So if some <em>"maigc"</em> method out there can always choose the midiean value
 as the pivot, then the quick sort running back falls back to \( n \log(n) \).</p>
 <p>A common way is to choose a <strong>random</strong> element as pivot.
-So with <strong>Random Pivot</strong> implemented, it can be approved 
-that the total number of comparisons of quik-sort 
-algorithms is equal or less than  \( 2 n \ln(n) \), 
+So with <strong>Random Pivot</strong> implemented, it can be approved
+that the total number of comparisons of quik-sort
+algorithms is equal or less than  \( 2 n \ln(n) \),
 appriximately.</p>
 <p>So quick sort will have more comparisions than merge sort,
 but as it needs no extra memory, so it is generally faster
@@ -741,7 +741,7 @@ than merge sort.</p>
 <h3 id="quick-select"><a class="header" href="#quick-select">Quick select</a></h3>
 <p>The expected running time to find the median (or the kth largest value) of an array of nn distinct keys using randomized quickselect is <em>linear</em>.</p>
 <h3 id="duplicated-keys---3-way-partition"><a class="header" href="#duplicated-keys---3-way-partition">Duplicated keys - 3-way partition</a></h3>
-<p>Simply put all equal values together </p>
+<p>Simply put all equal values together</p>
 <ul>
 <li>3-way partitioning: Goal - partition array into 3 parts
 <ul>
@@ -796,7 +796,7 @@ lt-----------^
 gt--------------------^
 hi--------------------------^
 </code></pre>
-<p>Or a &quot;from two end&quot; approach could be like this:</p>
+<p>Or a "from two end" approach could be like this:</p>
 <p><img src="https://user-images.githubusercontent.com/161689/113506443-35a1a480-9545-11eb-8772-e2066045a12e.png" alt="image" /></p>
 <h3 id="bottom-line"><a class="header" href="#bottom-line">Bottom line</a></h3>
 <p>Randomized quicksort with 3-way partitioning reduced running time from linearithmic to liner in broad class of applications.</p>
@@ -811,9 +811,9 @@ Approximates the median of 9 evenly spaced entries. Uses at most 12 compares.</p
 <hr />
 <h2 id="priority-queue---binary-heap-and-heap-sort"><a class="header" href="#priority-queue---binary-heap-and-heap-sort">Priority Queue - Binary Heap and Heap Sort</a></h2>
 <p><a href="https://d3c33hcgiwev3.cloudfront.net/_b85511f4ea522da4caf6b02d10fc0bad_24PriorityQueues.pdf?Expires=1621555200&amp;Signature=ErS4FX0or3b2I~F14QbeAblhGzPnhfvTBc~kolEojufmcyOIODw5gxHAS4p0o7DlH9JO79uAbqIoitA1H08-3x8BL3rExU5lOczQORb62RHLjau-ht8MSvPuJ1J9y7rNfHmyYleDuZ3IQgQkZwtRZk6kOXholuL6raotiQCyweM_&amp;Key-Pair-Id=APKAJLTNE6QMUY6HBC5A">Full lecture slides here</a></p>
-<p><strong>Priority Queue</strong> is super useful for fast 
-Breadth-First Search (BFS) in algorithms like A* search, 
-or it can be used in sort algorithm called Heap Sort 
+<p><strong>Priority Queue</strong> is super useful for fast
+Breadth-First Search (BFS) in algorithms like A* search,
+or it can be used in sort algorithm called Heap Sort
 (basically you make a Priority queue then pop out elements and they will be in order)</p>
 <p>It needs to implement two operations efficiently:</p>
 <ul>
@@ -835,7 +835,7 @@ or it can be used in sort algorithm called Heap Sort
 </ul>
 <p><img src="https://user-images.githubusercontent.com/161689/117346317-e2a27080-aea7-11eb-90b1-c21663dd84c5.png" alt="image" />
 <img src="https://user-images.githubusercontent.com/161689/117346449-09f93d80-aea8-11eb-826f-74dd551aab7d.png" alt="image" /></p>
-<p><strong>Priority Queue</strong> can be implemented via <strong>binary heap</strong> - which 
+<p><strong>Priority Queue</strong> can be implemented via <strong>binary heap</strong> - which
 is an <em>array representation of a heap-ordered complete binary tree</em>.</p>
 <p><img src="https://user-images.githubusercontent.com/161689/118765898-fe305280-b87b-11eb-8e7e-118bc8a3ec7d.png" alt="image" /></p>
 <ul>
@@ -848,9 +848,9 @@ is an <em>array representation of a heap-ordered complete binary tree</em>.</p>
 </li>
 </ul>
 <h3 id="binary-heap"><a class="header" href="#binary-heap">Binary Heap</a></h3>
-<p>The <em>binary heap</em> is a data structure that can efficiently support 
-the basic priority-queue operations. A <em>binary tree</em> is <em>heap-ordered</em> 
-if the key in each node is larger than or equal to the keys in that 
+<p>The <em>binary heap</em> is a data structure that can efficiently support
+the basic priority-queue operations. A <em>binary tree</em> is <em>heap-ordered</em>
+if the key in each node is larger than or equal to the keys in that
 node's two children (if any).</p>
 <ul>
 <li>Height of complete tree with N nodes is <code>lg N</code></li>
@@ -950,7 +950,7 @@ node's two children (if any).</p>
 <p><strong>Heapsort significane</strong> In-place sorting algorithm</p>
 <ul>
 <li>Mergesort: need extra space, (otherwise there is a not practical way)</li>
-<li>Quicksort: quadratic time in worst case (N ln N via probabilistic guarantee, fast in practise) </li>
+<li>Quicksort: quadratic time in worst case (N ln N via probabilistic guarantee, fast in practise)</li>
 <li>Heapsort: Yes ! 2 N log N worst case</li>
 </ul>
 <p><strong>Bottom line</strong>. Heapsort is optimal for both time and space, but:</p>
@@ -981,7 +981,7 @@ node's two children (if any).</p>
 </code></pre>
 <p>The issue of the recursion above is that there are many duplicated calculations performed.
 So the core of the algorithms of opertimization is to reduced the number of operations.
-And since we have many calculation already done so there should be a way to save the 
+And since we have many calculation already done so there should be a way to save the
 results, then later calculations can use the previous calculatined values.</p>
 <p>This could be the core idea of <code>Dynamic programming</code>.</p>
 <h3 id="avoiding-exponential-waste"><a class="header" href="#avoiding-exponential-waste">Avoiding exponential waste</a></h3>
@@ -1014,7 +1014,7 @@ it, and then return it.</li>
 <h2 id="dynamic-programming-1"><a class="header" href="#dynamic-programming-1">Dynamic programming</a></h2>
 <p>Dynamic programming.</p>
 <ul>
-<li>Build computation from the <strong>&quot;bottom up&quot;</strong>.</li>
+<li>Build computation from the <strong>"bottom up"</strong>.</li>
 <li>Solve small subproblems and save solutions.</li>
 <li>Use those solutions to build bigger solutions.</li>
 </ul>
@@ -1056,7 +1056,7 @@ it, and then return it.</li>
 }
 </code></pre>
 <p><img src="https://user-images.githubusercontent.com/161689/112755860-e0184580-8fe2-11eb-9291-37f63af490d9.png" alt="image" /></p>
-<p>More notes will come when the alg course touches on dynamic programming later. The above content are from the Princeton's 
+<p>More notes will come when the alg course touches on dynamic programming later. The above content are from the Princeton's
 course <em>Computer Science: Programming with a Purpose</em>.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="a--search-homework"><a class="header" href="#a--search-homework">A * Search homework</a></h1>
 <ul>
@@ -1107,7 +1107,7 @@ course <em>Computer Science: Programming with a Purpose</em>.</p>
 <p><em>Constructor</em>.  You may assume that the constructor receives an n-by-n array containing the \( n^2 \) integers between 0 and \(n^2 − 1\), where 0 represents the blank square. You may also assume that <code>2 ≤ n &lt; 128</code>.</p>
 <p><em>String representation</em>. <code>The toString()</code> method returns a string composed of n + 1 lines. The first line contains the board size n; the remaining n lines contains the n-by-n grid of tiles in row-major order, using 0 to designate the blank square.</p>
 <p><img src="https://user-images.githubusercontent.com/161689/118242131-45de6500-b49d-11eb-8db4-a7af8ee80e57.png" alt="string representation" /></p>
-<p><em>Hamming and Manhattan distances</em>.  To measure how close a board is to the goal board, we define two notions of distance. 
+<p><em>Hamming and Manhattan distances</em>.  To measure how close a board is to the goal board, we define two notions of distance.
 The <code>Hamming distance</code> betweeen a board and the goal board is the number of tiles in the wrong position.
 The <code>Manhattan distance</code> between a board and the goal board is the sum of the Manhattan distances (sum of the vertical and horizontal distance) from the tiles to their goal positions.</p>
 <p><img src="https://user-images.githubusercontent.com/161689/118242364-8b029700-b49d-11eb-9e29-3d0d0a4637c1.png" alt="distance" /></p>
@@ -1151,7 +1151,7 @@ at each step, the A* algorithm removes the node with the smallest priority from 
 </code></pre>
 <p><em>Implementation requirement</em>. To implement the A* algorithm, you must use the
 <a href="https://algs4.cs.princeton.edu/code/javadoc/edu/princeton/cs/algs4/MinPQ.html">MinPQ</a> data type for the priority queue.</p>
-<p><em>Corner cases</em>. </p>
+<p><em>Corner cases</em>.</p>
 <ul>
 <li>Throw an IllegalArgumentException in the constructor if the argument is null.</li>
 <li>Return -1 in moves() if the board is unsolvable.</li>
@@ -1174,9 +1174,9 @@ at each step, the A* algorithm removes the node with the smallest priority from 
 
     // print solution to standard output
     if (!solver.isSolvable())
-        StdOut.println(&quot;No solution possible&quot;);
+        StdOut.println("No solution possible");
     else {
-        StdOut.println(&quot;Minimum number of moves = &quot; + solver.moves());
+        StdOut.println("Minimum number of moves = " + solver.moves());
         for (Board board : solver.solution())
             StdOut.println(board);
     }
@@ -1203,13 +1203,13 @@ To avoid recomputing the Manhattan priority of a search node from scratch each t
 <p>(Difficult challenge for the mathematically inclined: prove this fact.) To apply the fact, run the A* algorithm on two puzzle instances—one with the initial board and one with the initial board modified by swapping a pair of tiles—in lockstep (alternating back and forth between exploring search nodes in each of the two game trees). Exactly one of the two will lead to the goal board.</p>
 <hr />
 <h3 id="summary-1"><a class="header" href="#summary-1">Summary</a></h3>
-<p>I have some sample solution <a href="https://github.com/liufuyang/algs4/blob/main/algs_princeton/4_a_start_search_pq/Solver.java">here</a> for this exercises. </p>
+<p>I have some sample solution <a href="https://github.com/liufuyang/algs4/blob/main/algs_princeton/4_a_start_search_pq/Solver.java">here</a> for this exercises.</p>
 <p>The most important hints could be:</p>
 <ul>
 <li>You would need to implement a linked list type of structure to keep all the visited states and link them to the current state so to allow it to be traced back in the end.</li>
-<li>For that <em>critical optimizaiton</em> part where making sure we don't insert a visitedstate into the frontier again. I initially tried to put all the visited state in a 
-large SET and each time check the common set whether it contains the state before 
-inserting but that apparently is not always correct (and it is slow). One only 
+<li>For that <em>critical optimizaiton</em> part where making sure we don't insert a visitedstate into the frontier again. I initially tried to put all the visited state in a
+large SET and each time check the common set whether it contains the state before
+inserting but that apparently is not always correct (and it is slow). One only
 need to check all the state in it's state chain to know whether it is a state can be inserted to frontier. Also as we are not dealing some type of circled graphs so
 to speed up we only needed to check the state (one of the neighbor) a single time
 with current state's previous state.</li>
@@ -1225,7 +1225,7 @@ with current state's previous state.</li>
 <h2 id="binary-search-tree-bst-1"><a class="header" href="#binary-search-tree-bst-1">Binary search tree (BST)</a></h2>
 <ul>
 <li>Each node has a key</li>
-<li>For every key: 
+<li>For every key:
 <ul>
 <li>Larger than all keys in its left subtree</li>
 <li>Smaller than all keys in its right subtree</li>
@@ -1272,12 +1272,12 @@ such as rank, min, or max.</li>
 <p>BTS - binary search tree is a very good data structure
 that has fast insert and search property. One key point
 in making a BST to work well for any cases is to keep
-the tree balanced, or to keep the height of tree as 
+the tree balanced, or to keep the height of tree as
 low as possible. This is achieved via algorithms such
 as <code>2-3 tree</code> and <code>Red-Black tree</code> (which is a different
 representation of 2-3 tree).</p>
 <h2 id="2-3-tree"><a class="header" href="#2-3-tree">2-3 tree</a></h2>
-<p>Allow 1 or 2 keys per node. </p>
+<p>Allow 1 or 2 keys per node.</p>
 <ul>
 <li>2-node: one key, two children.</li>
 <li>3-node: two keys, three children.</li>
@@ -1293,7 +1293,7 @@ worst case: \(height \leq c log_{2}(n) \)</p>
 <ul>
 <li>Add new key to 3-node to create temporary 4-node.</li>
 <li>Move middle key in 4-node into parent.</li>
-<li>Repeat up the tree, as necessary. </li>
+<li>Repeat up the tree, as necessary.</li>
 <li>If you reach the root and it's a 4-node, split it into three 2-nodes.</li>
 </ul>
 <img width="600" src="https://user-images.githubusercontent.com/161689/152679344-db35d723-277d-4082-b920-f42c7cd212cb.png"/>
@@ -1336,7 +1336,7 @@ encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
 </iframe>
 <p>Sedgewick's friend wrote him a late night email
 telling him in this show they actually got the line
-for Red-Black tree correct. 
+for Red-Black tree correct.
 (And I don't think that helps with the ladies :) )</p>
 <details>
   <summary>Click to see scripts...</summary>
@@ -1385,7 +1385,7 @@ for Red-Black tree correct.
 <img src="https://user-images.githubusercontent.com/161689/161535678-86a9157c-c756-4832-99b5-75a1c2dca49d.png" alt="image" /></p>
 <blockquote>
 <p><strong>Raft Core Feature</strong></p>
-<p>If committed --meaning--&gt; Present in the future leader's logs, and this is 
+<p>If committed --meaning--&gt; Present in the future leader's logs, and this is
 achieved by:</p>
 <ul>
 <li>Restrictions on leader election (See voting rules)</li>
@@ -1395,7 +1395,7 @@ achieved by:</p>
 <h2 id="leader-election"><a class="header" href="#leader-election">Leader Election</a></h2>
 <p>We firstly look at <code>Leader Election</code> mechanism - which is implemented by two parts:</p>
 <ol>
-<li><code>RequestVote</code> - each node start as <code>Follower</code> and when <code>election timeout</code> passes 
+<li><code>RequestVote</code> - each node start as <code>Follower</code> and when <code>election timeout</code> passes
 and no HeartBeat received before, then a node step up as <code>Candidate</code> and send votes
 to rest of the nodes and if collect more than half (count itself as well), it
 steps up as a <code>Leader</code>, which keeps sending <code>HeartBeat</code> to others.</li>
@@ -1414,7 +1414,7 @@ have been fetched.</li>
 <li>Each places when a candidate/leader step down to a follower,
 remember to set <code>votedFor</code> back to <code>nil</code> or <code>-1</code> so to allow it gives a valid vote
 in the next round of voting process.</li>
-<li>Not like Follower, Candidates can probably send out the next round of vote 
+<li>Not like Follower, Candidates can probably send out the next round of vote
 with a shorter and fixed Duration than
 a Follower's <code>election timeout duration</code>, in the case when this round of vote does not
 get enough votes; But at the same time</li>
@@ -1442,7 +1442,7 @@ sure each voter can only vote to one candidate.</li>
 <li><strong>Restrictions on leader election</strong>
 <ul>
 <li>When voting, include <code>lastLogIndex</code> and <code>lastLogTerm</code></li>
-<li>Voting server <code>v</code> denies vote if its log is &quot;more complete&quot;:
+<li>Voting server <code>v</code> denies vote if its log is "more complete":
 <pre><code>if (lastTerm_v &gt; lastTerm_c) || (lastTerm_v == lastTerm_c) &amp;&amp; (lastIndex_v &gt; lastIndex_c)
   return false
 </code></pre>
@@ -1493,7 +1493,7 @@ we can always have a candidate selected after a few rounds.</p>
 with a long timeout anymore as if we do that, the timeout
 will be a time much longer than the election timeout of other
 followers then it ended up constantly new candidate showing up.</p>
-<p>However, if we let leader ticker async, for example, start a 
+<p>However, if we let leader ticker async, for example, start a
 goroutine and send a HeartBeat call every 100ms, then the other
 subtle issue is that we have to make sure, when those goroutines
 finishes in different time and order, we can still handle things
@@ -1512,7 +1512,7 @@ same follower replied out of order.</li>
 This is where the paper didn't say much, but basically there
 is two cases we need to speed-up follower log.</p>
 <ol>
-<li>During follower replying <code>HeartBeat</code>, when follower's <code>LastLogTerm</code> is greater than leader's <code>rf.log[nextIndex-1].Term</code> (or <code>args.PrevLogTerm</code>), 
+<li>During follower replying <code>HeartBeat</code>, when follower's <code>LastLogTerm</code> is greater than leader's <code>rf.log[nextIndex-1].Term</code> (or <code>args.PrevLogTerm</code>),
 so we roll <code>nextIndex</code> to the smaller side until it reaches an entry with the same term as leader's <code>PrevLogTerm</code>,
 by cutting follower's log and replying to leader with a smaller <code>LastLogIndex</code>;
 <pre><code>Leader:   [0, 1, 1, 2, 2, 2, 4, 4,]
@@ -1521,7 +1521,7 @@ Follower: [0, 1, 1, 3, 3, ] then we should cut it to:
           [0, 1, 1, ]       &lt;-----------------------|
                     ^-------new `nextIndex` found by `LastLogIndex`
 </code></pre>
-Also, when PrevLogIndex/Term matches, remove all the following entries that starts with a miss match of any 
+Also, when PrevLogIndex/Term matches, remove all the following entries that starts with a miss match of any
 entry term from leader's incoming entries
 <pre><code>Leader:   [0, 1, 1, 2, 2, 2, 4, 4,]
 Entries:               ^ [2, 4, 4,]
@@ -1719,23 +1719,23 @@ leader's CPU?</li>
 <p>Sort of like mutex primitives, aquire=lock, release=unlock. Acquire and Release are largely intended to be paired.</p>
 <ul>
 <li>
-<p><code>release</code> update the memory, &quot;publish&quot; to other threads, used only with <code>store</code> type operation(save/publish data out, cannot use with load)</p>
+<p><code>release</code> update the memory, "publish" to other threads, used only with <code>store</code> type operation(save/publish data out, cannot use with load)</p>
 </li>
 <li>
-<p><code>acquire</code> memory &quot;published&quot; by other threads, making it available to us, used only with <code>load</code> type of operation (cannot use with store)</p>
+<p><code>acquire</code> memory "published" by other threads, making it available to us, used only with <code>load</code> type of operation (cannot use with store)</p>
 </li>
 <li>
-<p>For &quot;load and store&quot; type of operation:</p>
+<p>For "load and store" type of operation:</p>
 <ul>
 <li><code>release</code> will make load <code>relaxed</code> and store <code>release</code></li>
 <li><code>acquire</code> will make load <code>acquire</code> and store <code>relaxed</code></li>
 </ul>
 </li>
 <li>
-<p><code>AcqRel</code> or acquire and release also exist, so can be used for &quot;load and store&quot; type of operation, 
-making load <code>acquire</code> and store <code>release</code> (no relaxed). 
+<p><code>AcqRel</code> or acquire and release also exist, so can be used for "load and store" type of operation,
+making load <code>acquire</code> and store <code>release</code> (no relaxed).
 This operation order could be handy for situation such as for an Arc type of thing in the end to drop
-the internal object, it may use some operation like <code>load_and_minors_1_then_store</code> so you would 
+the internal object, it may use some operation like <code>load_and_minors_1_then_store</code> so you would
 use this <code>AcqRel</code> to make sure the thread got the updated value and all other threads has updated value when they read.
 This is illustrated in the video.</p>
 </li>
@@ -1753,7 +1753,7 @@ use std::sync::atomic::{AtomicBool, Ordering};
 use std::thread;
 
 fn main() {
-    let lock = Arc::new(AtomicBool::new(false)); // value answers &quot;am I locked?&quot;
+    let lock = Arc::new(AtomicBool::new(false)); // value answers "am I locked?"
 
     // ... distribute lock to threads somehow ...
 
@@ -1769,7 +1769,7 @@ fn main() {
     lock.store(false, Ordering::Release);
 }</code></pre></pre>
 <h2 id="sequentially-consistent"><a class="header" href="#sequentially-consistent">Sequentially Consistent</a></h2>
-<p>Be cause there is no total order of events for acquire/release, Sequentially Consistent is 
+<p>Be cause there is no total order of events for acquire/release, Sequentially Consistent is
 introduced.</p>
 <p>Sequentially Consistent is the most powerful of all, implying the restrictions of all other orderings. Intuitively, a sequentially consistent operation cannot be reordered: all accesses on one thread that happen before and after a SeqCst access stay before and after it. A data-race-free program that uses only sequentially consistent atomics and data accesses has the very nice property that there is a single global execution of the program's instructions that all threads agree on. This execution is also particularly nice to reason about: it's just an interleaving of each thread's individual executions. This does not hold if you start using the weaker atomic orderings.</p>
 <p>The relative developer-friendliness of sequential consistency doesn't come for free. Even on strongly-ordered platforms sequential consistency involves emitting memory fences.</p>
@@ -1778,8 +1778,8 @@ introduced.</p>
 <p>Relaxed accesses are the absolute weakest. They can be freely re-ordered and provide no happens-before relationship. Still, relaxed operations are still atomic. That is, they don't count as data accesses and any read-modify-write operations done to them occur atomically. Relaxed operations are appropriate for things that you definitely want to happen, but don't particularly otherwise care about. For instance, incrementing a counter can be safely done by multiple threads using a relaxed <code>fetch_add</code> if you're not using the counter to synchronize any other accesses.</p>
 <p>There's rarely a benefit in making an operation relaxed on strongly-ordered platforms, since they usually provide release-acquire semantics anyway. However relaxed operations can be cheaper on weakly-ordered platforms.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="pattern-matching"><a class="header" href="#pattern-matching">Pattern matching</a></h1>
-<p>Patterns come in two forms: refutable and irrefutable. 
-Patterns that will match for any possible value passed are <em>irrefutable</em>. An example would be x in the statement <code>let x = 5;</code> because <code>x</code> matches anything and therefore cannot fail to match. 
+<p>Patterns come in two forms: refutable and irrefutable.
+Patterns that will match for any possible value passed are <em>irrefutable</em>. An example would be x in the statement <code>let x = 5;</code> because <code>x</code> matches anything and therefore cannot fail to match.
 (Meaning it always will have a match.)</p>
 <p>Patterns that can fail to match for some possible value are <em>refutable</em>. An example would be <code>Some(x)</code> in the expression <code>if let Some(x) = a_value</code> because if the value in the <code>a_value</code> variable is <code>None</code> rather than <code>Some</code>, the <code>Some(x)</code> pattern will not match.</p>
 <h2 id="pattern-matching-type"><a class="header" href="#pattern-matching-type">Pattern matching type</a></h2>
@@ -1805,13 +1805,13 @@ assert_eq!(4, y);
 non-references like expressions.</p>
 <pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
-</span>let x: Option&lt;String&gt; = Some(&quot;hello&quot;.into());
+</span>let x: Option&lt;String&gt; = Some("hello".into());
 match &amp;x {
-    Some(s) =&gt; println!(&quot;{}&quot;, s), // nothing moves here, `s` is a &amp;String,
+    Some(s) =&gt; println!("{}", s), // nothing moves here, `s` is a &amp;String,
                                   // the same as `Some(ref s) =&gt; ...`, with `ref` added by compiler behind the scene
-    None =&gt; println!(&quot;nothing&quot;)
+    None =&gt; println!("nothing")
 }
-println!(&quot;{}&quot;, x.unwrap());       // x still owns the String 
+println!("{}", x.unwrap());       // x still owns the String 
 <span class="boring">}</span></code></pre></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="smart-pointers"><a class="header" href="#smart-pointers">Smart pointers</a></h1>
 <p>Smart pointers allow you to store data on the heap rather than the stack. What remains on the stack is the pointer to the heap data.</p>
@@ -1822,10 +1822,10 @@ println!(&quot;{}&quot;, x.unwrap());       // x still owns the String
 </ul>
 <pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
-</span>let s_on_stack: Box&lt;&amp;str&gt; = Box::new(&quot;hello&quot;); // string is still on stack
-let s_on_heap: Box&lt;str&gt; = Box::from(&quot;hello&quot;); // string is copied onto heap
-println!(&quot;s_on_stack = {}&quot;, s_on_stack);
-println!(&quot;s_on_heap = {}&quot;, s_on_heap);
+</span>let s_on_stack: Box&lt;&amp;str&gt; = Box::new("hello"); // string is still on stack
+let s_on_heap: Box&lt;str&gt; = Box::from("hello"); // string is copied onto heap
+println!("s_on_stack = {}", s_on_stack);
+println!("s_on_heap = {}", s_on_heap);
 <span class="boring">}</span></code></pre></pre>
 <h2 id="using-deref-trait-to-auto-dereference"><a class="header" href="#using-deref-trait-to-auto-dereference">Using <code>Deref</code> trait to auto dereference</a></h2>
 <pre><pre class="playground"><code class="language-rust">use std::ops::Deref;
@@ -1853,12 +1853,12 @@ struct User {
 
 impl User {
     fn print_name(&amp;self) {
-        println!(&quot;My name is {}&quot;, self.name);
+        println!("My name is {}", self.name);
     }
 }
 
 fn main() {
-    let user_pointer = MySmartPointer::new(User {name: &quot;Alex&quot;});
+    let user_pointer = MySmartPointer::new(User {name: "Alex"});
     user_pointer.print_name(); // auto deref
 }</code></pre></pre>
 <h2 id="using-box-for-unknown-size-type"><a class="header" href="#using-box-for-unknown-size-type">Using <code>Box</code> for unknown size type</a></h2>
@@ -1872,7 +1872,7 @@ use crate::List::{Cons, Nil};
 
 fn main() {
     let list = Cons(1, Cons(2, Cons(3, Nil)));
-    println!(&quot;{:?}&quot;, list);
+    println!("{:?}", list);
     // recursive type has infinite size, won't compile
 }</code></pre></pre>
 <p>Above code won't compile as Rust cannot know the size of a <code>List</code> as it is recursive. Now we can use <code>Box&lt;&gt;</code> to make it's size known at compile time.</p>
@@ -1889,7 +1889,7 @@ fn main() {
         Box::new(Cons(2,
             Box::new(Cons(3,
                 Box::new(Nil))))));
-    println!(&quot;{:?}&quot;, list);
+    println!("{:?}", list);
 }</code></pre></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="string"><a class="header" href="#string">String</a></h1>
 <h2 id="char"><a class="header" href="#char">char</a></h2>
@@ -1897,13 +1897,13 @@ fn main() {
 <pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
 </span>let tao: char = '道';
-println!(&quot;'道' as u32: {}&quot;, tao as u32); // 36947 char is basically u32 size unicode
-println!(&quot;U+{:x}&quot;, tao as u32);  // U+9053 - output in 0x or hexadecimal(16) format
-println!(&quot;{}&quot;, tao.escape_unicode()); // \u{9053}
-println!(&quot;{}&quot;, char::from(65)); // from a u8 -&gt; 'A'
-println!(&quot;{}&quot;, std::char::from_u32(0x9053).unwrap()); // from a u32
-println!(&quot;{}&quot;, std::char::from_u32(36947).unwrap()); // from a u32
-println!(&quot;{}&quot;, std::char::from_u32(1234567).unwrap_or('_')); // not every u32 is a char
+println!("'道' as u32: {}", tao as u32); // 36947 char is basically u32 size unicode
+println!("U+{:x}", tao as u32);  // U+9053 - output in 0x or hexadecimal(16) format
+println!("{}", tao.escape_unicode()); // \u{9053}
+println!("{}", char::from(65)); // from a u8 -&gt; 'A'
+println!("{}", std::char::from_u32(0x9053).unwrap()); // from a u32
+println!("{}", std::char::from_u32(36947).unwrap()); // from a u32
+println!("{}", std::char::from_u32(1234567).unwrap_or('_')); // not every u32 is a char
 
 // noticing a char uses 4-byte in memory but not all the space is always used
 assert_eq!(3, tao.len_utf8()); // effective data length in byte
@@ -1920,33 +1920,33 @@ assert_eq!(4, std::mem::size_of_val(&amp;tao));
 <pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
 </span>let tao = std::str::from_utf8(&amp;[0xe9u8, 0x81u8, 0x93u8]).unwrap();
-println!(&quot;{}&quot;, tao);
+println!("{}", tao);
 
-let tao = String::from(&quot;\u{9053}&quot;);
-println!(&quot;{}&quot;, tao);
+let tao = String::from("\u{9053}");
+println!("{}", tao);
 <span class="boring">}</span></code></pre></pre>
 <h3 id="a-char-like-string-might-not-be-a-char"><a class="header" href="#a-char-like-string-might-not-be-a-char">A char like String might not be a char</a></h3>
-<p>A single &quot;char&quot; looking thing - like ❤️ - doesn't means it is a valid char. Some of those single looking characters needs more than 
+<p>A single "char" looking thing - like ❤️ - doesn't means it is a valid char. Some of those single looking characters needs more than
 one <code>char</code> or <code>code points</code> to be represented:</p>
 <pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
-</span>assert_eq!(6, String::from(&quot;❤️&quot;).len()); // length in byte
-assert_eq!(6, std::mem::size_of_val(String::from(&quot;❤️&quot;).as_str())); // same calculation as above
-assert_eq!(2, String::from(&quot;❤️&quot;).chars().count()); // how many `code points` - is 2?
+</span>assert_eq!(6, String::from("❤️").len()); // length in byte
+assert_eq!(6, std::mem::size_of_val(String::from("❤️").as_str())); // same calculation as above
+assert_eq!(2, String::from("❤️").chars().count()); // how many `code points` - is 2?
 // as ❤️ takes 2 code points , we can't assign it to a char
 // let heart = '❤️'; // This won't work
 
-assert_eq!(1, String::from(&quot;道&quot;).chars().count()); // 道 can be defined as a char as it only has 1 code point
-assert_eq!('道', String::from(&quot;道&quot;).chars().next().unwrap());
-assert_eq!(3, String::from(&quot;道&quot;).len());
-assert_eq!(3, std::mem::size_of_val(String::from(&quot;道&quot;).as_str()));
+assert_eq!(1, String::from("道").chars().count()); // 道 can be defined as a char as it only has 1 code point
+assert_eq!('道', String::from("道").chars().next().unwrap());
+assert_eq!(3, String::from("道").len());
+assert_eq!(3, std::mem::size_of_val(String::from("道").as_str()));
 <span class="boring">}</span></code></pre></pre>
 <h3 id="é-is-not-e"><a class="header" href="#é-is-not-e">'é' is not 'é'</a></h3>
 <p>As always, remember that a human intuition for 'character' may not map to Unicode's definitions. For example, despite looking similar, the 'é' character is one Unicode code point while 'é' is two Unicode code points:</p>
 <pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
-</span>assert_eq!(1, String::from(&quot;é&quot;).chars().count()); // '\u{00e9}' -&gt; latin small letter e with acute
-assert_eq!(2, String::from(&quot;é&quot;).chars().count()); // '\u{0065}' + '\u{0301}' -&gt; U+0065: 'latin small letter e', U+0301: 'combining acute accent'
+</span>assert_eq!(1, String::from("é").chars().count()); // '\u{00e9}' -&gt; latin small letter e with acute
+assert_eq!(2, String::from("é").chars().count()); // '\u{0065}' + '\u{0301}' -&gt; U+0065: 'latin small letter e', U+0301: 'combining acute accent'
 // They look the same in editor but have different code points ?!
 <span class="boring">}</span></code></pre></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="note-for-tokio-dev"><a class="header" href="#note-for-tokio-dev">Note for tokio dev</a></h1>
@@ -2102,7 +2102,7 @@ hints.ai_family = AF_UNSPEC;  // use IPv4 or IPv6, whichever
 hints.ai_socktype = SOCK_STREAM;
 hints.ai_flags = AI_PASSIVE;     // fill in my IP for me
 
-getaddrinfo(NULL, &quot;3490&quot;, &amp;hints, &amp;res);
+getaddrinfo(NULL, "3490", &amp;hints, &amp;res);
 
 // make a socket:
 sockfd = socket(res-&gt;ai_family, res-&gt;ai_socktype, res-&gt;ai_protocol);
@@ -2120,7 +2120,7 @@ memset(&amp;hints, 0, sizeof hints);
 hints.ai_family = AF_UNSPEC;
 hints.ai_socktype = SOCK_STREAM;
 
-getaddrinfo(&quot;www.example.com&quot;, &quot;3490&quot;, &amp;hints, &amp;res);
+getaddrinfo("www.example.com", "3490", &amp;hints, &amp;res);
 
 // make a socket:
 sockfd = socket(res-&gt;ai_family, res-&gt;ai_socktype, res-&gt;ai_protocol);
@@ -2134,7 +2134,7 @@ connect(sockfd, res-&gt;ai_addr, res-&gt;ai_addrlen);
 </code></pre>
 <p><code>sockfd</code> is the usual socket file descriptor from the <code>socket()</code> system call. <code>backlog</code> is the number of connections allowed on the incoming queue. What does that mean? Well, incoming connections are going to wait in this queue until you <code>accept()</code> them and this is the limit on how many can queue up. Most systems silently limit this number to about 20; you can probably get away with setting it to 5 or 10.</p>
 <p>Well, as you can probably imagine, we need to call <code>bind()</code> before we call <code>listen()</code> so that the server is running on a specific port.</p>
-<h4 id="accept---thank-you-for-calling-port-3490"><a class="header" href="#accept---thank-you-for-calling-port-3490"><code>accept()</code> - &quot;Thank you for calling port 3490.&quot;</a></h4>
+<h4 id="accept---thank-you-for-calling-port-3490"><a class="header" href="#accept---thank-you-for-calling-port-3490"><code>accept()</code> - "Thank you for calling port 3490."</a></h4>
 <pre><code class="language-c">#include &lt;sys/types.h&gt;
 #include &lt;sys/socket.h&gt;
 
@@ -2146,7 +2146,7 @@ int accept(int sockfd, struct sockaddr *addr, socklen_t *addrlen);
 <pre><code class="language-c">int send(int sockfd, const void *msg, int len, int flags); 
 </code></pre>
 <p>Example:</p>
-<pre><code class="language-c">char *msg = &quot;Beej was here!&quot;;
+<pre><code class="language-c">char *msg = "Beej was here!";
 int len, bytes_sent;
 .
 .
@@ -2183,7 +2183,7 @@ int recvfrom(int sockfd, void *buf, int len, unsigned int flags,struct sockaddr 
 #include &lt;sys/wait.h&gt;
 #include &lt;signal.h&gt;
 
-#define PORT &quot;3490&quot;  // the port users will be connecting to
+#define PORT "3490"  // the port users will be connecting to
 
 #define BACKLOG 10   // how many pending connections queue will hold
 
@@ -2225,7 +2225,7 @@ int main(void)
     hints.ai_flags = AI_PASSIVE; // use my IP
 
     if ((rv = getaddrinfo(NULL, PORT, &amp;hints, &amp;servinfo)) != 0) {
-        fprintf(stderr, &quot;getaddrinfo: %s\n&quot;, gai_strerror(rv));
+        fprintf(stderr, "getaddrinfo: %s\n", gai_strerror(rv));
         return 1;
     }
 
@@ -2233,19 +2233,19 @@ int main(void)
     for(p = servinfo; p != NULL; p = p-&gt;ai_next) {
         if ((sockfd = socket(p-&gt;ai_family, p-&gt;ai_socktype,
                 p-&gt;ai_protocol)) == -1) {
-            perror(&quot;server: socket&quot;);
+            perror("server: socket");
             continue;
         }
 
         if (setsockopt(sockfd, SOL_SOCKET, SO_REUSEADDR, &amp;yes,
                 sizeof(int)) == -1) {
-            perror(&quot;setsockopt&quot;);
+            perror("setsockopt");
             exit(1);
         }
 
         if (bind(sockfd, p-&gt;ai_addr, p-&gt;ai_addrlen) == -1) {
             close(sockfd);
-            perror(&quot;server: bind&quot;);
+            perror("server: bind");
             continue;
         }
 
@@ -2255,12 +2255,12 @@ int main(void)
     freeaddrinfo(servinfo); // all done with this structure
 
     if (p == NULL)  {
-        fprintf(stderr, &quot;server: failed to bind\n&quot;);
+        fprintf(stderr, "server: failed to bind\n");
         exit(1);
     }
 
     if (listen(sockfd, BACKLOG) == -1) {
-        perror(&quot;listen&quot;);
+        perror("listen");
         exit(1);
     }
 
@@ -2268,29 +2268,29 @@ int main(void)
     sigemptyset(&amp;sa.sa_mask);
     sa.sa_flags = SA_RESTART;
     if (sigaction(SIGCHLD, &amp;sa, NULL) == -1) {
-        perror(&quot;sigaction&quot;);
+        perror("sigaction");
         exit(1);
     }
 
-    printf(&quot;server: waiting for connections...\n&quot;);
+    printf("server: waiting for connections...\n");
 
     while(1) {  // main accept() loop
         sin_size = sizeof their_addr;
         new_fd = accept(sockfd, (struct sockaddr *)&amp;their_addr, &amp;sin_size);
         if (new_fd == -1) {
-            perror(&quot;accept&quot;);
+            perror("accept");
             continue;
         }
 
         inet_ntop(their_addr.ss_family,
             get_in_addr((struct sockaddr *)&amp;their_addr),
             s, sizeof s);
-        printf(&quot;server: got connection from %s\n&quot;, s);
+        printf("server: got connection from %s\n", s);
 
         if (!fork()) { // this is the child process
             close(sockfd); // child doesn't need the listener
-            if (send(new_fd, &quot;Hello, world!&quot;, 13, 0) == -1)
-                perror(&quot;send&quot;);
+            if (send(new_fd, "Hello, world!", 13, 0) == -1)
+                perror("send");
             close(new_fd);
             exit(0);
         }
@@ -2316,7 +2316,7 @@ int main(void)
 
 #include &lt;arpa/inet.h&gt;
 
-#define PORT &quot;3490&quot; // the port client will be connecting to 
+#define PORT "3490" // the port client will be connecting to 
 
 #define MAXDATASIZE 100 // max number of bytes we can get at once 
 
@@ -2339,7 +2339,7 @@ int main(int argc, char *argv[])
     char s[INET6_ADDRSTRLEN];
 
     if (argc != 2) {
-        fprintf(stderr,&quot;usage: client hostname\n&quot;);
+        fprintf(stderr,"usage: client hostname\n");
         exit(1);
     }
 
@@ -2348,7 +2348,7 @@ int main(int argc, char *argv[])
     hints.ai_socktype = SOCK_STREAM;
 
     if ((rv = getaddrinfo(argv[1], PORT, &amp;hints, &amp;servinfo)) != 0) {
-        fprintf(stderr, &quot;getaddrinfo: %s\n&quot;, gai_strerror(rv));
+        fprintf(stderr, "getaddrinfo: %s\n", gai_strerror(rv));
         return 1;
     }
 
@@ -2356,13 +2356,13 @@ int main(int argc, char *argv[])
     for(p = servinfo; p != NULL; p = p-&gt;ai_next) {
         if ((sockfd = socket(p-&gt;ai_family, p-&gt;ai_socktype,
                 p-&gt;ai_protocol)) == -1) {
-            perror(&quot;client: socket&quot;);
+            perror("client: socket");
             continue;
         }
 
         if (connect(sockfd, p-&gt;ai_addr, p-&gt;ai_addrlen) == -1) {
             close(sockfd);
-            perror(&quot;client: connect&quot;);
+            perror("client: connect");
             continue;
         }
 
@@ -2370,24 +2370,24 @@ int main(int argc, char *argv[])
     }
 
     if (p == NULL) {
-        fprintf(stderr, &quot;client: failed to connect\n&quot;);
+        fprintf(stderr, "client: failed to connect\n");
         return 2;
     }
 
     inet_ntop(p-&gt;ai_family, get_in_addr((struct sockaddr *)p-&gt;ai_addr),
             s, sizeof s);
-    printf(&quot;client: connecting to %s\n&quot;, s);
+    printf("client: connecting to %s\n", s);
 
     freeaddrinfo(servinfo); // all done with this structure
 
     if ((numbytes = recv(sockfd, buf, MAXDATASIZE-1, 0)) == -1) {
-        perror(&quot;recv&quot;);
+        perror("recv");
         exit(1);
     }
 
     buf[numbytes] = '\0';
 
-    printf(&quot;client: received '%s'\n&quot;,buf);
+    printf("client: received '%s'\n",buf);
 
     close(sockfd);
 
@@ -2451,19 +2451,19 @@ int main(void)
     //pfds[1].fd = some_socket; // Some socket descriptor
     //pfds[1].events = POLLIN;  // Tell me when ready to read
 
-    printf(&quot;Hit RETURN or wait 2.5 seconds for timeout\n&quot;);
+    printf("Hit RETURN or wait 2.5 seconds for timeout\n");
 
     int num_events = poll(pfds, 1, 2500); // 2.5 second timeout
 
     if (num_events == 0) {
-        printf(&quot;Poll timed out!\n&quot;);
+        printf("Poll timed out!\n");
     } else {
         int pollin_happened = pfds[0].revents &amp; POLLIN;
 
         if (pollin_happened) {
-            printf(&quot;File descriptor %d is ready to read\n&quot;, pfds[0].fd);
+            printf("File descriptor %d is ready to read\n", pfds[0].fd);
         } else {
-            printf(&quot;Unexpected event occurred: %d\n&quot;, pfds[0].revents);
+            printf("Unexpected event occurred: %d\n", pfds[0].revents);
         }
     }
 
@@ -2493,7 +2493,7 @@ int main(void)
 #include &lt;netdb.h&gt;
 #include &lt;poll.h&gt;
 
-#define PORT &quot;9034&quot;   // Port we're listening on
+#define PORT "9034"   // Port we're listening on
 
 // Get sockaddr, IPv4 or IPv6:
 void *get_in_addr(struct sockaddr *sa)
@@ -2520,7 +2520,7 @@ int get_listener_socket(void)
     hints.ai_socktype = SOCK_STREAM;
     hints.ai_flags = AI_PASSIVE;
     if ((rv = getaddrinfo(NULL, PORT, &amp;hints, &amp;ai)) != 0) {
-        fprintf(stderr, &quot;selectserver: %s\n&quot;, gai_strerror(rv));
+        fprintf(stderr, "selectserver: %s\n", gai_strerror(rv));
         exit(1);
     }
     
@@ -2530,7 +2530,7 @@ int get_listener_socket(void)
             continue;
         }
         
-        // Lose the pesky &quot;address already in use&quot; error message
+        // Lose the pesky "address already in use" error message
         setsockopt(listener, SOL_SOCKET, SO_REUSEADDR, &amp;yes, sizeof(int));
 
         if (bind(listener, p-&gt;ai_addr, p-&gt;ai_addrlen) &lt; 0) {
@@ -2604,7 +2604,7 @@ int main(void)
     listener = get_listener_socket();
 
     if (listener == -1) {
-        fprintf(stderr, &quot;error getting listening socket\n&quot;);
+        fprintf(stderr, "error getting listening socket\n");
         exit(1);
     }
 
@@ -2619,7 +2619,7 @@ int main(void)
         int poll_count = poll(pfds, fd_count, -1);
 
         if (poll_count == -1) {
-            perror(&quot;poll&quot;);
+            perror("poll");
             exit(1);
         }
 
@@ -2638,12 +2638,12 @@ int main(void)
                         &amp;addrlen);
 
                     if (newfd == -1) {
-                        perror(&quot;accept&quot;);
+                        perror("accept");
                     } else {
                         add_to_pfds(&amp;pfds, newfd, &amp;fd_count, &amp;fd_size);
 
-                        printf(&quot;pollserver: new connection from %s on &quot;
-                            &quot;socket %d\n&quot;,
+                        printf("pollserver: new connection from %s on "
+                            "socket %d\n",
                             inet_ntop(remoteaddr.ss_family,
                                 get_in_addr((struct sockaddr*)&amp;remoteaddr),
                                 remoteIP, INET6_ADDRSTRLEN),
@@ -2659,9 +2659,9 @@ int main(void)
                         // Got error or connection closed by client
                         if (nbytes == 0) {
                             // Connection closed
-                            printf(&quot;pollserver: socket %d hung up\n&quot;, sender_fd);
+                            printf("pollserver: socket %d hung up\n", sender_fd);
                         } else {
-                            perror(&quot;recv&quot;);
+                            perror("recv");
                         }
 
                         close(pfds[i].fd); // Bye!
@@ -2678,7 +2678,7 @@ int main(void)
                             // Except the listener and ourselves
                             if (dest_fd != listener &amp;&amp; dest_fd != sender_fd) {
                                 if (send(dest_fd, buf, nbytes, 0) == -1) {
-                                    perror(&quot;send&quot;);
+                                    perror("send");
                                 }
                             }
                         }
@@ -2709,7 +2709,7 @@ fn handle_client(
 ) {
     let mut data = [0 as u8; 50]; // using 50 byte buffer
 
-    let mut stream_clone = stream.try_clone().expect(&quot;clone failed...&quot;);
+    let mut stream_clone = stream.try_clone().expect("clone failed...");
     std::thread::spawn(move || {
         while match receiver.recv() {
             Ok(msg) =&gt; {
@@ -2717,7 +2717,7 @@ fn handle_client(
                 true
             }
             Err(e) =&gt; {
-                println!(&quot;Client {} disconnected. Message: {}&quot;, peer_addr, e);
+                println!("Client {} disconnected. Message: {}", peer_addr, e);
                 false
             }
         } {}
@@ -2732,11 +2732,11 @@ fn handle_client(
         Ok(size) =&gt; {
             // echo everything!
             // stream.write(&amp;data[0..size]).unwrap();
-            let to_send = std::str::from_utf8(&amp;data[0..size]).unwrap_or(&quot;?&quot;).into();
+            let to_send = std::str::from_utf8(&amp;data[0..size]).unwrap_or("?").into();
             match sender_agent.send((peer_addr.clone(), to_send)) {
                 Ok(_) =&gt; true,
                 Err(e) =&gt; {
-                    println!(&quot;{}&quot;, e);
+                    println!("{}", e);
                     sender_map.lock().unwrap().remove(&amp;peer_addr);
                     false
                 }
@@ -2744,7 +2744,7 @@ fn handle_client(
         }
         Err(_) =&gt; {
             println!(
-                &quot;An error occurred, terminating connection with {}&quot;,
+                "An error occurred, terminating connection with {}",
                 stream.peer_addr().unwrap()
             );
             stream.shutdown(Shutdown::Both).unwrap();
@@ -2754,9 +2754,9 @@ fn handle_client(
 }
 
 fn main() {
-    let listener = TcpListener::bind(&quot;0.0.0.0:3333&quot;).unwrap();
+    let listener = TcpListener::bind("0.0.0.0:3333").unwrap();
     // accept connections and process them, spawning a new thread for each one
-    println!(&quot;Server listening on port 3333&quot;);
+    println!("Server listening on port 3333");
 
     let (sender_agent, recv_agent) = channel::&lt;(SocketAddr, String)&gt;();
     let sender_map: Arc&lt;Mutex&lt;HashMap&lt;SocketAddr, Sender&lt;String&gt;&gt;&gt;&gt; =
@@ -2767,21 +2767,21 @@ fn main() {
     thread::spawn(move || {
         while match recv_agent.recv() {
             Ok((addr, msg)) =&gt; {
-                print!(&quot;[{}]: {}&quot;, &amp;addr, msg.as_str());
+                print!("[{}]: {}", &amp;addr, msg.as_str());
                 for (key, sender_in_map) in sender_map_copy.lock().unwrap().iter() {
                     if key == &amp;addr {
                         continue;
                     }
 
-                    match sender_in_map.send(format!(&quot;[{}]: {}&quot;, addr, msg)) {
+                    match sender_in_map.send(format!("[{}]: {}", addr, msg)) {
                         Ok(_) =&gt; {}
-                        Err(e) =&gt; println!(&quot;{}&quot;, e),
+                        Err(e) =&gt; println!("{}", e),
                     }
                 }
                 true
             }
             Err(e) =&gt; {
-                println!(&quot;{:?}&quot;, e);
+                println!("{:?}", e);
                 true
             }
         } {}
@@ -2793,9 +2793,9 @@ fn main() {
         match stream {
             Ok(mut stream) =&gt; {
                 let peer_addr = stream.peer_addr().unwrap();
-                println!(&quot;New connection: {}&quot;, peer_addr);
+                println!("New connection: {}", peer_addr);
                 stream
-                    .write(format!(&quot;Welcome {}\n&quot;, peer_addr).as_bytes())
+                    .write(format!("Welcome {}\n", peer_addr).as_bytes())
                     .unwrap();
 
                 let sender_map_copy = sender_map.clone();
@@ -2809,7 +2809,7 @@ fn main() {
                 });
             }
             Err(e) =&gt; {
-                println!(&quot;Error: {}&quot;, e);
+                println!("Error: {}", e);
                 /* connection failed */
             }
         }
@@ -2835,13 +2835,13 @@ encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
         () -&gt; {
           try {
             while (true) {
-              System.out.println(&quot;Running&quot;);
+              System.out.println("Running");
               Thread.sleep(1000);
             }
           } catch (InterruptedException e) {
-            System.out.println(&quot;Runnable interrupted&quot;);
+            System.out.println("Runnable interrupted");
           } finally {
-            System.out.println(&quot;FINALLY&quot;);
+            System.out.println("FINALLY");
           }
         };
 
@@ -2849,13 +2849,13 @@ encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
     try {
       future.get(3, TimeUnit.SECONDS); // blocking for 3 seconds
     } catch (TimeoutException e) {
-      System.out.println(&quot;Timeout &quot; + e);
+      System.out.println("Timeout " + e);
       // future will continue running even if we got a TimeoutException
     } catch (InterruptedException | ExecutionException e) {
-      System.out.println(&quot;Interrupted&quot;);
+      System.out.println("Interrupted");
     }
     Thread.sleep(3 * 1000);
-    System.out.println(&quot;END&quot;);
+    System.out.println("END");
   }
 </code></pre>
 <p>Output:</p>
@@ -2869,7 +2869,7 @@ Running
 Running
 END
 </code></pre>
-<p>Now if we do call <code>cancel</code> on the <code>future</code>, then 
+<p>Now if we do call <code>cancel</code> on the <code>future</code>, then
 it works as expected.</p>
 <pre><code class="language-java">  @Test
   public void b() throws Exception {
@@ -2878,13 +2878,13 @@ it works as expected.</p>
         () -&gt; {
           try {
             while (true) {
-              System.out.println(&quot;Running&quot;);
+              System.out.println("Running");
               Thread.sleep(1000);
             }
           } catch (InterruptedException e) {
-            System.out.println(&quot;Runnable interrupted&quot;);
+            System.out.println("Runnable interrupted");
           } finally {
-            System.out.println(&quot;FINALLY&quot;);
+            System.out.println("FINALLY");
           }
         };
 
@@ -2894,12 +2894,12 @@ it works as expected.</p>
     } catch (TimeoutException e) {
       // To stop future running, we need to call cancel on it.
       boolean c = future.cancel(true);
-      System.out.println(&quot;Timeout &quot; + e);
+      System.out.println("Timeout " + e);
     } catch (InterruptedException | ExecutionException e) {
-      System.out.println(&quot;interrupted&quot;);
+      System.out.println("interrupted");
     }
     Thread.sleep(3 * 1000);
-    System.out.println(&quot;END&quot;);
+    System.out.println("END");
   }
 </code></pre>
 <p>Output</p>
@@ -2927,7 +2927,7 @@ is much better than the statement as:</p>
 </ul>
 <p>Also, when using switch statement, do not write the <code>default</code> if not
 necessary as there is already exhaustive check.</p>
-<p>Plus, there is a <code>yeild</code> if one wants to &quot;return a value&quot; from
+<p>Plus, there is a <code>yeild</code> if one wants to "return a value" from
 a switch block.</p>
 <h2 id="list-types-can-be-immutable-or-mutable-but-difficult-to-tell"><a class="header" href="#list-types-can-be-immutable-or-mutable-but-difficult-to-tell">List types can be immutable or mutable but difficult to tell</a></h2>
 <p>Generally, seems the old APIs prefer to return mutable stuff.</p>
@@ -2948,21 +2948,21 @@ a switch block.</p>
 </code></pre>
 <p>For these type of operations, <code>teeing</code> could be a good candidate.
 Also noticing these <code>groupingBy</code>, <code>partitionBy</code> like collectors,
-can also take the last parameter in with another collector. 
-So this &quot;collector of collectors (of collectors)&quot; can be powerful
+can also take the last parameter in with another collector.
+So this "collector of collectors (of collectors)" can be powerful
 but becareful not going too deep!</p>
 <h2 id="record-data-class-is-nice"><a class="header" href="#record-data-class-is-nice"><code>Record</code> data class is nice</a></h2>
 <ul>
-<li>The simple/compact constructors in Records is nice, but do not use <code>this</code> 
+<li>The simple/compact constructors in Records is nice, but do not use <code>this</code>
 there as it just some code that runs before the real internal constructor is called.</li>
 <li>Record fields are <code>final</code>, so one can use the compact constructors to play
 with different initial fields values, and let the internal/canonical constructor
 to do the final <code>this.x=x</code> assignments.</li>
-<li>Use local <code>Record</code> to represent Tuple might be a good idea especially 
+<li>Use local <code>Record</code> to represent Tuple might be a good idea especially
 the Tuple type do not need to be shared around.</li>
 </ul>
 <h2 id="sealed--permits-classes-and-interfaces"><a class="header" href="#sealed--permits-classes-and-interfaces"><code>sealed + permits</code> classes and interfaces</a></h2>
-<p>Thus, the main motivation behind sealed classes/interfaces is 
+<p>Thus, the main motivation behind sealed classes/interfaces is
 to have the possibility for a superclass/interface to be widely accessible but not widely extensible.</p>
 <ul>
 <li>All permitted subclasses must belong to the same module as the sealed class.</li>
@@ -2973,18 +2973,18 @@ to have the possibility for a superclass/interface to be widely accessible but n
 <pre><code class="language-java">public class Main {
   public static String matchWithSwitch(Object in) {
     return switch (in) {
-      case null -&gt; &quot;oh come on...&quot;;
-      case Integer i when i &lt; 0 -&gt; &quot;got a negative number: &quot; + i;
-      case Integer i -&gt; &quot;got a number:&quot; + i;
-      case String s -&gt; &quot;got a string of length: &quot; + s.length();
-      default -&gt; &quot;got something unknown&quot;;
+      case null -&gt; "oh come on...";
+      case Integer i when i &lt; 0 -&gt; "got a negative number: " + i;
+      case Integer i -&gt; "got a number:" + i;
+      case String s -&gt; "got a string of length: " + s.length();
+      default -&gt; "got something unknown";
     };
   }
 }
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="cli-tools"><a class="header" href="#cli-tools">CLI tools</a></h1>
 <ul>
-<li><a href="https://github.com/junegunn/fzf">fzf</a> shell histroy and fuzzy find </li>
+<li><a href="https://github.com/junegunn/fzf">fzf</a> shell histroy and fuzzy find</li>
 <li><a href="https://github.com/BurntSushi/ripgrep">ripgrep</a> <code>rg -i xxx</code> to grep content</li>
 </ul>
 <p>Maybe try some <a href="https://switowski.com/blog/favorite-cli-tools#fish-shell">other stuff</a> another day</p>
@@ -3010,13 +3010,13 @@ to have the possibility for a superclass/interface to be widely accessible but n
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="useful-maths-equations"><a class="header" href="#useful-maths-equations">Useful maths equations</a></h1>
 <h2 id="geometric-series"><a class="header" href="#geometric-series">Geometric series</a></h2>
-<p>\[ 
+<p>\[
 {\sum^{\infty }_{n = 0} r^n} = \frac 1 {1 - r} \quad \text{if } |r| &lt; 1
 \]</p>
-<p>\[ 
+<p>\[
 {\sum^{\infty }_{n = 1} r^n} = \frac {r} {1 - r} \quad \text{if } |r| &lt; 1
 \]</p>
-<p>\[ 
+<p>\[
 \frac{1}{2} + \frac{1}{4} + \frac{1}{8} + ... = \frac 1 2 {\sum^{\infty }_{n = 0} \frac{1}{2^n}} = \frac 1 2 \frac 1 {1-\frac 1 2} = 1
 \]</p>
 <h2 id="integration-by-parts"><a class="header" href="#integration-by-parts">integration by parts</a></h2>
@@ -3083,9 +3083,9 @@ P(A \cap B) = P(A) \cdot P(B)
 <p>Which also implies \( P(B | A) = P(B); P(A | B) = P(A)\), and also implies
 \( P(A \cap B^C) = P(A) \cdot P(B^C) \).</p>
 <p>Note that <code>ìndependence</code> has no relation related to <code>disjoint</code>.
-Independence is a relation about information. It is important 
+Independence is a relation about information. It is important
 to always keep in mind the intuitive meaning of independence.
-Two events are independent if the occurrence of one event 
+Two events are independent if the occurrence of one event
 does not change our beliefs about the other.</p>
 <h3 id="conditional-independence"><a class="header" href="#conditional-independence">Conditional independence</a></h3>
 <p><img src="https://user-images.githubusercontent.com/161689/118397477-80d6c900-b654-11eb-8200-a9ad148dc8a6.png" alt="image" /></p>
@@ -3125,7 +3125,7 @@ P(k \quad heads) = \left(
 n \\
 k
 \end{array}
-\right) p^k (1-p)^{n-k} 
+\right) p^k (1-p)^{n-k}
 \]</li>
 </ul>
 <p>\[
@@ -3144,12 +3144,12 @@ k
 <ul>
 <li>Bernoulli</li>
 <li>Uniform</li>
-<li>Binomial </li>
+<li>Binomial</li>
 <li>Geometric</li>
 </ul>
 <h2 id="random-variables"><a class="header" href="#random-variables">Random Variables</a></h2>
 <p>Random variables can be understand as a <code>function</code> that
-transfers <code>a random selection</code> of a sample, into a 
+transfers <code>a random selection</code> of a sample, into a
 numeric value.</p>
 <p>随机变量可以看作是一个函数！！！</p>
 <p><strong>Notation:</strong> random variable <code>X</code>, numerical value <code>x</code></p>
@@ -3180,16 +3180,16 @@ numeric value.</p>
 with <code>X</code> = number of heads observed.</li>
 </ul>
 <p>E(X) = E(X1) + E(X2) ... + E(Xn) = p + p + p + ... p = n * p</p>
-<p>var(X) = var(X1 + X2 + ...) = var(X1) + var(X2)... 
+<p>var(X) = var(X1 + X2 + ...) = var(X1) + var(X2)...
 = n * var(X1) = n * BernoulliVar = np(1-p)</p>
 <p>Note above: because of independence.</p>
 <h3 id="geometric"><a class="header" href="#geometric">Geometric</a></h3>
 <ul>
 <li>infinitely many independent tosses of a coin,
 P(Heads)=p,<code>X</code> = number of tosses until the first Heads.
-\( P(X=k) = (1-p)^{k-1} p \). If p=0.5, then it is like 
-1/2, 1/4, 1/8 ... </li>
-<li>model the time we have to wait until something happens, especially 
+\( P(X=k) = (1-p)^{k-1} p \). If p=0.5, then it is like
+1/2, 1/4, 1/8 ...</li>
+<li>model the time we have to wait until something happens, especially
 for the continuous case.</li>
 </ul>
 <p><em>Memorylessness</em></p>
@@ -3257,11 +3257,11 @@ Jx  join like above, and remove the added space.
 <pre><code>i, a, A, o, O   into insert mode in different locations
 r, R            replace char or word
 
-ci&quot;             change inside quotes
-di&quot;             delete inside quotes
+ci"             change inside quotes
+di"             delete inside quotes
 
-ca&quot;             change around quotes, include quotes
-da&quot;             delete around quotes
+ca"             change around quotes, include quotes
+da"             delete around quotes
 
 d0              delete till be beginning of current line
 d$, D           delete till the end of current line
@@ -3275,6 +3275,19 @@ Ctrl-r          redo
 ,, (2 comma)    🔧 customized to add a ; at the end of the line
                 inoremap &lt;leader&gt;, &lt;C-o&gt;A;&lt;ESC&gt;
                 innoremap &lt;leader&gt;, A;&lt;ESC&gt;
+</code></pre>
+<h2 id="folding"><a class="header" href="#folding">Folding</a></h2>
+<pre><code>zo              Open one fold under the cursor.
+zO              Open folds, recursively.
+zc              Close one fold under the cursor.
+zC              Close folds, recursively.
+
+zM              Close all folds: set 'foldlevel' to 0. 'foldenable' will be set.
+zR              Open all folds. This sets 'foldlevel' to highest fold level.
+</code></pre>
+<p>For ideavim, set up as such:</p>
+<pre><code>nnoremap zC :action CollapseRegionRecursively&lt;CR&gt;
+nnoremap zO :action ExpandRegionRecursively&lt;CR&gt;
 </code></pre>
 <h2 id="options"><a class="header" href="#options">Options</a></h2>
 <pre><code>:noh           turn off highlight
@@ -3320,41 +3333,41 @@ n              go to next found pattern
 </code></pre>
 <h2 id="copy-paste-stuff"><a class="header" href="#copy-paste-stuff">Copy Paste stuff</a></h2>
 <p>How to select a word, copy it and replace another word.</p>
-<pre><code>yiw	    Yank inner word (copy word under cursor, say &quot;first&quot;).
-...	    Move the cursor to another word (say &quot;second&quot;).
-viwp	Select &quot;second&quot;, then replace it with &quot;first&quot;.
-...	    Move the cursor to another word (say &quot;third&quot;).
-viw&quot;0p	Select &quot;third&quot;, then replace it with &quot;first&quot;.
+<pre><code>yiw	    Yank inner word (copy word under cursor, say "first").
+...	    Move the cursor to another word (say "second").
+viwp	Select "second", then replace it with "first".
+...	    Move the cursor to another word (say "third").
+viw"0p	Select "third", then replace it with "first".
 
 🔥 Copy a word and paste it over other words:
 
-yiw	    Yank inner word (copy word under cursor, say &quot;first&quot;).
-...	    Move the cursor to another word (say &quot;second&quot;).
-ciw Ctrl-R 0 Esc	🔥Change &quot;second&quot;, replacing it with &quot;first&quot;.
-...	    Move the cursor to another word (say &quot;third&quot;).
-.	    Repeat the operation (change word and replace it with &quot;first&quot;).
+yiw	    Yank inner word (copy word under cursor, say "first").
+...	    Move the cursor to another word (say "second").
+ciw Ctrl-R 0 Esc	🔥Change "second", replacing it with "first".
+...	    Move the cursor to another word (say "third").
+.	    Repeat the operation (change word and replace it with "first").
 ...	    Move the cursor to another word and press . to repeat the change.
 
 Copy text in quotes, and paste it over other quoted text:
 
-yi&quot;	    Yank inner text (text containing cursor which is in quotes).
+yi"	    Yank inner text (text containing cursor which is in quotes).
 ...	    Move the cursor to other quoted text.
-ci&quot; Ctrl-R 0 Esc	🔥Change the quoted text, replacing it with the copied text.
+ci" Ctrl-R 0 Esc	🔥Change the quoted text, replacing it with the copied text.
 ...	    Move the cursor to more quoted text.
 .	    Repeat the operation (change the quoted text and replace it with the copy).
 ...	    Move the cursor to more quoted text and press . to repeat the change.
 
 Copy a line and paste it over other lines:
 
-yy	    Yank current line (say &quot;first line&quot;).
-...	    Move the cursor to another line (say &quot;second line&quot;).
-Vp	    Select &quot;second line&quot;, then replace it with &quot;first line&quot;.
-...	    Move the cursor to another line (say &quot;third line&quot;).
-V&quot;0p    Select &quot;third line&quot;, then replace it with &quot;first line&quot;.
+yy	    Yank current line (say "first line").
+...	    Move the cursor to another line (say "second line").
+Vp	    Select "second line", then replace it with "first line".
+...	    Move the cursor to another line (say "third line").
+V"0p    Select "third line", then replace it with "first line".
 
-Deleting, changing and yanking text copies the affected text to the unnamed register (&quot;&quot;). Yanking text also copies the text to register 0 (&quot;0). So the command yiw copies the current word to &quot;&quot; and to &quot;0.
+Deleting, changing and yanking text copies the affected text to the unnamed register (""). Yanking text also copies the text to register 0 ("0). So the command yiw copies the current word to "" and to "0.
 
-yl /vy/xu     Yank current character. Composing the yank operation with the so often used &quot;one character to the right&quot; motion
+yl /vy/xu     Yank current character. Composing the yank operation with the so often used "one character to the right" motion
 </code></pre>
 <h2 id="window-and-tab"><a class="header" href="#window-and-tab">Window and Tab</a></h2>
 <pre><code>Ctrl-W s   split window horiontally, can be used with ctrlpvim after Ctrl-P to open file
@@ -3441,7 +3454,7 @@ Ctrl-b w      list all windows
 Ctrl-b 0/1..  go to window number 0/1/...
 
 Ctrl-b %      split horisontal pane
-Ctrl-b &quot;      split vertical pane
+Ctrl-b "      split vertical pane
 Ctrl-b o      go to next pane
 </code></pre>
 <h2 id="tmux-session"><a class="header" href="#tmux-session">Tmux Session</a></h2>
@@ -3478,7 +3491,7 @@ git fetch origin main:main
 git rebase main branch-a           # which will checkout branch-a
 
 # (on branch-a)
-git rebase branch-a branch-b &lt;-i&gt;  # usually works, if conflicts due to &quot;duplicated&quot; commits, use -i to drop duplicated commits
+git rebase branch-a branch-b &lt;-i&gt;  # usually works, if conflicts due to "duplicated" commits, use -i to drop duplicated commits
 
 # (on branch-b now)
 # Ends up like: main(updated) ---&gt; branch-a' --.--.--&gt; branch-b'
@@ -3528,10 +3541,10 @@ O(n^{\log_{b}{a} }) &amp; \quad \text{if } a &gt; b^d \text{ (Case 3)}
 <img src="https://user-images.githubusercontent.com/161689/111823245-02280e80-88e5-11eb-849d-b4d1e29c76ce.png" width="640" />
 </details>
 <h3 id="embed-an-youtube-video-like-this"><a class="header" href="#embed-an-youtube-video-like-this">Embed an YouTube Video like this:</a></h3>
-<pre><code class="language-html">&lt;iframe width=&quot;640&quot; height=&quot;360&quot; 
-    src=&quot;https://www.youtube.com/embed/WbzNRTTrX0g?t=1557&quot; 
-    frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write;
-    encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;
+<pre><code class="language-html">&lt;iframe width="640" height="360" 
+    src="https://www.youtube.com/embed/WbzNRTTrX0g?t=1557" 
+    frameborder="0" allow="accelerometer; autoplay; clipboard-write;
+    encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;
 &lt;/iframe&gt;
 </code></pre>
 <h3 id="mermaid-graphs"><a class="header" href="#mermaid-graphs">Mermaid graphs</a></h3>
@@ -3568,7 +3581,7 @@ graph TD
  ...this is hidden, collapsable content...
 </details>
 <h3 id="if-content-inside-cannot-render-as-markdown"><a class="header" href="#if-content-inside-cannot-render-as-markdown">If content inside cannot render as markdown</a></h3>
-<p>Try put <code>&lt;details&gt;</code> just after a <code># title</code>. 
+<p>Try put <code>&lt;details&gt;</code> just after a <code># title</code>.
 (Perhaps just an issue for Spotify techdoc...)</p>
 <pre><code class="language-md">### Just a title can make content inside `&lt;details&gt;` render
 &lt;details&gt;
@@ -3643,9 +3656,9 @@ c
 file2
 file3
 </code></pre>
-</blockquote>
+  </blockquote>
   </details>
-<details><summary> boot </summary><blockquote>
+  <details><summary> boot </summary><blockquote>
   x y z
   </blockquote></details>
 </blockquote>
@@ -3667,7 +3680,7 @@ file3
 <li>Most important time is the 1 hour in the morning</li>
 <li>Make bed</li>
 <li>Meditation 10-20m, draw attention back to breath, 7 days will have effect?</li>
-<li>Tune into the peak state -&gt; &quot;I can do it mode&quot;
+<li>Tune into the peak state -&gt; "I can do it mode"
 <ul>
 <li>code shower?!🤔</li>
 <li>4:16:8 breath exercise</li>
@@ -3768,9 +3781,9 @@ the actual change might happen after days or months...</li>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="career-tips"><a class="header" href="#career-tips">Career Tips</a></h1>
 <p>From Mentor <a href="https://www.linkedin.com/in/li-ma-a917331/">Li Ma</a>:</p>
 <ul>
-<li>Pay attention to leardership traning. 
+<li>Pay attention to leardership traning.
 <ul>
-<li>Company scale/document, or maybe follow <a href="https://www.amazon.jobs/en/principles">AWS Leadership Principles</a>. 
+<li>Company scale/document, or maybe follow <a href="https://www.amazon.jobs/en/principles">AWS Leadership Principles</a>.
 Make sure that you can X on all the requirements or requisites' checkboxes for your next level.</li>
 <li>Asking for help from the right source is also part of a leadership trait.</li>
 </ul>
@@ -3797,7 +3810,7 @@ Make sure that you can X on all the requirements or requisites' checkboxes for y
 <p>e.g. I found this book life changing...</p>
 <h2 id="-actionable-takeaways"><a class="header" href="#-actionable-takeaways">🪄 Actionable Takeaways</a></h2>
 <blockquote>
-<p>💭 This is a list of the <strong>10</strong> main learning points I took from the book, 
+<p>💭 This is a list of the <strong>10</strong> main learning points I took from the book,
 converted into actionable points - how I can use them in my own life</p>
 </blockquote>
 <ol>
@@ -3806,7 +3819,7 @@ converted into actionable points - how I can use them in my own life</p>
 </ol>
 <h2 id="-fave-quotes"><a class="header" href="#-fave-quotes">🧝‍ Fave Quotes</a></h2>
 <blockquote>
-<p>💭These are my favourite literal quotes from the book, 
+<p>💭These are my favourite literal quotes from the book,
 that are too well written to summarise, and I might use in my future work</p>
 </blockquote>
 <ul>
@@ -3928,7 +3941,7 @@ an ending beginning with a vowel is added.
 </div>
 <ul>
 <li>G4 - special verbs.</li>
-<li>Strong verbs - some &quot;er&quot; verbs are &quot;strong&quot; verbs, they change vowels when in <code>past</code> and <code>supine</code>, and supine ends with <code>it</code>;
+<li>Strong verbs - some "er" verbs are "strong" verbs, they change vowels when in <code>past</code> and <code>supine</code>, and supine ends with <code>it</code>;
 And for their <code>past participle</code>, replace <code>it</code> to <code>en</code>
 F.g. Texten är skriven här. (The text is written here.)</li>
 </ul>
@@ -3969,7 +3982,7 @@ F.g. Texten är skriven här. (The text is written here.)</li>
 as adjectives:</p>
 <ul>
 <li>en läsande pojke (present) - a reading boy</li>
-<li>en stängd dörr (past) - a closed door </li>
+<li>en stängd dörr (past) - a closed door</li>
 </ul>
 <hr />
 <p>Examples</p>
@@ -4077,7 +4090,7 @@ needed.</li>
 <p>har en fru, man/make, partner, pojkvän, flickvän</p>
 </li>
 <li>
-<p>en katt/hund/ - den katten (that cat, double &quot;en&quot;)</p>
+<p>en katt/hund/ - den katten (that cat, double "en")</p>
 </li>
 <li>
 <p>ett hus/bord - det huset (that house)</p>
@@ -4255,7 +4268,7 @@ ett glas vatten med ett vitaminpiller. Sedan ta jag en dusch och mata min katt.<
 </div>
 <h3 id="musthave-to"><a class="header" href="#musthave-to">Must/have to</a></h3>
 <ul>
-<li>bör - should </li>
+<li>bör - should</li>
 <li>behöver - have to</li>
 <li>måste - must</li>
 </ul>
@@ -4269,20 +4282,20 @@ Du ska laga din favorifma. Vad behöver du? Skriv en lista:</p>
 <h4 id="frukostbröd-med-ägg-och-kaviar"><a class="header" href="#frukostbröd-med-ägg-och-kaviar">Frukostbröd med ägg och kaviar</a></h4>
 <ul>
 <li>Cut the bread in half (not all through)</li>
-<li>spread some &quot;Kalles original&quot;</li>
+<li>spread some "Kalles original"</li>
 <li>put a cabbage in</li>
 <li>slice a boiled egg and put it on the cabbage</li>
 <li>add some green stuff like small piece of peper</li>
-<li>put &quot;small bean sprout&quot; on it the egg</li>
+<li>put "small bean sprout" on it the egg</li>
 <li>Done. Enjoy it :)</li>
 </ul>
 <hr />
 <h2 id="course-9---2022-07-14"><a class="header" href="#course-9---2022-07-14">Course 9 - 2022-07-14</a></h2>
 <p>Idag ska jag plugga svenska på Folkuniversitetet.
 Vi ska parta om aktiviteter.</p>
-<p>Efter kursen ska jag äta lunch - en stor portion sallad - på ett kafé som heter &quot;Bröd &amp; Salt&quot; nära skolan.</p>
+<p>Efter kursen ska jag äta lunch - en stor portion sallad - på ett kafé som heter "Bröd &amp; Salt" nära skolan.</p>
 <p>På eftermiddage ska jag arbeta. Efter det
-planterar jag för att shoppa några &quot;happy socks&quot;.</p>
+planterar jag för att shoppa några "happy socks".</p>
 <p>Ikväll ska jag göra mina läxor och gå ut med min katt efter det.</p>
 <p>Imorgon på fredag ska jag studera svenska igen
 och efter det ska jag gå på yogakurs med Yan och det ska bli roligt :)</p>
@@ -4291,7 +4304,7 @@ och efter det ska jag gå på yogakurs med Yan och det ska bli roligt :)</p>
 <p>Skriv fyra saker du gillar at göra</p>
 </blockquote>
 <ul>
-<li>Jag tycker om att fotografera </li>
+<li>Jag tycker om att fotografera</li>
 <li>Jag älskar att gå i skogen och skjuta pilbåge och plocka svamp.</li>
 <li>Jag grillar att spela fotball, badminton och simning.</li>
 </ul>
@@ -4360,8 +4373,8 @@ och efter det ska jag gå på yogakurs med Yan och det ska bli roligt :)</p>
 <li><code>i sommras</code>- last summer</li>
 </ul>
 <p>Jag har en mamma som heter Shuping.
-Hon jobbade som HR chef på ett lokalt 
-byggföretag. Men nu är hon och min pappa 
+Hon jobbade som HR chef på ett lokalt
+byggföretag. Men nu är hon och min pappa
 pensionerade.</p>
 <p>Min pappa heter Changzheng
 och han var chaufför när han var ung.
@@ -4377,7 +4390,7 @@ Våra katter bråkar ibland med varandra.</p>
 <p>Homework: page 82, 90 gramma book summary</p>
 <ul>
 <li>S: Kan jag hjälpa dig?</li>
-<li>B: Jag behover ett nytt par skor. jag vill ha jump skor. </li>
+<li>B: Jag behover ett nytt par skor. jag vill ha jump skor.</li>
 <li>S: Jo, då har vi de här bäst kvalitet jump skor. Vill du prova?</li>
 <li>B: Ja gärna, jag har storlek 38</li>
 <li>S: Vilken färg vill du prova? Den här?</li>
@@ -4385,8 +4398,8 @@ Våra katter bråkar ibland med varandra.</p>
 <li>S: Varsågod. Passar de bra?</li>
 <li>B: nej, de är för små. Har du en större storlek?</li>
 <li>S: Självklart, en sekund , ett ögonblick...
-Varsågod, de er storlek 39. </li>
-<li>B: ja, de är lagom </li>
+Varsågod, de er storlek 39.</li>
+<li>B: ja, de är lagom</li>
 </ul>
 <hr />
 <h2 id="course-15---2022-07-22"><a class="header" href="#course-15---2022-07-22">Course 15 - 2022-07-22</a></h2>
@@ -4394,7 +4407,7 @@ Varsågod, de er storlek 39. </li>
 <ul>
 <li>g -&gt; [j] Gösta</li>
 <li>k -&gt; [sch] Kina, kön (gender)</li>
-<li>sk -&gt; [h] Kanske </li>
+<li>sk -&gt; [h] Kanske</li>
 </ul>
 <p>Special, undantag</p>
 <ul>
@@ -4407,7 +4420,7 @@ Varsågod, de er storlek 39. </li>
 <ul>
 <li>Vad gjorde du i helgen?</li>
 <li>Jeg stannade hemma och tittade på Youtube hela dagen.</li>
-<li>sammanfattning av svensk grammatik </li>
+<li>sammanfattning av svensk grammatik</li>
 </ul>
 <hr />
 <h2 id="course-17---2022-07-26"><a class="header" href="#course-17---2022-07-26">Course 17 - 2022-07-26</a></h2>
@@ -4428,13 +4441,13 @@ Varsågod, de er storlek 39. </li>
 <ul>
 <li><code>gå</code>
 <ul>
-<li>people &quot;walk&quot;. Man går med fötterna = Promenerar.</li>
-<li>tåget/färjan &quot;leave&quot;</li>
+<li>people "walk". Man går med fötterna = Promenerar.</li>
+<li>tåget/färjan "leave"</li>
 </ul>
 </li>
 <li><code>åka</code> - people go somewhere with car/train/boat...
 <ul>
-<li>Man åker bil, buss, tunnelbana, tåg, helikopter, flyg o.s.v. </li>
+<li>Man åker bil, buss, tunnelbana, tåg, helikopter, flyg o.s.v.</li>
 </ul>
 </li>
 </ul>
@@ -4447,13 +4460,13 @@ Varsågod, de er storlek 39. </li>
 <h2 id="course-18-2022-07-27"><a class="header" href="#course-18-2022-07-27">Course 18 2022-07-27</a></h2>
 <p>Tidsprepositioner:</p>
 <ul>
-<li>Framtid (future): <code>om</code>  as in English &quot;... in &quot;
+<li>Framtid (future): <code>om</code>  as in English "... in "
 <ul>
 <li>Bussen går <code>om</code> fem minuter</li>
 <li>Kursen slutar om tre dager</li>
 </ul>
 </li>
-<li>Dåtid: <code>för</code> + <code>seden</code> - as in English &quot;for&quot;
+<li>Dåtid: <code>för</code> + <code>seden</code> - as in English "for"
 <ul>
 <li>Jag såg utställningen <code>för</code> en vecka <code>seden</code>.
 <ul>
@@ -4625,9 +4638,9 @@ Varsågod, de er storlek 39. </li>
 <li>det hela - all of it</li>
 <li>värst - worst</li>
 <li>Det viktigaste är att vi håller ihop - the most important is we stick together</li>
-<li>gäller - matter, it is important to </li>
+<li>gäller - matter, it is important to</li>
 <li>ha koll på - keep check of, be aware of</li>
-<li>var ert befäl är - where your commander is </li>
+<li>var ert befäl är - where your commander is</li>
 <li>tänk på - consider, think of, remember,</li>
 <li>här - here</li>
 <li>lycker till - good luck</li>
@@ -4656,7 +4669,7 @@ Score: TODO</p>
 <h3 id="xiang-yue"><a class="header" href="#xiang-yue">Xiang Yue</a></h3>
 <ul>
 <li>Friendly family style restaurants.</li>
-<li>Price: low/mid </li>
+<li>Price: low/mid</li>
 <li>Score: 4.8 / 5</li>
 </ul>
 <h3 id="jappi"><a class="header" href="#jappi">Jappi</a></h3>
@@ -4668,8 +4681,8 @@ Score: TODO</p>
 <h3 id="sibiriens-sinokök---roslagsgatan-25"><a class="header" href="#sibiriens-sinokök---roslagsgatan-25">Sibiriens Sinokök - Roslagsgatan 25</a></h3>
 <ul>
 <li>Chinese restaurants with a weird name?</li>
-<li>Price: </li>
-<li>Score: </li>
+<li>Price:</li>
+<li>Score:</li>
 </ul>
 <p>To be tested</p>
 <h3 id="koreana-restaurant---luntmakargatan-76"><a class="header" href="#koreana-restaurant---luntmakargatan-76">Koreana Restaurant - Luntmakargatan 76</a></h3>
@@ -4687,7 +4700,7 @@ Score: TODO</p>
 <p>Pho seems okay nothing too special. Need to try other dishes.</p>
 <h3 id="rawbata---rörstrandsgatan-15"><a class="header" href="#rawbata---rörstrandsgatan-15">Rawbata - Rörstrandsgatan 15</a></h3>
 <ul>
-<li><a href="https://rawbata.se/">Japanese BBQ ramen</a> </li>
+<li><a href="https://rawbata.se/">Japanese BBQ ramen</a></li>
 <li>Price: mid/high</li>
 <li>Score: 3.5 / 5</li>
 </ul>

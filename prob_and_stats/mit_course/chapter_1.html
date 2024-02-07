@@ -238,9 +238,9 @@ P(A \cap B) = P(A) \cdot P(B)
 <p>Which also implies \( P(B | A) = P(B); P(A | B) = P(A)\), and also implies
 \( P(A \cap B^C) = P(A) \cdot P(B^C) \).</p>
 <p>Note that <code>ìndependence</code> has no relation related to <code>disjoint</code>.
-Independence is a relation about information. It is important 
+Independence is a relation about information. It is important
 to always keep in mind the intuitive meaning of independence.
-Two events are independent if the occurrence of one event 
+Two events are independent if the occurrence of one event
 does not change our beliefs about the other.</p>
 <h3 id="conditional-independence"><a class="header" href="#conditional-independence">Conditional independence</a></h3>
 <p><img src="https://user-images.githubusercontent.com/161689/118397477-80d6c900-b654-11eb-8200-a9ad148dc8a6.png" alt="image" /></p>
@@ -280,7 +280,7 @@ P(k \quad heads) = \left(
 n \\
 k
 \end{array}
-\right) p^k (1-p)^{n-k} 
+\right) p^k (1-p)^{n-k}
 \]</li>
 </ul>
 <p>\[
@@ -299,12 +299,12 @@ k
 <ul>
 <li>Bernoulli</li>
 <li>Uniform</li>
-<li>Binomial </li>
+<li>Binomial</li>
 <li>Geometric</li>
 </ul>
 <h2 id="random-variables"><a class="header" href="#random-variables">Random Variables</a></h2>
 <p>Random variables can be understand as a <code>function</code> that
-transfers <code>a random selection</code> of a sample, into a 
+transfers <code>a random selection</code> of a sample, into a
 numeric value.</p>
 <p>随机变量可以看作是一个函数！！！</p>
 <p><strong>Notation:</strong> random variable <code>X</code>, numerical value <code>x</code></p>
@@ -335,16 +335,16 @@ numeric value.</p>
 with <code>X</code> = number of heads observed.</li>
 </ul>
 <p>E(X) = E(X1) + E(X2) ... + E(Xn) = p + p + p + ... p = n * p</p>
-<p>var(X) = var(X1 + X2 + ...) = var(X1) + var(X2)... 
+<p>var(X) = var(X1 + X2 + ...) = var(X1) + var(X2)...
 = n * var(X1) = n * BernoulliVar = np(1-p)</p>
 <p>Note above: because of independence.</p>
 <h3 id="geometric"><a class="header" href="#geometric">Geometric</a></h3>
 <ul>
 <li>infinitely many independent tosses of a coin,
 P(Heads)=p,<code>X</code> = number of tosses until the first Heads.
-\( P(X=k) = (1-p)^{k-1} p \). If p=0.5, then it is like 
-1/2, 1/4, 1/8 ... </li>
-<li>model the time we have to wait until something happens, especially 
+\( P(X=k) = (1-p)^{k-1} p \). If p=0.5, then it is like
+1/2, 1/4, 1/8 ...</li>
+<li>model the time we have to wait until something happens, especially
 for the continuous case.</li>
 </ul>
 <p><em>Memorylessness</em></p>

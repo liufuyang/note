@@ -205,7 +205,7 @@ hints.ai_family = AF_UNSPEC;  // use IPv4 or IPv6, whichever
 hints.ai_socktype = SOCK_STREAM;
 hints.ai_flags = AI_PASSIVE;     // fill in my IP for me
 
-getaddrinfo(NULL, &quot;3490&quot;, &amp;hints, &amp;res);
+getaddrinfo(NULL, "3490", &amp;hints, &amp;res);
 
 // make a socket:
 sockfd = socket(res-&gt;ai_family, res-&gt;ai_socktype, res-&gt;ai_protocol);
@@ -223,7 +223,7 @@ memset(&amp;hints, 0, sizeof hints);
 hints.ai_family = AF_UNSPEC;
 hints.ai_socktype = SOCK_STREAM;
 
-getaddrinfo(&quot;www.example.com&quot;, &quot;3490&quot;, &amp;hints, &amp;res);
+getaddrinfo("www.example.com", "3490", &amp;hints, &amp;res);
 
 // make a socket:
 sockfd = socket(res-&gt;ai_family, res-&gt;ai_socktype, res-&gt;ai_protocol);
@@ -237,7 +237,7 @@ connect(sockfd, res-&gt;ai_addr, res-&gt;ai_addrlen);
 </code></pre>
 <p><code>sockfd</code> is the usual socket file descriptor from the <code>socket()</code> system call. <code>backlog</code> is the number of connections allowed on the incoming queue. What does that mean? Well, incoming connections are going to wait in this queue until you <code>accept()</code> them and this is the limit on how many can queue up. Most systems silently limit this number to about 20; you can probably get away with setting it to 5 or 10.</p>
 <p>Well, as you can probably imagine, we need to call <code>bind()</code> before we call <code>listen()</code> so that the server is running on a specific port.</p>
-<h4 id="accept---thank-you-for-calling-port-3490"><a class="header" href="#accept---thank-you-for-calling-port-3490"><code>accept()</code> - &quot;Thank you for calling port 3490.&quot;</a></h4>
+<h4 id="accept---thank-you-for-calling-port-3490"><a class="header" href="#accept---thank-you-for-calling-port-3490"><code>accept()</code> - "Thank you for calling port 3490."</a></h4>
 <pre><code class="language-c">#include &lt;sys/types.h&gt;
 #include &lt;sys/socket.h&gt;
 
@@ -249,7 +249,7 @@ int accept(int sockfd, struct sockaddr *addr, socklen_t *addrlen);
 <pre><code class="language-c">int send(int sockfd, const void *msg, int len, int flags); 
 </code></pre>
 <p>Example:</p>
-<pre><code class="language-c">char *msg = &quot;Beej was here!&quot;;
+<pre><code class="language-c">char *msg = "Beej was here!";
 int len, bytes_sent;
 .
 .
@@ -286,7 +286,7 @@ int recvfrom(int sockfd, void *buf, int len, unsigned int flags,struct sockaddr 
 #include &lt;sys/wait.h&gt;
 #include &lt;signal.h&gt;
 
-#define PORT &quot;3490&quot;  // the port users will be connecting to
+#define PORT "3490"  // the port users will be connecting to
 
 #define BACKLOG 10   // how many pending connections queue will hold
 
@@ -328,7 +328,7 @@ int main(void)
     hints.ai_flags = AI_PASSIVE; // use my IP
 
     if ((rv = getaddrinfo(NULL, PORT, &amp;hints, &amp;servinfo)) != 0) {
-        fprintf(stderr, &quot;getaddrinfo: %s\n&quot;, gai_strerror(rv));
+        fprintf(stderr, "getaddrinfo: %s\n", gai_strerror(rv));
         return 1;
     }
 
@@ -336,19 +336,19 @@ int main(void)
     for(p = servinfo; p != NULL; p = p-&gt;ai_next) {
         if ((sockfd = socket(p-&gt;ai_family, p-&gt;ai_socktype,
                 p-&gt;ai_protocol)) == -1) {
-            perror(&quot;server: socket&quot;);
+            perror("server: socket");
             continue;
         }
 
         if (setsockopt(sockfd, SOL_SOCKET, SO_REUSEADDR, &amp;yes,
                 sizeof(int)) == -1) {
-            perror(&quot;setsockopt&quot;);
+            perror("setsockopt");
             exit(1);
         }
 
         if (bind(sockfd, p-&gt;ai_addr, p-&gt;ai_addrlen) == -1) {
             close(sockfd);
-            perror(&quot;server: bind&quot;);
+            perror("server: bind");
             continue;
         }
 
@@ -358,12 +358,12 @@ int main(void)
     freeaddrinfo(servinfo); // all done with this structure
 
     if (p == NULL)  {
-        fprintf(stderr, &quot;server: failed to bind\n&quot;);
+        fprintf(stderr, "server: failed to bind\n");
         exit(1);
     }
 
     if (listen(sockfd, BACKLOG) == -1) {
-        perror(&quot;listen&quot;);
+        perror("listen");
         exit(1);
     }
 
@@ -371,29 +371,29 @@ int main(void)
     sigemptyset(&amp;sa.sa_mask);
     sa.sa_flags = SA_RESTART;
     if (sigaction(SIGCHLD, &amp;sa, NULL) == -1) {
-        perror(&quot;sigaction&quot;);
+        perror("sigaction");
         exit(1);
     }
 
-    printf(&quot;server: waiting for connections...\n&quot;);
+    printf("server: waiting for connections...\n");
 
     while(1) {  // main accept() loop
         sin_size = sizeof their_addr;
         new_fd = accept(sockfd, (struct sockaddr *)&amp;their_addr, &amp;sin_size);
         if (new_fd == -1) {
-            perror(&quot;accept&quot;);
+            perror("accept");
             continue;
         }
 
         inet_ntop(their_addr.ss_family,
             get_in_addr((struct sockaddr *)&amp;their_addr),
             s, sizeof s);
-        printf(&quot;server: got connection from %s\n&quot;, s);
+        printf("server: got connection from %s\n", s);
 
         if (!fork()) { // this is the child process
             close(sockfd); // child doesn't need the listener
-            if (send(new_fd, &quot;Hello, world!&quot;, 13, 0) == -1)
-                perror(&quot;send&quot;);
+            if (send(new_fd, "Hello, world!", 13, 0) == -1)
+                perror("send");
             close(new_fd);
             exit(0);
         }
@@ -419,7 +419,7 @@ int main(void)
 
 #include &lt;arpa/inet.h&gt;
 
-#define PORT &quot;3490&quot; // the port client will be connecting to 
+#define PORT "3490" // the port client will be connecting to 
 
 #define MAXDATASIZE 100 // max number of bytes we can get at once 
 
@@ -442,7 +442,7 @@ int main(int argc, char *argv[])
     char s[INET6_ADDRSTRLEN];
 
     if (argc != 2) {
-        fprintf(stderr,&quot;usage: client hostname\n&quot;);
+        fprintf(stderr,"usage: client hostname\n");
         exit(1);
     }
 
@@ -451,7 +451,7 @@ int main(int argc, char *argv[])
     hints.ai_socktype = SOCK_STREAM;
 
     if ((rv = getaddrinfo(argv[1], PORT, &amp;hints, &amp;servinfo)) != 0) {
-        fprintf(stderr, &quot;getaddrinfo: %s\n&quot;, gai_strerror(rv));
+        fprintf(stderr, "getaddrinfo: %s\n", gai_strerror(rv));
         return 1;
     }
 
@@ -459,13 +459,13 @@ int main(int argc, char *argv[])
     for(p = servinfo; p != NULL; p = p-&gt;ai_next) {
         if ((sockfd = socket(p-&gt;ai_family, p-&gt;ai_socktype,
                 p-&gt;ai_protocol)) == -1) {
-            perror(&quot;client: socket&quot;);
+            perror("client: socket");
             continue;
         }
 
         if (connect(sockfd, p-&gt;ai_addr, p-&gt;ai_addrlen) == -1) {
             close(sockfd);
-            perror(&quot;client: connect&quot;);
+            perror("client: connect");
             continue;
         }
 
@@ -473,24 +473,24 @@ int main(int argc, char *argv[])
     }
 
     if (p == NULL) {
-        fprintf(stderr, &quot;client: failed to connect\n&quot;);
+        fprintf(stderr, "client: failed to connect\n");
         return 2;
     }
 
     inet_ntop(p-&gt;ai_family, get_in_addr((struct sockaddr *)p-&gt;ai_addr),
             s, sizeof s);
-    printf(&quot;client: connecting to %s\n&quot;, s);
+    printf("client: connecting to %s\n", s);
 
     freeaddrinfo(servinfo); // all done with this structure
 
     if ((numbytes = recv(sockfd, buf, MAXDATASIZE-1, 0)) == -1) {
-        perror(&quot;recv&quot;);
+        perror("recv");
         exit(1);
     }
 
     buf[numbytes] = '\0';
 
-    printf(&quot;client: received '%s'\n&quot;,buf);
+    printf("client: received '%s'\n",buf);
 
     close(sockfd);
 
@@ -554,19 +554,19 @@ int main(void)
     //pfds[1].fd = some_socket; // Some socket descriptor
     //pfds[1].events = POLLIN;  // Tell me when ready to read
 
-    printf(&quot;Hit RETURN or wait 2.5 seconds for timeout\n&quot;);
+    printf("Hit RETURN or wait 2.5 seconds for timeout\n");
 
     int num_events = poll(pfds, 1, 2500); // 2.5 second timeout
 
     if (num_events == 0) {
-        printf(&quot;Poll timed out!\n&quot;);
+        printf("Poll timed out!\n");
     } else {
         int pollin_happened = pfds[0].revents &amp; POLLIN;
 
         if (pollin_happened) {
-            printf(&quot;File descriptor %d is ready to read\n&quot;, pfds[0].fd);
+            printf("File descriptor %d is ready to read\n", pfds[0].fd);
         } else {
-            printf(&quot;Unexpected event occurred: %d\n&quot;, pfds[0].revents);
+            printf("Unexpected event occurred: %d\n", pfds[0].revents);
         }
     }
 
@@ -596,7 +596,7 @@ int main(void)
 #include &lt;netdb.h&gt;
 #include &lt;poll.h&gt;
 
-#define PORT &quot;9034&quot;   // Port we're listening on
+#define PORT "9034"   // Port we're listening on
 
 // Get sockaddr, IPv4 or IPv6:
 void *get_in_addr(struct sockaddr *sa)
@@ -623,7 +623,7 @@ int get_listener_socket(void)
     hints.ai_socktype = SOCK_STREAM;
     hints.ai_flags = AI_PASSIVE;
     if ((rv = getaddrinfo(NULL, PORT, &amp;hints, &amp;ai)) != 0) {
-        fprintf(stderr, &quot;selectserver: %s\n&quot;, gai_strerror(rv));
+        fprintf(stderr, "selectserver: %s\n", gai_strerror(rv));
         exit(1);
     }
     
@@ -633,7 +633,7 @@ int get_listener_socket(void)
             continue;
         }
         
-        // Lose the pesky &quot;address already in use&quot; error message
+        // Lose the pesky "address already in use" error message
         setsockopt(listener, SOL_SOCKET, SO_REUSEADDR, &amp;yes, sizeof(int));
 
         if (bind(listener, p-&gt;ai_addr, p-&gt;ai_addrlen) &lt; 0) {
@@ -707,7 +707,7 @@ int main(void)
     listener = get_listener_socket();
 
     if (listener == -1) {
-        fprintf(stderr, &quot;error getting listening socket\n&quot;);
+        fprintf(stderr, "error getting listening socket\n");
         exit(1);
     }
 
@@ -722,7 +722,7 @@ int main(void)
         int poll_count = poll(pfds, fd_count, -1);
 
         if (poll_count == -1) {
-            perror(&quot;poll&quot;);
+            perror("poll");
             exit(1);
         }
 
@@ -741,12 +741,12 @@ int main(void)
                         &amp;addrlen);
 
                     if (newfd == -1) {
-                        perror(&quot;accept&quot;);
+                        perror("accept");
                     } else {
                         add_to_pfds(&amp;pfds, newfd, &amp;fd_count, &amp;fd_size);
 
-                        printf(&quot;pollserver: new connection from %s on &quot;
-                            &quot;socket %d\n&quot;,
+                        printf("pollserver: new connection from %s on "
+                            "socket %d\n",
                             inet_ntop(remoteaddr.ss_family,
                                 get_in_addr((struct sockaddr*)&amp;remoteaddr),
                                 remoteIP, INET6_ADDRSTRLEN),
@@ -762,9 +762,9 @@ int main(void)
                         // Got error or connection closed by client
                         if (nbytes == 0) {
                             // Connection closed
-                            printf(&quot;pollserver: socket %d hung up\n&quot;, sender_fd);
+                            printf("pollserver: socket %d hung up\n", sender_fd);
                         } else {
-                            perror(&quot;recv&quot;);
+                            perror("recv");
                         }
 
                         close(pfds[i].fd); // Bye!
@@ -781,7 +781,7 @@ int main(void)
                             // Except the listener and ourselves
                             if (dest_fd != listener &amp;&amp; dest_fd != sender_fd) {
                                 if (send(dest_fd, buf, nbytes, 0) == -1) {
-                                    perror(&quot;send&quot;);
+                                    perror("send");
                                 }
                             }
                         }
@@ -812,7 +812,7 @@ fn handle_client(
 ) {
     let mut data = [0 as u8; 50]; // using 50 byte buffer
 
-    let mut stream_clone = stream.try_clone().expect(&quot;clone failed...&quot;);
+    let mut stream_clone = stream.try_clone().expect("clone failed...");
     std::thread::spawn(move || {
         while match receiver.recv() {
             Ok(msg) =&gt; {
@@ -820,7 +820,7 @@ fn handle_client(
                 true
             }
             Err(e) =&gt; {
-                println!(&quot;Client {} disconnected. Message: {}&quot;, peer_addr, e);
+                println!("Client {} disconnected. Message: {}", peer_addr, e);
                 false
             }
         } {}
@@ -835,11 +835,11 @@ fn handle_client(
         Ok(size) =&gt; {
             // echo everything!
             // stream.write(&amp;data[0..size]).unwrap();
-            let to_send = std::str::from_utf8(&amp;data[0..size]).unwrap_or(&quot;?&quot;).into();
+            let to_send = std::str::from_utf8(&amp;data[0..size]).unwrap_or("?").into();
             match sender_agent.send((peer_addr.clone(), to_send)) {
                 Ok(_) =&gt; true,
                 Err(e) =&gt; {
-                    println!(&quot;{}&quot;, e);
+                    println!("{}", e);
                     sender_map.lock().unwrap().remove(&amp;peer_addr);
                     false
                 }
@@ -847,7 +847,7 @@ fn handle_client(
         }
         Err(_) =&gt; {
             println!(
-                &quot;An error occurred, terminating connection with {}&quot;,
+                "An error occurred, terminating connection with {}",
                 stream.peer_addr().unwrap()
             );
             stream.shutdown(Shutdown::Both).unwrap();
@@ -857,9 +857,9 @@ fn handle_client(
 }
 
 fn main() {
-    let listener = TcpListener::bind(&quot;0.0.0.0:3333&quot;).unwrap();
+    let listener = TcpListener::bind("0.0.0.0:3333").unwrap();
     // accept connections and process them, spawning a new thread for each one
-    println!(&quot;Server listening on port 3333&quot;);
+    println!("Server listening on port 3333");
 
     let (sender_agent, recv_agent) = channel::&lt;(SocketAddr, String)&gt;();
     let sender_map: Arc&lt;Mutex&lt;HashMap&lt;SocketAddr, Sender&lt;String&gt;&gt;&gt;&gt; =
@@ -870,21 +870,21 @@ fn main() {
     thread::spawn(move || {
         while match recv_agent.recv() {
             Ok((addr, msg)) =&gt; {
-                print!(&quot;[{}]: {}&quot;, &amp;addr, msg.as_str());
+                print!("[{}]: {}", &amp;addr, msg.as_str());
                 for (key, sender_in_map) in sender_map_copy.lock().unwrap().iter() {
                     if key == &amp;addr {
                         continue;
                     }
 
-                    match sender_in_map.send(format!(&quot;[{}]: {}&quot;, addr, msg)) {
+                    match sender_in_map.send(format!("[{}]: {}", addr, msg)) {
                         Ok(_) =&gt; {}
-                        Err(e) =&gt; println!(&quot;{}&quot;, e),
+                        Err(e) =&gt; println!("{}", e),
                     }
                 }
                 true
             }
             Err(e) =&gt; {
-                println!(&quot;{:?}&quot;, e);
+                println!("{:?}", e);
                 true
             }
         } {}
@@ -896,9 +896,9 @@ fn main() {
         match stream {
             Ok(mut stream) =&gt; {
                 let peer_addr = stream.peer_addr().unwrap();
-                println!(&quot;New connection: {}&quot;, peer_addr);
+                println!("New connection: {}", peer_addr);
                 stream
-                    .write(format!(&quot;Welcome {}\n&quot;, peer_addr).as_bytes())
+                    .write(format!("Welcome {}\n", peer_addr).as_bytes())
                     .unwrap();
 
                 let sender_map_copy = sender_map.clone();
@@ -912,7 +912,7 @@ fn main() {
                 });
             }
             Err(e) =&gt; {
-                println!(&quot;Error: {}&quot;, e);
+                println!("Error: {}", e);
                 /* connection failed */
             }
         }

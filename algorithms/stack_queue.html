@@ -229,14 +229,14 @@ pub struct LinkedList&lt;T&gt; {
 <li>When <code>tail</code> less than 1/4 of capacity, can reduce capacity by 1/2 of current capacity, to save space;</li>
 <li>In Java, when removing element from the list, besides change
 head and tail values, also set <code>null</code> to the array so to let
-those removed nodes can be garbage collected later. </li>
+those removed nodes can be garbage collected later.</li>
 </ul>
 <h2 id="dequeue---a-double-ended-queue"><a class="header" href="#dequeue---a-double-ended-queue">Dequeue - a double-ended queue</a></h2>
 <p>Dequeue -a double-ended queue or <code>deque</code> (pronounced “deck”)
 is a generalization of a stack and a queue that supports adding and removing items from either the front or the back of the data structure.</p>
 <p>One type of implementation could be using a <code>double linked list</code>, so both ends can remove nodes.</p>
 <p>Another approach (I suppose) could be using <code>two stacks</code>, with either stack implementations mentioned above.
-Then one stack is kept as <code>positive</code> while another kept as 
+Then one stack is kept as <code>positive</code> while another kept as
 <code>negative</code>.</p>
 <p>So the <code>deque</code> can probably be implemented as something like:</p>
 <pre><code class="language-java">    // add the item to the front
@@ -268,9 +268,9 @@ Then one stack is kept as <code>positive</code> while another kept as
     }
 </code></pre>
 <p>Haven't tried to do my homework with the Princeton course,
-but hopefully this works. Otherwise the code might later 
+but hopefully this works. Otherwise the code might later
 be at <a href="https://github.com/liufuyang/algs4/tree/main/algs_princeton/2_queues">here</a>.
-Update: As the homework requires <code>constant worst time</code> so 
+Update: As the homework requires <code>constant worst time</code> so
 I used a double linked list to implement it. So I can
 just guess now the above idea will work :)</p>
 <h2 id="randomizedqueue"><a class="header" href="#randomizedqueue">RandomizedQueue</a></h2>
@@ -292,32 +292,32 @@ during <code>enqueue</code> operation:</p>
 </code></pre>
 <p>Key is on that <code>swap</code> call. Basically the shuffle
 idea is very simple, when adding a new item into
-the array, then randomly select an item from the 
+the array, then randomly select an item from the
 array (including the newly added one) then swap
 the newly added one with the selected item.</p>
 <p>See <a href="https://github.com/liufuyang/algs4/tree/main/algs_princeton/2_queues">code here</a>.</p>
 <p>By the way, this <strong><code>Knuth Shuffle</code></strong> idea seems
 pretty powerful as it uses linear time for shuffling
-a N-th array. Better than make N random floats and 
+a N-th array. Better than make N random floats and
 sort them to have a new index list.</p>
 <h2 id="linked-list-impl-vs-array-impl"><a class="header" href="#linked-list-impl-vs-array-impl">Linked list impl vs Array impl</a></h2>
-<p>I guess simply put, </p>
+<p>I guess simply put,</p>
 <ul>
 <li><code>linked list</code> is good for constant time
-operations <strong>in the worst case</strong>, though slower each time, 
+operations <strong>in the worst case</strong>, though slower each time,
 an uses more space;</li>
-<li><code>resizing array</code> is 
+<li><code>resizing array</code> is
 in most cases very fast, occasionally slow when resizing,
 with the claim of adding an element has constant <strong>amortized time</strong> cost. And less wasted space</li>
 </ul>
 <h2 id="priority-queues-aka-binary-heap"><a class="header" href="#priority-queues-aka-binary-heap">Priority Queues (a.k.a Binary heap)</a></h2>
-<p>Besides the &quot;linear&quot; array/linked-list type of queue implementation, 
+<p>Besides the "linear" array/linked-list type of queue implementation,
 <code>Binary heap</code> can also be used to construct
-<strong>an array representation of a heap-ordered complete binary tree</strong>, 
-which can be used as a special queue where you can always get the most 
+<strong>an array representation of a heap-ordered complete binary tree</strong>,
+which can be used as a special queue where you can always get the most
 min (or max) value of a queue. See more about it in the search algorithm
 session below.</p>
-<p>And it can also be used as a sorting algoritm called 
+<p>And it can also be used as a sorting algoritm called
 <code>Heap sort</code>. <a href="https://liufuyang.github.io/note/algorithms/sort.html#priority-queue---binary-heap-and-heap-sort">See more notes about Priority Queues here</a></p>
 <hr />
 <h2 id="use-stackqueue-for-search-algorithm"><a class="header" href="#use-stackqueue-for-search-algorithm">Use stack/queue for Search Algorithm</a></h2>
@@ -326,19 +326,19 @@ session below.</p>
 <li><code>stack</code> can be used for <code>Depth-First Search</code> (DFS)</li>
 <li><code>queue</code> can be used for <code>Breadth-First Search</code> (BFS)</li>
 </ul>
-<p>And <code>Priority queue</code> can be used for even faster search algoritms to 
+<p>And <code>Priority queue</code> can be used for even faster search algoritms to
 only focus on the most possible directions (the shortest path for example).</p>
 <p><a href="https://liufuyang.github.io/note/algorithms/sort.html#priority-queue---binary-heap-and-heap-sort">See more notes about Priority Queues here</a></p>
 <iframe width="640" height="360" src="https://www.youtube.com/embed/WbzNRTTrX0g?t=1557" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <p>Quite interesting.</p>
-<p>It seems that a general &quot;Graph Search&quot; type of problem 
+<p>It seems that a general "Graph Search" type of problem
 can be solved by this abstract framework:</p>
 <blockquote>
 <ul>
 <li><code>agent</code> - entity that perceives its environment and acts upon that environment</li>
 <li><code>state</code> - a configuration of the agent and
 its environment;
-<code>initial state</code> - the state in which the agent begins </li>
+<code>initial state</code> - the state in which the agent begins</li>
 <li><code>actions</code> - choices that can be made in a state, like edges in graphs; <code>ACTIONS(s)</code> returns the set of actions that
 can be executed in state s</li>
 <li><code>transition model</code> or <code>RESULT(s, a)</code>
@@ -349,7 +349,7 @@ is a goal state</li>
 <li><code>frontier</code> - a stack or queue to keep track of the nodes to be explored</li>
 </ul>
 </blockquote>
-<p>Then with a <code>node</code> defined as 
+<p>Then with a <code>node</code> defined as
 <strong>a data structure that keeps track of</strong></p>
 <ul>
 <li>a <code>state</code></li>
@@ -373,23 +373,23 @@ aren't already in the <code>frontier</code> or the explored set.</li>
 </ul>
 </li>
 </ul>
-<p>For example, in a simple maze search problem, the <code>state</code> of 
-the node is just the current position, the <code>actions</code> of the 
+<p>For example, in a simple maze search problem, the <code>state</code> of
+the node is just the current position, the <code>actions</code> of the
 node is just the next possible directions that the agent can go to, leading to the following states.</p>
 <p>In a social network problem, for example in the homework's
-movie actors <code>degree</code> problem, the <code>state</code> of 
-the node is just the actor id, the <code>actions</code> of the 
+movie actors <code>degree</code> problem, the <code>state</code> of
+the node is just the actor id, the <code>actions</code> of the
 node is just the movies this actor performed, which can lead to other <code>state</code> (or actors).</p>
 <p>Some example code on the <code>degree</code> problem might look like this.</p>
 <pre><code class="language-python">def shortest_path(source, target):
-    &quot;&quot;&quot;
+    """
     Returns the shortest list of (movie_id, person_id) pairs that connect the source to the target.
     
     If no possible path, returns None.
 
     Action: movie id
     State: person id
-    &quot;&quot;&quot;
+    """
 
     start = Node(state=source, parent=None, action=None)
     frontier = QueueFrontier()
@@ -403,8 +403,8 @@ node is just the movies this actor performed, which can lead to other <code>stat
         node = frontier.remove()
         explored.add(node.state)
 
-        for action in people[node.state][&quot;movies&quot;]:
-            for state in movies[action][&quot;stars&quot;]: 
+        for action in people[node.state]["movies"]:
+            for state in movies[action]["stars"]: 
                 if not frontier.contains_state(state) and state not in explored:
                     child = Node(state=state, parent=node, action=action)
                     frontier.add(child)
@@ -418,8 +418,8 @@ node is just the movies this actor performed, which can lead to other <code>stat
                         actions_and_states.reverse()
                         return actions_and_states
 </code></pre>
-<p>And normally a <code>queue</code> is used as the <code>frontier</code> in order 
-to perform <code>Breadth-First Search</code> - which seem to be the 
+<p>And normally a <code>queue</code> is used as the <code>frontier</code> in order
+to perform <code>Breadth-First Search</code> - which seem to be the
 best option for general problems as you want to find the shortest path to the goal.</p>
 <p>One variant of the algorithms is a <strong>greedy best-first search</strong></p>
 <ul>
@@ -439,10 +439,10 @@ successor n' with step cost c, <code>h(n) ≤ h(n') + c)</code></li>
 </ul>
 </li>
 </ul>
-<p>To facilitate a fast way to pick &quot;a lowest value (or highest) from a queue&quot;,
+<p>To facilitate a fast way to pick "a lowest value (or highest) from a queue",
 a data structure called <a href="https://liufuyang.github.io/note/algorithms/sort.html#priority-queue---binary-heap-and-heap-sort"><code>Priority Queue</code></a>
-can be used as it as uses <code>binary heap</code> to achieve <code>log N</code> order-of-growth for 
-both queue insert and queue delete operation. </p>
+can be used as it as uses <code>binary heap</code> to achieve <code>log N</code> order-of-growth for
+both queue insert and queue delete operation.</p>
 <p>Another variant of this type of algorithm is <code>Adversarial Search</code> - which is used for problems like Tic-Tac-Toe games</p>
 <p>So for games:</p>
 <ul>

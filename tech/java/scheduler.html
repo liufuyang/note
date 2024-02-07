@@ -186,13 +186,13 @@
         () -&gt; {
           try {
             while (true) {
-              System.out.println(&quot;Running&quot;);
+              System.out.println("Running");
               Thread.sleep(1000);
             }
           } catch (InterruptedException e) {
-            System.out.println(&quot;Runnable interrupted&quot;);
+            System.out.println("Runnable interrupted");
           } finally {
-            System.out.println(&quot;FINALLY&quot;);
+            System.out.println("FINALLY");
           }
         };
 
@@ -200,13 +200,13 @@
     try {
       future.get(3, TimeUnit.SECONDS); // blocking for 3 seconds
     } catch (TimeoutException e) {
-      System.out.println(&quot;Timeout &quot; + e);
+      System.out.println("Timeout " + e);
       // future will continue running even if we got a TimeoutException
     } catch (InterruptedException | ExecutionException e) {
-      System.out.println(&quot;Interrupted&quot;);
+      System.out.println("Interrupted");
     }
     Thread.sleep(3 * 1000);
-    System.out.println(&quot;END&quot;);
+    System.out.println("END");
   }
 </code></pre>
 <p>Output:</p>
@@ -220,7 +220,7 @@ Running
 Running
 END
 </code></pre>
-<p>Now if we do call <code>cancel</code> on the <code>future</code>, then 
+<p>Now if we do call <code>cancel</code> on the <code>future</code>, then
 it works as expected.</p>
 <pre><code class="language-java">  @Test
   public void b() throws Exception {
@@ -229,13 +229,13 @@ it works as expected.</p>
         () -&gt; {
           try {
             while (true) {
-              System.out.println(&quot;Running&quot;);
+              System.out.println("Running");
               Thread.sleep(1000);
             }
           } catch (InterruptedException e) {
-            System.out.println(&quot;Runnable interrupted&quot;);
+            System.out.println("Runnable interrupted");
           } finally {
-            System.out.println(&quot;FINALLY&quot;);
+            System.out.println("FINALLY");
           }
         };
 
@@ -245,12 +245,12 @@ it works as expected.</p>
     } catch (TimeoutException e) {
       // To stop future running, we need to call cancel on it.
       boolean c = future.cancel(true);
-      System.out.println(&quot;Timeout &quot; + e);
+      System.out.println("Timeout " + e);
     } catch (InterruptedException | ExecutionException e) {
-      System.out.println(&quot;interrupted&quot;);
+      System.out.println("interrupted");
     }
     Thread.sleep(3 * 1000);
-    System.out.println(&quot;END&quot;);
+    System.out.println("END");
   }
 </code></pre>
 <p>Output</p>

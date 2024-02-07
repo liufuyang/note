@@ -194,7 +194,7 @@ is much better than the statement as:</p>
 </ul>
 <p>Also, when using switch statement, do not write the <code>default</code> if not
 necessary as there is already exhaustive check.</p>
-<p>Plus, there is a <code>yeild</code> if one wants to &quot;return a value&quot; from
+<p>Plus, there is a <code>yeild</code> if one wants to "return a value" from
 a switch block.</p>
 <h2 id="list-types-can-be-immutable-or-mutable-but-difficult-to-tell"><a class="header" href="#list-types-can-be-immutable-or-mutable-but-difficult-to-tell">List types can be immutable or mutable but difficult to tell</a></h2>
 <p>Generally, seems the old APIs prefer to return mutable stuff.</p>
@@ -215,21 +215,21 @@ a switch block.</p>
 </code></pre>
 <p>For these type of operations, <code>teeing</code> could be a good candidate.
 Also noticing these <code>groupingBy</code>, <code>partitionBy</code> like collectors,
-can also take the last parameter in with another collector. 
-So this &quot;collector of collectors (of collectors)&quot; can be powerful
+can also take the last parameter in with another collector.
+So this "collector of collectors (of collectors)" can be powerful
 but becareful not going too deep!</p>
 <h2 id="record-data-class-is-nice"><a class="header" href="#record-data-class-is-nice"><code>Record</code> data class is nice</a></h2>
 <ul>
-<li>The simple/compact constructors in Records is nice, but do not use <code>this</code> 
+<li>The simple/compact constructors in Records is nice, but do not use <code>this</code>
 there as it just some code that runs before the real internal constructor is called.</li>
 <li>Record fields are <code>final</code>, so one can use the compact constructors to play
 with different initial fields values, and let the internal/canonical constructor
 to do the final <code>this.x=x</code> assignments.</li>
-<li>Use local <code>Record</code> to represent Tuple might be a good idea especially 
+<li>Use local <code>Record</code> to represent Tuple might be a good idea especially
 the Tuple type do not need to be shared around.</li>
 </ul>
 <h2 id="sealed--permits-classes-and-interfaces"><a class="header" href="#sealed--permits-classes-and-interfaces"><code>sealed + permits</code> classes and interfaces</a></h2>
-<p>Thus, the main motivation behind sealed classes/interfaces is 
+<p>Thus, the main motivation behind sealed classes/interfaces is
 to have the possibility for a superclass/interface to be widely accessible but not widely extensible.</p>
 <ul>
 <li>All permitted subclasses must belong to the same module as the sealed class.</li>
@@ -240,11 +240,11 @@ to have the possibility for a superclass/interface to be widely accessible but n
 <pre><code class="language-java">public class Main {
   public static String matchWithSwitch(Object in) {
     return switch (in) {
-      case null -&gt; &quot;oh come on...&quot;;
-      case Integer i when i &lt; 0 -&gt; &quot;got a negative number: &quot; + i;
-      case Integer i -&gt; &quot;got a number:&quot; + i;
-      case String s -&gt; &quot;got a string of length: &quot; + s.length();
-      default -&gt; &quot;got something unknown&quot;;
+      case null -&gt; "oh come on...";
+      case Integer i when i &lt; 0 -&gt; "got a negative number: " + i;
+      case Integer i -&gt; "got a number:" + i;
+      case String s -&gt; "got a string of length: " + s.length();
+      default -&gt; "got something unknown";
     };
   }
 }
