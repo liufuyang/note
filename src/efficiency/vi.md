@@ -72,6 +72,14 @@ Ctrl-r          redo
                 innoremap <leader>, A;<ESC>
 ```
 
+### [vim-surround](https://github.com/tpope/vim-surround)
+```
+ysiw"           add " surround in word
+cs"'            change surround " to '
+ds"             delete surround "
+```
+
+
 ## Folding
 ```
 zo              Open one fold under the cursor.
