@@ -3235,6 +3235,10 @@ TX  til previous 'X' (cursor is behind X)
 J   join, move next line below to the end of current line (but adds a space)
 Jx  join like above, and remove the added space.
 </code></pre>
+<p>For ideavimrc, one can set up some extra actions such as moving to previous or next error locatoin</p>
+<pre><code>nnoremap g[ :action GotoPreviousError&lt;CR&gt;
+nnoremap g] :action GotoNextError&lt;CR&gt;
+</code></pre>
 <h2 id="editing"><a class="header" href="#editing">Editing</a></h2>
 <pre><code>i, a, A, o, O   into insert mode in different locations
 r, R            replace char or word
