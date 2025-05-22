@@ -85,6 +85,11 @@ cs"'            change surround " to '
 ds"             delete surround "
 ```
 
+### [ReplaceWithRegister](https://github.com/JetBrains/ideavim/blob/master/doc/IdeaVim%20Plugins.md#replacewithregister-adds-two-in-one-command-that-replaces-text-with-the-contents-of-a-register)
+```
+griw            Replace in word by previously yanked or deleted stuff
+gr$             Replace from the cursor position to the end of the line
+```
 
 ## Folding
 ```
