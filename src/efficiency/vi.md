@@ -47,6 +47,12 @@ J   join, move next line below to the end of current line (but adds a space)
 Jx  join like above, and remove the added space.
 ```
 
+For ideavimrc, one can set up some extra actions such as moving to previous or next error locatoin
+```
+nnoremap g[ :action GotoPreviousError<CR>
+nnoremap g] :action GotoNextError<CR>
+```
+
 ## Editing
 ```
 i, a, A, o, O   into insert mode in different locations
