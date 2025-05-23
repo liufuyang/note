@@ -319,3 +319,93 @@ tmux rename-session [-t current-name] [new-name]
 Ctrl-b $             to rename session while in tmux
 ```
 
+---
+
+# .ideavimrc
+
+An .ideavimrc example which I have been using for a few years.
+```vimrc
+" .ideavimrc is a configuration file for IdeaVim plugin. It uses
+" the same commands as the original .vimrc configuration.
+" You can find a list of commands here: https://jb.gg/h38q75
+" Find more examples here: https://jb.gg/share-ideavimrc
+" Default key maps:
+" https://github.com/JetBrains/ideavim/blob/master/src/main/java/com/maddyhome/idea/vim/package-info.java
+
+" https://github.com/JetBrains/ideavim/blob/master/doc/IdeaVim%20Plugins.md
+
+" set clipboard+=unnamedplus
+
+" set <leader> to <space>
+let mapleader = " "
+
+" https://stackoverflow.com/questions/48885527/only-associate-register-0-with-system-clipboard-in-vim
+nnoremap <leader>y "+y
+vnoremap <leader>y "+y
+nnoremap <leader>p "+p
+vnoremap <leader>p "+p
+
+" https://github.com/TheBlob42/idea-which-key?tab=readme-ov-file#installation
+" install which-key IntelliJ plugin
+set which-key
+set notimeout
+" install vim sneak IntelliJ plugin
+set sneak
+" install vim quickscope IntelliJ plugin, here I turned it off.
+set noquickscope
+
+"" -- Suggested options --
+" Show a few lines of context around the cursor. Note that this makes the
+" text scroll if you mouse-click near the start or end of the window.
+set scrolloff=5
+
+" Do incremental searching.
+set incsearch
+
+" Don't use Ex mode, use Q for formatting.
+map Q gq
+
+" --- Enable IdeaVim plugins https://jb.gg/ideavim-plugins
+
+" Highlight copied text
+Plug 'machakann/vim-highlightedyank'
+" Commentary plugin
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-surround'
+" using <gr> to do replace from previous yank, instead of "_d or "0p ... 
+Plug 'vim-scripts/ReplaceWithRegister'
+
+"" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
+"" Map \r to the Reformat Code action
+map <leader>cf <Action>(ShowReformatFileDialog)
+map <leader>cF <Action>(ReformatCode)
+
+map <leader>v <C-v>
+
+"" Map <leader>d to start debug
+"map <leader>d <Action>(Debug)
+
+"" Map \b to toggle the breakpoint on the current line
+"map \b <Action>(ToggleLineBreakpoint)
+
+nnoremap zC :action CollapseRegionRecursively<CR>
+nnoremap zO :action ExpandRegionRecursively<CR>
+
+nmap gy :action GotoTypeDeclaration<CR>
+
+" simple spider
+" https://stackoverflow.com/questions/71631159/ideavim-move-between-words-in-camel-case-word
+
+map <leader>w [w
+map <leader>b [b
+map <leader>e ]w
+
+" set bookmark
+ideamarks on
+
+" set go to next issue
+nnoremap g[ :action GotoPreviousError<CR>
+nnoremap g] :action GotoNextError<CR>
+
+```
+
